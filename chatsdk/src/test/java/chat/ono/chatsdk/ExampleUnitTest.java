@@ -1,4 +1,4 @@
-package net.xiniuhui.onochatandroid;
+package chat.ono.chatsdk;
 
 import org.junit.Test;
 
