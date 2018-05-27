@@ -14,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        connectToChat();
     }
 
     public void connectToChat() {
@@ -21,12 +23,12 @@ public class MainActivity extends AppCompatActivity {
         IMClient.connect("ju9es1b7w6kproa32ghqvdt0xzmfycin", new ResultCallback<User>() {
             @Override
             public void onSuccess(User result) {
-                Log.v("chat", "Login success with user:" + result.getNickname());
+                Log.v("chat", "login success with user:" + result.getNickname());
             }
 
             @Override
             public void onError(int errorCode, String errorMessage) {
-                Log.v("chat", "Login failure with message:" + errorMessage);
+                Log.v("chat", "login failure with message:" + errorMessage);
             }
         });
     }

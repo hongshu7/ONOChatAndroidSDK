@@ -144,6 +144,7 @@ public class SocketManger implements Runnable, Callback {
 		// 连接
 		SocketAddress addr = new InetSocketAddress(host, port);
 		try {
+			Log.v("IM", "connect to " + host + ":" + port + " ...");
 			Log.v("IM", "connect...");
 			socket = new Socket();
 			socket.connect(addr, 2000); //最长不超过2秒，否则超时
@@ -173,6 +174,7 @@ public class SocketManger implements Runnable, Callback {
 			this.connected = false;
 			this.failTimes++;
 			Log.v("IM", "fail times:" + this.failTimes);
+            //Log.v("IM", "fail reason:" + e.getMessage());
 			if (this.sending) {
                 Packet packet = new Packet();
                 packet.setType(Packet.TYPE_KICK);

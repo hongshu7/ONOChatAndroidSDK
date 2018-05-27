@@ -86,11 +86,11 @@ public class IMCore implements SocketCallback {
 
     public void uploadClientId() {
         if (clientId != null) {
-            MessageProtos.DeviceBindRequest request = MessageProtos.DeviceBindRequest.newBuilder()
-                    .setType(1) //client id为1
-                    .setToken(clientId)
-                    .build();
-            request("client.user.bindDevice", request, null);
+//            MessageProtos.DeviceBindRequest request = MessageProtos.DeviceBindRequest.newBuilder()
+//                    .setType(1) //client id为1
+//                    .setToken(clientId)
+//                    .build();
+//            request("client.user.bindDevice", request, null);
             clientId = null;
         }
     }
@@ -162,7 +162,7 @@ public class IMCore implements SocketCallback {
                 request("client.user.login", request, new Response() {
                     @Override
                     public void successResponse(com.google.protobuf.Message message) {
-                        Log.v("IM", "login success:"+((MessageProtos.UserLoginResponse)message).getUser().getUserId());
+                        Log.v("IM", "login success:"+((MessageProtos.UserLoginResponse)message).getUser().getUid());
                         uploadClientId();
                         if (loginCallback != null) {
                             loginCallback.successResponse(message);
@@ -262,19 +262,4 @@ public class IMCore implements SocketCallback {
         }
     }
 
-    public void enterRoom(String roomId, Response callback) {
-        MessageProtos.RoomEnterRequest request = MessageProtos.RoomEnterRequest.newBuilder()
-                .setRoomId(roomId).build();
-        request("client.room.enter", request, callback);
-    }
-
-    public void leaveRoom(Response callback) {
-        request("client.room.leave", null, callback);
-    }
-
-    public void readMessages(int type, Response callback) {
-        MessageProtos.MessageReadListRequest request = MessageProtos.MessageReadListRequest.newBuilder()
-                .setType(type).build();
-        request("client.message.readList", request, callback);
-    }
 }
