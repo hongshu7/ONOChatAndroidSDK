@@ -1,6 +1,6 @@
 ONO Chat SDK
 =========
-app 项目测试工程
+app 项目测试工程  
 chatsdk 聊天使用的SDK库
 
 登录示例
