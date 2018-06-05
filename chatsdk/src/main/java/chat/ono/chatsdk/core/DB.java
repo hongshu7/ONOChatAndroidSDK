@@ -7,11 +7,9 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import chat.ono.chatsdk.IMClient;
-import chat.ono.chatsdk.core.IMCore;
 import chat.ono.chatsdk.model.Conversation;
 import chat.ono.chatsdk.model.User;
 import chat.ono.chatsdk.utils.DBHelper;
@@ -19,33 +17,36 @@ import chat.ono.chatsdk.utils.DBHelper;
 
 public class DB {
 	private static final String TAG = "DB";
+	private static DBHelper dbHelper = new DBHelper(IMClient.getContext());
+	private static int openTimes = 0;
+	private static SQLiteDatabase db = null;
 
-	private static DB instance;
-
-	//private HashMap<String, User> Users;
-	
-	public static DB getInstance() {
-		if (instance == null) {
-			instance = new DB();
+	private static SQLiteDatabase getDB() {
+		if (db == null) {
+			openTimes = 0;
 		}
-		return instance;
-	}
-	
-	private DBHelper dbHelper;
-	
-	private DB() {
-		
-		dbHelper = new DBHelper(IMClient.getContext());
-
-		//Users = fetchUsers();
+		if (openTimes == 0) {
+			db = dbHelper.getReadableDatabase();
+		}
+		openTimes++;
+		return db;
 	}
 
-	public List<Conversation> fetchConversations() {
+	private static void closeDB() {
+		openTimes--;
+		if (openTimes == 0) {
+			db.close();
+			db = null;
+		}
+	}
+
+
+	public static List<Conversation> fetchConversations() {
 		List<Conversation> records = new ArrayList<Conversation>();
 		if (IMCore.getInstance().getUserId() == null) {
 			return records;
 		}
-		SQLiteDatabase db = dbHelper.getReadableDatabase();
+		SQLiteDatabase db = getDB();
 		Cursor cursor = null;
 		try {
 			cursor = db.rawQuery("SELECT * FROM conversation WHERE belong_id=? ORDER BY contact_time DESC", new String[]{ IMCore.getInstance().getUserId() });
@@ -58,8 +59,8 @@ public class DB {
 
 				record.setUserId(cursor.getString(cursor.getColumnIndex("user_id")));
 				record.setLastMessageId(cursor.getString(cursor.getColumnIndex("last_message_id")));
-				record.setUser(getUser(record.getUserId()));
-				record.setLastMessage(getMessage(record.getLastMessageId()));
+				record.setUser(fetchUser(record.getUserId()));
+				record.setLastMessage(fetchMessage(record.getLastMessageId()));
 
 				record.setInserted(true);
 				records.add(record);
@@ -70,17 +71,44 @@ public class DB {
 			if (cursor != null){
 				cursor.close();
 			}
-			if (dbHelper != null){
-				dbHelper.close();
-			}
+			closeDB();
 		}
         return records;
 	}
 
+	public static Conversation fetchConversation(String targetId) {
+		Conversation record = null;
+		SQLiteDatabase db = getDB();
+		Cursor cursor = null;
+		try {
+			cursor = db.rawQuery("SELECT * FROM conversation WHERE belong_id=? AND target_id=?", new String[]{ IMCore.getInstance().getUserId(), targetId });
+			if (cursor.moveToNext()) {
+				record.setUnreadCount(cursor.getInt(cursor.getColumnIndex("unread_count")));
+				record.setContactTime(cursor.getLong(cursor.getColumnIndex("contact_time")));
+				record.setConversationType(cursor.getInt(cursor.getColumnIndex("conversation_type")));
+				record.setTargetId(cursor.getString(cursor.getColumnIndex("target_id")));
+				record.setUserId(cursor.getString(cursor.getColumnIndex("user_id")));
+				record.setLastMessageId(cursor.getString(cursor.getColumnIndex("last_message_id")));
+				record.setUser(fetchUser(record.getUserId()));
+				record.setLastMessage(fetchMessage(record.getLastMessageId()));
+
+				record.setInserted(true);
+			}
+		}catch (Exception e){
+			Log.e(TAG, e.getMessage());
+		}finally {
+			if (cursor != null){
+				cursor.close();
+			}
+			closeDB();
+		}
+		return record;
+	}
+
 	
-	public void addConversation(Conversation conversation) {
+	public static void addConversation(Conversation conversation) {
 		
-		SQLiteDatabase db =  dbHelper.getWritableDatabase();
+		SQLiteDatabase db =  getDB();
 		ContentValues values = new ContentValues();
         values.put("belong_id", IMCore.getInstance().getUserId());
         values.put("user_id", conversation.getUserId());
@@ -90,29 +118,29 @@ public class DB {
 		values.put("last_message_id", conversation.getLastMessageId());
 
         db.insert("conversation", null, values);
-        dbHelper.close();
-
 		conversation.setInserted(true);
 
+		closeDB();
+
 	}
 
-	public void deleteConversation(String userId) {
-		SQLiteDatabase db =  dbHelper.getWritableDatabase();
-		db.delete("record", "belong_id=? AND user_id=?", new String[]{ IMCore.getInstance().getUserId(), userId});
-		dbHelper.close();
+	public static void deleteConversation(String userId) {
+		SQLiteDatabase db =  getDB();
+		db.delete("conversation", "belong_id=? AND user_id=?", new String[]{ IMCore.getInstance().getUserId(), userId});
+		closeDB();
 	}
 
-	public void updateRecord(Conversation conversation) {
+	public static void updateConversation(Conversation conversation) {
 		ContentValues values = conversation.getUpdateValues();
 		if (values.size() > 0) {
-			SQLiteDatabase db =  dbHelper.getWritableDatabase();
-			db.update("record", values, "belong_id=? AND user_id=?", new String[] { IMCore.getInstance().getUserId(), conversation.getUserId() });
-			dbHelper.close();
+			SQLiteDatabase db =  getDB();
+			db.update("conversation", values, "belong_id=? AND user_id=?", new String[] { IMCore.getInstance().getUserId(), conversation.getUserId() });
+			closeDB();
 		}
 	}
 
-	public chat.ono.chatsdk.model.Message getMessage(String messageId) {
-		SQLiteDatabase db = dbHelper.getReadableDatabase();
+	public static chat.ono.chatsdk.model.Message fetchMessage(String messageId) {
+		SQLiteDatabase db = getDB();
 		Cursor cursor = null;
 		chat.ono.chatsdk.model.Message msg = null;
 		try {
@@ -135,17 +163,15 @@ public class DB {
 			if (cursor != null){
 				cursor.close();
 			}
-			if (dbHelper != null){
-				dbHelper.close();
-			}
+			closeDB();
 		}
 
 		return msg;
 	}
 
 	
-	public List<chat.ono.chatsdk.model.Message> fetchMessages(String userId, String minMsgId, int limit) {
-		SQLiteDatabase db = dbHelper.getReadableDatabase();
+	public static List<chat.ono.chatsdk.model.Message> fetchMessages(String userId, String minMsgId, int limit) {
+		SQLiteDatabase db = getDB();
 		List<chat.ono.chatsdk.model.Message> messages = new ArrayList<chat.ono.chatsdk.model.Message>();
 		String sql;
 		String[] params;
@@ -187,9 +213,7 @@ public class DB {
 			if (cursor != null){
 				cursor.close();
 			}
-			if (dbHelper != null){
-				dbHelper.close();
-			}
+			closeDB();
 		}
 
         return messages;
@@ -197,8 +221,8 @@ public class DB {
 
 
 	
-	public void addMessage(chat.ono.chatsdk.model.Message msg) {
-		SQLiteDatabase db =  dbHelper.getWritableDatabase();
+	public static void addMessage(chat.ono.chatsdk.model.Message msg) {
+		SQLiteDatabase db =  getDB();
 		ContentValues values = new ContentValues();
 		values.put("belong_id", IMCore.getInstance().getUserId());
 		values.put("user_id", msg.getUserId());
@@ -210,32 +234,34 @@ public class DB {
 		values.put("data", msg.encode());
 
 		db.insert("conversation", null, values);
-        
-        dbHelper.close();
+
+		msg.setInserted(true);
+
+		closeDB();
 	}
 
-	public void deleteMessage(chat.ono.chatsdk.model.Message message) {
-		SQLiteDatabase db =  dbHelper.getWritableDatabase();
+	public static void deleteMessage(chat.ono.chatsdk.model.Message message) {
+		SQLiteDatabase db =  getDB();
 		db.delete("message", "message_id=?", new String[] { message.getMessageId() });
-		dbHelper.close();
+		closeDB();
 	}
 
-	public void updateMessage(chat.ono.chatsdk.model.Message message) {
+	public static void updateMessage(chat.ono.chatsdk.model.Message message) {
 		updateMessage(message, message.getMessageId());
 	}
 
-	public void updateMessage(chat.ono.chatsdk.model.Message message, String oldId) {
+	public static void updateMessage(chat.ono.chatsdk.model.Message message, String oldId) {
 		ContentValues values = message.getUpdateValues();
 		Log.i("IM", "update msgs values:" + values.toString() + ", oldId:" + oldId);
 		if (values.size() > 0) {
-			SQLiteDatabase db =  dbHelper.getWritableDatabase();
+			SQLiteDatabase db =  getDB();
 			db.update("message", values, "message_id=?", new String[] { oldId });
-			dbHelper.close();
+			closeDB();
 		}
 	}
 
-	public void addUser(User user) {
-		SQLiteDatabase db =  dbHelper.getWritableDatabase();
+	public static void addUser(User user) {
+		SQLiteDatabase db =  getDB();
 		ContentValues values = new ContentValues();
 		values.put("user_id", user.getUserId());
 		values.put("nickname", user.getNickname());
@@ -243,22 +269,24 @@ public class DB {
 		values.put("gender", user.getGender());
 		values.put("remark", user.getRemark());
 		db.insert("user", null, values);
-		dbHelper.close();
+		user.setInserted(true);
+
+		closeDB();
 	}
 
-	public void updateUser(User user) {
+	public static void updateUser(User user) {
 		ContentValues values = user.getUpdateValues();
 		Log.i("IM", "update user values:" + values.toString());
 		if (values.size() > 0) {
-			SQLiteDatabase db =  dbHelper.getWritableDatabase();
+			SQLiteDatabase db =  getDB();
 			db.update("user", values, "user_id=?", new String[] { user.getUserId() });
-			dbHelper.close();
+			closeDB();
 		}
 	}
 
 
-	public User getUser(String userId) {
-		SQLiteDatabase db = dbHelper.getReadableDatabase();
+	public static User fetchUser(String userId) {
+		SQLiteDatabase db = getDB();
 		Cursor cursor = null;
 		User user = null;
 		try {
@@ -278,25 +306,23 @@ public class DB {
 			if (cursor != null){
 				cursor.close();
 			}
-			if (dbHelper != null){
-				dbHelper.close();
-			}
+			closeDB();
 		}
 
 		return user;
 	}
 
-	public List<User> fetchFriends() {
+	public static List<User> fetchFriends() {
 		List<User> records = new ArrayList<User>();
 
-		SQLiteDatabase db = dbHelper.getReadableDatabase();
+		SQLiteDatabase db = getDB();
 		Cursor cursor = null;
 		try {
 			cursor = db.rawQuery("SELECT * FROM friends WHERE user_id=?", new String[]{ IMCore.getInstance().getUserId() });
 			if (cursor.getCount() == 0) return records;
 			while (cursor.moveToNext()) {
 				String userId = cursor.getString(cursor.getColumnIndex("friend_id"));
-				User user = getUser(userId);
+				User user = fetchUser(userId);
 				if (user != null) {
 					records.add(user);
 				}
@@ -307,9 +333,7 @@ public class DB {
 			if (cursor != null){
 				cursor.close();
 			}
-			if (dbHelper != null){
-				dbHelper.close();
-			}
+			closeDB();
 		}
 		return records;
 	}

@@ -14,6 +14,7 @@ public class Conversation extends UpdatableModel {
     private double contactTime;
     private int unreadCount;
 
+    private String targetId;
     private String userId;
     private String lastMessageId;
     private User user;
@@ -74,6 +75,14 @@ public class Conversation extends UpdatableModel {
                 setLastMessageId(lastMessage.getMessageId());
             }
         }
+    }
+
+    public String getTargetId() {
+        return targetId;
+    }
+
+    public void setTargetId(String targetId) {
+        this.targetId = targetId;
     }
 
     public String getUserId() {
