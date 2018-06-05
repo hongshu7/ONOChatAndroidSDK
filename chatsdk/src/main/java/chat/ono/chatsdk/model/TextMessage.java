@@ -22,13 +22,13 @@ public class TextMessage extends Message {
     }
 
     @Override
-    public void encode(String data) {
-        this.text = data;
+    public String encode() {
+        return this.text;
     }
 
     @Override
-    public String decode() {
-        return this.text;
+    public void decode(String data) {
+        this.text = data;
     }
 
 

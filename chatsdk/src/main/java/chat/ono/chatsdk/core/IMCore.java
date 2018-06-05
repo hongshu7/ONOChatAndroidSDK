@@ -39,6 +39,7 @@ public class IMCore implements SocketCallback {
     private boolean isSetup;
 
     private String loginToken;
+    private String userId;
     private String clientId;
     private Response loginCallback;
 
@@ -58,6 +59,10 @@ public class IMCore implements SocketCallback {
     public String getRouteById(int routeId) {
         String route = routesById.get(routeId);
         return route == null ? "" : route;
+    }
+
+    public String getUserId() {
+        return userId;
     }
 
     public String getRouteByMsgId(int msgId) {
@@ -162,7 +167,8 @@ public class IMCore implements SocketCallback {
                 request("client.user.login", request, new Response() {
                     @Override
                     public void successResponse(com.google.protobuf.Message message) {
-                        Log.v("IM", "login success:"+((MessageProtos.UserLoginResponse)message).getUser().getUid());
+                        userId = ((MessageProtos.UserLoginResponse)message).getUser().getUid();
+                        Log.v("IM", "login success:" + userId);
                         uploadClientId();
                         if (loginCallback != null) {
                             loginCallback.successResponse(message);

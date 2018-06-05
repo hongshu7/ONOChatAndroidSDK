@@ -13,6 +13,7 @@ import java.util.List;
 import chat.ono.chatsdk.core.IMCore;
 import chat.ono.chatsdk.core.Response;
 import chat.ono.chatsdk.core.ResultCallback;
+import chat.ono.chatsdk.model.TextMessage;
 import chat.ono.chatsdk.model.User;
 import chat.ono.chatsdk.proto.MessageProtos;
 import chat.ono.chatsdk.utils.ObjectId;
@@ -63,6 +64,15 @@ public class IMClient {
 
     public static String generateMessageId() {
         return ObjectId.get().toString();
+    }
+
+    public static chat.ono.chatsdk.model.Message createMessageFromType(int type) {
+
+        switch (type) {
+            case 1:
+                return new TextMessage();
+        }
+        return null;
     }
 
     public static void setup(String host, int port) {
