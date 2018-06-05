@@ -52,7 +52,7 @@ public abstract class Message extends UpdatableModel {
         this.timestamp = timestamp;
     }
 
-    public Boolean getSend() {
+    public Boolean isSend() {
         return isSend;
     }
 
@@ -65,7 +65,7 @@ public abstract class Message extends UpdatableModel {
         }
     }
 
-    public Boolean getSelf() {
+    public Boolean isSelf() {
         return isSelf;
     }
 
@@ -73,7 +73,7 @@ public abstract class Message extends UpdatableModel {
         isSelf = self;
     }
 
-    public Boolean getError() {
+    public Boolean isError() {
         return isError;
     }
 

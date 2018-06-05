@@ -1,4 +1,4 @@
-package chat.ono.chatsdk.model;
+package chat.ono.chatsdk.core;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -58,7 +58,8 @@ public class DB {
 
 				record.setUserId(cursor.getString(cursor.getColumnIndex("user_id")));
 				record.setLastMessageId(cursor.getString(cursor.getColumnIndex("last_message_id")));
-				//todo: get user and message
+				record.setUser(getUser(record.getUserId()));
+				record.setLastMessage(getMessage(record.getLastMessageId()));
 
 				record.setInserted(true);
 				records.add(record);
@@ -90,7 +91,8 @@ public class DB {
 
         db.insert("conversation", null, values);
         dbHelper.close();
-        
+
+		conversation.setInserted(true);
 
 	}
 
@@ -109,10 +111,42 @@ public class DB {
 		}
 	}
 
-	
-	public List<Message> fetchMessages(String userId, String minMsgId, int limit) {
+	public chat.ono.chatsdk.model.Message getMessage(String messageId) {
 		SQLiteDatabase db = dbHelper.getReadableDatabase();
-		List<Message> messages = new ArrayList<Message>();
+		Cursor cursor = null;
+		chat.ono.chatsdk.model.Message msg = null;
+		try {
+			cursor = db.rawQuery("SELECT * FROM user WHERE message_id=?", new String[]{ messageId });
+			if (cursor.getCount() == 0) return null;
+			if (cursor.moveToNext()) {
+				msg.setMessageId(cursor.getString(cursor.getColumnIndex("message_id")));
+				msg.setUserId(cursor.getString(cursor.getColumnIndex("user_id")));
+				msg.setTimestamp(cursor.getLong(cursor.getColumnIndex("timestamp")));
+				msg.setSelf(cursor.getInt(cursor.getColumnIndex("is_self")) == 1);
+				msg.setSend(cursor.getInt(cursor.getColumnIndex("is_send")) == 1);
+				msg.setError(cursor.getInt(cursor.getColumnIndex("is_error")) == 1);
+				String data = cursor.getString(cursor.getColumnIndex("data"));
+				msg.decode(data);
+			}
+			msg.setInserted(true);
+		}catch (Exception e){
+			Log.e(TAG, e.getMessage());
+		}finally {
+			if (cursor != null){
+				cursor.close();
+			}
+			if (dbHelper != null){
+				dbHelper.close();
+			}
+		}
+
+		return msg;
+	}
+
+	
+	public List<chat.ono.chatsdk.model.Message> fetchMessages(String userId, String minMsgId, int limit) {
+		SQLiteDatabase db = dbHelper.getReadableDatabase();
+		List<chat.ono.chatsdk.model.Message> messages = new ArrayList<chat.ono.chatsdk.model.Message>();
 		String sql;
 		String[] params;
 		if (TextUtils.isEmpty(minMsgId)) {
@@ -132,7 +166,7 @@ public class DB {
 			cursor.moveToNext();
 			while (cursor.moveToPrevious()) {
 				int type = cursor.getInt(cursor.getColumnIndex("type"));
-				Message msg = IMClient.createMessageFromType(type);
+				chat.ono.chatsdk.model.Message msg = IMClient.createMessageFromType(type);
 				msg.setMessageId(cursor.getString(cursor.getColumnIndex("message_id")));
 				msg.setUserId(cursor.getString(cursor.getColumnIndex("user_id")));
 				msg.setTimestamp(cursor.getLong(cursor.getColumnIndex("timestamp")));
@@ -163,25 +197,34 @@ public class DB {
 
 
 	
-	public void addMessage(Message msg) {
+	public void addMessage(chat.ono.chatsdk.model.Message msg) {
 		SQLiteDatabase db =  dbHelper.getWritableDatabase();
 		ContentValues values = new ContentValues();
+		values.put("belong_id", IMCore.getInstance().getUserId());
+		values.put("user_id", msg.getUserId());
+		values.put("timestamp", msg.getTimestamp());
+		values.put("is_send", msg.isSend());
+		values.put("is_self", msg.isSelf());
+		values.put("is_error", msg.isError());
+		values.put("type", msg.getType());
+		values.put("data", msg.encode());
 
+		db.insert("conversation", null, values);
         
         dbHelper.close();
 	}
 
-	public void deleteMessage(Message message) {
+	public void deleteMessage(chat.ono.chatsdk.model.Message message) {
 		SQLiteDatabase db =  dbHelper.getWritableDatabase();
 		db.delete("message", "message_id=?", new String[] { message.getMessageId() });
 		dbHelper.close();
 	}
 
-	public void updateMessage(Message message) {
+	public void updateMessage(chat.ono.chatsdk.model.Message message) {
 		updateMessage(message, message.getMessageId());
 	}
 
-	public void updateMessage(Message message, String oldId) {
+	public void updateMessage(chat.ono.chatsdk.model.Message message, String oldId) {
 		ContentValues values = message.getUpdateValues();
 		Log.i("IM", "update msgs values:" + values.toString() + ", oldId:" + oldId);
 		if (values.size() > 0) {
@@ -203,13 +246,23 @@ public class DB {
 		dbHelper.close();
 	}
 
+	public void updateUser(User user) {
+		ContentValues values = user.getUpdateValues();
+		Log.i("IM", "update user values:" + values.toString());
+		if (values.size() > 0) {
+			SQLiteDatabase db =  dbHelper.getWritableDatabase();
+			db.update("user", values, "user_id=?", new String[] { user.getUserId() });
+			dbHelper.close();
+		}
+	}
+
 
 	public User getUser(String userId) {
 		SQLiteDatabase db = dbHelper.getReadableDatabase();
 		Cursor cursor = null;
 		User user = null;
 		try {
-			cursor = db.rawQuery("SELECT * FROM user WHERE uid=?", new String[]{userId});
+			cursor = db.rawQuery("SELECT * FROM user WHERE user_id=?", new String[]{ userId });
 			if (cursor.getCount() == 0) return null;
 			user = new User();
 			if (cursor.moveToNext()) {
@@ -218,6 +271,7 @@ public class DB {
 				user.setAvatar(cursor.getString(cursor.getColumnIndex("avatar")));
 				user.setGender(cursor.getInt(cursor.getColumnIndex("gender")));
 			}
+			user.setInserted(true);
 		}catch (Exception e){
 			Log.e(TAG, e.getMessage());
 		}finally {
@@ -230,6 +284,34 @@ public class DB {
 		}
 
 		return user;
+	}
+
+	public List<User> fetchFriends() {
+		List<User> records = new ArrayList<User>();
+
+		SQLiteDatabase db = dbHelper.getReadableDatabase();
+		Cursor cursor = null;
+		try {
+			cursor = db.rawQuery("SELECT * FROM friends WHERE user_id=?", new String[]{ IMCore.getInstance().getUserId() });
+			if (cursor.getCount() == 0) return records;
+			while (cursor.moveToNext()) {
+				String userId = cursor.getString(cursor.getColumnIndex("friend_id"));
+				User user = getUser(userId);
+				if (user != null) {
+					records.add(user);
+				}
+			}
+		}catch (Exception e){
+			Log.e(TAG, e.getMessage());
+		}finally {
+			if (cursor != null){
+				cursor.close();
+			}
+			if (dbHelper != null){
+				dbHelper.close();
+			}
+		}
+		return records;
 	}
 
 
