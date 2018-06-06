@@ -3,6 +3,7 @@ package chat.ono.chatsdk.core;
 
 import android.util.Log;
 
+import chat.ono.chatsdk.model.User;
 import chat.ono.chatsdk.net.SocketCallback;
 import chat.ono.chatsdk.net.SocketManger;
 import chat.ono.chatsdk.proto.MessageProtos;
@@ -39,6 +40,7 @@ public class IMCore implements SocketCallback {
     private boolean isSetup;
 
     private String loginToken;
+    private User user;
     private String userId;
     private String clientId;
     private Response loginCallback;
@@ -59,6 +61,10 @@ public class IMCore implements SocketCallback {
     public String getRouteById(int routeId) {
         String route = routesById.get(routeId);
         return route == null ? "" : route;
+    }
+
+    public User getUser() {
+        return user;
     }
 
     public String getUserId() {
@@ -167,8 +173,15 @@ public class IMCore implements SocketCallback {
                 request("client.user.login", request, new Response() {
                     @Override
                     public void successResponse(com.google.protobuf.Message message) {
-                        userId = ((MessageProtos.UserLoginResponse)message).getUser().getUid();
-                        Log.v("IM", "login success:" + userId);
+                        MessageProtos.UserData ud = ((MessageProtos.UserLoginResponse)message).getUser();
+                        userId = ud.getUid();
+                        User su = new User();
+                        su.setUserId(ud.getUid());
+                        su.setNickname(ud.getName());
+                        su.setAvatar(ud.getIcon());
+                        su.setGender(ud.getGender());
+                        user = su;
+                        Log.v("IM", "login success:" + user.getNickname() +", id:" + user.getUserId());
                         uploadClientId();
                         if (loginCallback != null) {
                             loginCallback.successResponse(message);
