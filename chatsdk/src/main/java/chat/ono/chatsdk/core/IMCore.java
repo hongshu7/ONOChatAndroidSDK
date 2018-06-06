@@ -178,7 +178,7 @@ public class IMCore implements SocketCallback {
                         User su = new User();
                         su.setUserId(ud.getUid());
                         su.setNickname(ud.getName());
-                        su.setAvatar(ud.getIcon());
+                        su.setAvatar(ud.getAvatar());
                         su.setGender(ud.getGender());
                         user = su;
                         Log.v("IM", "login success:" + user.getNickname() +", id:" + user.getUserId());

@@ -6,8 +6,6 @@ import android.util.Log;
 
 import com.google.protobuf.Message;
 
-import org.apache.commons.beanutils.BeanUtils;
-
 import java.util.List;
 
 import chat.ono.chatsdk.core.DB;
@@ -15,7 +13,8 @@ import chat.ono.chatsdk.core.IMCallback;
 import chat.ono.chatsdk.core.IMCore;
 import chat.ono.chatsdk.core.MessageCallback;
 import chat.ono.chatsdk.core.Response;
-import chat.ono.chatsdk.core.ResultCallback;
+import chat.ono.chatsdk.callback.SuccessCallback;
+import chat.ono.chatsdk.callback.FailureCallback;
 import chat.ono.chatsdk.model.AudioMessage;
 import chat.ono.chatsdk.model.Conversation;
 import chat.ono.chatsdk.model.ImageMessage;
@@ -52,8 +51,7 @@ public class IMClient {
     public static boolean isBackground() {
         ActivityManager activityManager = (ActivityManager) context
                 .getSystemService(Context.ACTIVITY_SERVICE);
-        List<ActivityManager.RunningAppProcessInfo> appProcesses = activityManager
-                .getRunningAppProcesses();
+        List<ActivityManager.RunningAppProcessInfo> appProcesses = activityManager.getRunningAppProcesses();
         for (ActivityManager.RunningAppProcessInfo appProcess : appProcesses) {
             if (appProcess.processName.equals(context.getPackageName())) {
                 if (appProcess.importance != ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND) {
@@ -92,7 +90,7 @@ public class IMClient {
         DB.addMessage(message);
 
         //update conversion
-        Conversation conversation = getConversation(targetId);
+        Conversation conversation = getOrCreateConversation(targetId);
         conversation.setLastMessage(message);
         conversation.setContactTime(System.currentTimeMillis());
         conversation.setUnreadCount(conversation.getUnreadCount() + 1);
@@ -111,6 +109,15 @@ public class IMClient {
 
     public static String generateMessageId() {
         return ObjectId.get().toString();
+    }
+
+    public static User convertUserFromMessage(MessageProtos.UserData userData) {
+        User user = new User();
+        user.setUserId(userData.getUid());
+        user.setNickname(userData.getName());
+        user.setAvatar(userData.getAvatar());
+        user.setGender(userData.getGender());
+        return user;
     }
 
     public static chat.ono.chatsdk.model.Message createMessageFromType(int type) {
@@ -132,11 +139,11 @@ public class IMClient {
         return null;
     }
 
-    private static Conversation getConversation(String targetId) {
-        return getConversation(targetId, Conversation.ConversationType.Private);
+    private static Conversation getOrCreateConversation(String targetId) {
+        return getOrCreateConversation(targetId, Conversation.ConversationType.Private);
     }
 
-    private static Conversation getConversation(String targetId, int conversationType) {
+    private static Conversation getOrCreateConversation(String targetId, int conversationType) {
         Conversation conversation = DB.fetchConversation(targetId);
         if (conversation == null) {
             conversation = new Conversation();
@@ -150,7 +157,7 @@ public class IMClient {
         IMCore.getInstance().setup(host, port);
     }
 
-    public static void connect(String token, final ResultCallback<User> callback) {
+    public static void connect(String token, final SuccessCallback<User> successCallback, final FailureCallback failureCallback) {
         IMCore.getInstance().login(token, new Response() {
             @Override
             public void successResponse(Message message) {
@@ -159,18 +166,17 @@ public class IMClient {
                 //获取自身信息
                 User user = DB.fetchUser(userData.getUid());
                 if (user == null) {
-                    user = new User();
-                    user.setUserId(userData.getUid());
-                }
-                user.setNickname(userData.getName());
-                user.setAvatar(userData.getAvatar());
-                user.setGender(userData.getGender());
-                if (user.isInserted()) {
-                    DB.updateUser(user);
-                } else {
+                    user = convertUserFromMessage(userData);
                     DB.addUser(user);
+                } else {
+                    user.setNickname(userData.getName());
+                    user.setAvatar(userData.getAvatar());
+                    user.setGender(userData.getGender());
+                    DB.updateUser(user);
                 }
-                callback.onSuccess(user);
+                if (successCallback != null) {
+                    successCallback.onSuccess(user);
+                }
 
                 //同步联系人
                 //todo:...
@@ -185,14 +191,16 @@ public class IMClient {
 
             @Override
             public void errorResponse(MessageProtos.ErrorResponse error) {
-                callback.onError(error.getCode(), error.getMessage());
+                if (failureCallback != null) {
+                    failureCallback.onError(FailureCallback.toError(error));
+                }
             }
         });
     }
 
-    public static void sendMessage(final chat.ono.chatsdk.model.Message message, String targetId, final ResultCallback<String> callback) {
+    public static void sendMessage(final chat.ono.chatsdk.model.Message message, String targetId, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
 
-        message.setMessageId(new ObjectId().toString());
+        message.setMessageId(generateMessageId());
         message.setTimestamp(System.currentTimeMillis());
         message.setSelf(true);
         message.setTargetId(targetId);
@@ -201,7 +209,7 @@ public class IMClient {
 
         DB.addMessage(message);
 
-        Conversation conversation = getConversation(targetId);
+        Conversation conversation = getOrCreateConversation(targetId);
         conversation.setUnreadCount(0);
         conversation.setContactTime(System.currentTimeMillis());
         conversation.setLastMessage(message);
@@ -219,18 +227,66 @@ public class IMClient {
                 .setData(message.encode())
                 .setMid(message.getMessageId())
                 .build();
-        IMCore.getInstance().request("client.message.sendMessage", request, new Response() {
+        IMCore.getInstance().request("client.message.send", request, new Response() {
             @Override
             public void successResponse(Message msg) {
                 message.setSend(true);
                 DB.updateMessage(message);
 
-                callback.onSuccess(message.getMessageId());
+                if (successCallback != null) {
+                    successCallback.onSuccess(message.getMessageId());
+                }
             }
 
             @Override
             public void errorResponse(MessageProtos.ErrorResponse error) {
-                callback.onError(error.getCode(), error.getMessage());
+                if (failureCallback != null) {
+                    failureCallback.onError(FailureCallback.toError(error));
+                }
+            }
+        });
+
+    }
+
+    public static List<Conversation> getConversationList() {
+        return DB.fetchConversations();
+    }
+
+    public static Conversation getConversation(String tagetId) {
+        return DB.fetchConversation(tagetId);
+    }
+
+    public static List<User> getFriends() {
+        return DB.fetchFriends();
+    }
+
+    public static int getTotalUnreadCount() {
+        return DB.getTotalUnreadCount();
+    }
+
+    public static User getUser(String userId) {
+        return DB.fetchUser(userId);
+    }
+
+    public static void getRemoteUser(String userId, final SuccessCallback<User> successCallback, final FailureCallback failureCallback) {
+        MessageProtos.UserProfileRequest request = MessageProtos.UserProfileRequest.newBuilder()
+                .setUid(userId)
+                .build();
+        IMCore.getInstance().request("im.user.profile", request, new Response() {
+            @Override
+            public void successResponse(Message message) {
+                MessageProtos.UserData userData = (MessageProtos.UserData)message;
+                User user = convertUserFromMessage(userData);
+                if (successCallback != null) {
+                    successCallback.onSuccess(user);
+                }
+            }
+
+            @Override
+            public void errorResponse(MessageProtos.ErrorResponse error) {
+                if (failureCallback != null) {
+                    failureCallback.onError(FailureCallback.toError(error));
+                }
             }
         });
 

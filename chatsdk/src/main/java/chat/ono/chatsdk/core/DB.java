@@ -327,7 +327,7 @@ public class DB {
 					records.add(user);
 				}
 			}
-		}catch (Exception e){
+		} catch (Exception e){
 			Log.e(TAG, e.getMessage());
 		}finally {
 			if (cursor != null){
@@ -336,6 +336,17 @@ public class DB {
 			closeDB();
 		}
 		return records;
+	}
+
+	public static  int getTotalUnreadCount() {
+		int sum = 0;
+		SQLiteDatabase db = getDB();
+		Cursor cursor = db.rawQuery("SELECT SUM(unread_count) FROM conversation WHERE belong_id=?", new String[]{ IMCore.getInstance().getUserId() });
+		if (cursor.moveToNext()) {
+			sum = cursor.getInt(0);
+		}
+		closeDB();
+		return sum;
 	}
 
 
