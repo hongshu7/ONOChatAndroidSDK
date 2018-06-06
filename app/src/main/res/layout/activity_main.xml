@@ -35,6 +35,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="确定" />
+        <TextView
+            android:id="@+id/tv_msg"
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#999"
+            android:textSize="14sp"
+            android:text="" />
     </LinearLayout>
 
 

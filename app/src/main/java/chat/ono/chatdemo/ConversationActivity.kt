@@ -2,11 +2,9 @@ package chat.ono.chatdemo
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-
-import chat.ono.chatsdk.IMClient
-import chat.ono.chatsdk.callback.FailureCallback
-import chat.ono.chatsdk.callback.SuccessCallback
-import chat.ono.chatsdk.model.User
+import android.support.v7.widget.LinearLayoutManager
+import chat.ono.chatdemo.adapter.ConversationAdapter
+import kotlinx.android.synthetic.main.activity_conversation.*
 
 class ConversationActivity : AppCompatActivity() {
 
@@ -14,5 +12,9 @@ class ConversationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conversation)
 
+        var adapter = ConversationAdapter(this)
+
+        rv_conversation.layoutManager = LinearLayoutManager(this)
+        rv_conversation.adapter = adapter
     }
 }

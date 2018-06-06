@@ -1,11 +1,12 @@
 package chat.ono.chatdemo
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.os.Handler
 
 import chat.ono.chatsdk.IMClient
-import chat.ono.chatsdk.model.User
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,15 +14,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        connectToChat()
+        btn_login.setOnClickListener {
+            connectToChat(et_token.text.toString())
+        }
     }
 
-    fun connectToChat() {
+    fun connectToChat(token: String) {
+        btn_login.isEnabled = false
         IMClient.setup("101.201.236.225", 3001)
-        IMClient.connect("ju9es1b7w6kproa32ghqvdt0xzmfycin", {
-            Log.v("chat", "login success with user:${it.nickname}")
+        IMClient.connect(token, {
+            tv_msg.text =  "login success with user:${it.nickname}"
+            Handler().postDelayed({
+                startActivity(Intent(this@MainActivity, ConversationActivity::class.java))
+            }, 1000)
         },  {
-            Log.v("chat", "login failure with message:${it.message}")
+            btn_login.isEnabled = true
+            tv_msg.text =  "login failure with message:${it.message}"
         })
 
     }
