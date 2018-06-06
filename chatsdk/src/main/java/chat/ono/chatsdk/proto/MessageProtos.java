@@ -39,61 +39,21 @@ public final class MessageProtos {
         getNameBytes();
 
     /**
-     * <code>string icon = 3;</code>
+     * <code>string avatar = 3;</code>
      */
-    java.lang.String getIcon();
+    java.lang.String getAvatar();
     /**
-     * <code>string icon = 3;</code>
+     * <code>string avatar = 3;</code>
      */
     com.google.protobuf.ByteString
-        getIconBytes();
-
-    /**
-     * <code>string sign = 4;</code>
-     */
-    java.lang.String getSign();
-    /**
-     * <code>string sign = 4;</code>
-     */
-    com.google.protobuf.ByteString
-        getSignBytes();
-
-    /**
-     * <code>string email = 5;</code>
-     */
-    java.lang.String getEmail();
-    /**
-     * <code>string email = 5;</code>
-     */
-    com.google.protobuf.ByteString
-        getEmailBytes();
-
-    /**
-     * <code>string birth = 6;</code>
-     */
-    java.lang.String getBirth();
-    /**
-     * <code>string birth = 6;</code>
-     */
-    com.google.protobuf.ByteString
-        getBirthBytes();
-
-    /**
-     * <code>string mobile = 7;</code>
-     */
-    java.lang.String getMobile();
-    /**
-     * <code>string mobile = 7;</code>
-     */
-    com.google.protobuf.ByteString
-        getMobileBytes();
+        getAvatarBytes();
 
     /**
      * <pre>
      *用户性别，0表示未知，1表示男，2女表示女，其它会报参数错误
      * </pre>
      *
-     * <code>int32 gender = 8;</code>
+     * <code>int32 gender = 4;</code>
      */
     int getGender();
 
@@ -102,7 +62,7 @@ public final class MessageProtos {
      *用户名片扩展字段，最大长度1024字符，用户可自行扩展，建议封装成JSON字符串
      * </pre>
      *
-     * <code>string ex = 9;</code>
+     * <code>string ex = 5;</code>
      */
     java.lang.String getEx();
     /**
@@ -110,7 +70,7 @@ public final class MessageProtos {
      *用户名片扩展字段，最大长度1024字符，用户可自行扩展，建议封装成JSON字符串
      * </pre>
      *
-     * <code>string ex = 9;</code>
+     * <code>string ex = 5;</code>
      */
     com.google.protobuf.ByteString
         getExBytes();
@@ -134,11 +94,7 @@ public final class MessageProtos {
     private UserData() {
       uid_ = "";
       name_ = "";
-      icon_ = "";
-      sign_ = "";
-      email_ = "";
-      birth_ = "";
-      mobile_ = "";
+      avatar_ = "";
       gender_ = 0;
       ex_ = "";
     }
@@ -189,39 +145,15 @@ public final class MessageProtos {
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              icon_ = s;
+              avatar_ = s;
               break;
             }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              sign_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              email_ = s;
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              birth_ = s;
-              break;
-            }
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              mobile_ = s;
-              break;
-            }
-            case 64: {
+            case 32: {
 
               gender_ = input.readInt32();
               break;
             }
-            case 74: {
+            case 42: {
               java.lang.String s = input.readStringRequireUtf8();
 
               ex_ = s;
@@ -319,197 +251,61 @@ public final class MessageProtos {
       }
     }
 
-    public static final int ICON_FIELD_NUMBER = 3;
-    private volatile java.lang.Object icon_;
+    public static final int AVATAR_FIELD_NUMBER = 3;
+    private volatile java.lang.Object avatar_;
     /**
-     * <code>string icon = 3;</code>
+     * <code>string avatar = 3;</code>
      */
-    public java.lang.String getIcon() {
-      java.lang.Object ref = icon_;
+    public java.lang.String getAvatar() {
+      java.lang.Object ref = avatar_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        icon_ = s;
+        avatar_ = s;
         return s;
       }
     }
     /**
-     * <code>string icon = 3;</code>
+     * <code>string avatar = 3;</code>
      */
     public com.google.protobuf.ByteString
-        getIconBytes() {
-      java.lang.Object ref = icon_;
+        getAvatarBytes() {
+      java.lang.Object ref = avatar_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        icon_ = b;
+        avatar_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int SIGN_FIELD_NUMBER = 4;
-    private volatile java.lang.Object sign_;
-    /**
-     * <code>string sign = 4;</code>
-     */
-    public java.lang.String getSign() {
-      java.lang.Object ref = sign_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        sign_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string sign = 4;</code>
-     */
-    public com.google.protobuf.ByteString
-        getSignBytes() {
-      java.lang.Object ref = sign_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        sign_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int EMAIL_FIELD_NUMBER = 5;
-    private volatile java.lang.Object email_;
-    /**
-     * <code>string email = 5;</code>
-     */
-    public java.lang.String getEmail() {
-      java.lang.Object ref = email_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        email_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string email = 5;</code>
-     */
-    public com.google.protobuf.ByteString
-        getEmailBytes() {
-      java.lang.Object ref = email_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        email_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int BIRTH_FIELD_NUMBER = 6;
-    private volatile java.lang.Object birth_;
-    /**
-     * <code>string birth = 6;</code>
-     */
-    public java.lang.String getBirth() {
-      java.lang.Object ref = birth_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        birth_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string birth = 6;</code>
-     */
-    public com.google.protobuf.ByteString
-        getBirthBytes() {
-      java.lang.Object ref = birth_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        birth_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int MOBILE_FIELD_NUMBER = 7;
-    private volatile java.lang.Object mobile_;
-    /**
-     * <code>string mobile = 7;</code>
-     */
-    public java.lang.String getMobile() {
-      java.lang.Object ref = mobile_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        mobile_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string mobile = 7;</code>
-     */
-    public com.google.protobuf.ByteString
-        getMobileBytes() {
-      java.lang.Object ref = mobile_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        mobile_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int GENDER_FIELD_NUMBER = 8;
+    public static final int GENDER_FIELD_NUMBER = 4;
     private int gender_;
     /**
      * <pre>
      *用户性别，0表示未知，1表示男，2女表示女，其它会报参数错误
      * </pre>
      *
-     * <code>int32 gender = 8;</code>
+     * <code>int32 gender = 4;</code>
      */
     public int getGender() {
       return gender_;
     }
 
-    public static final int EX_FIELD_NUMBER = 9;
+    public static final int EX_FIELD_NUMBER = 5;
     private volatile java.lang.Object ex_;
     /**
      * <pre>
      *用户名片扩展字段，最大长度1024字符，用户可自行扩展，建议封装成JSON字符串
      * </pre>
      *
-     * <code>string ex = 9;</code>
+     * <code>string ex = 5;</code>
      */
     public java.lang.String getEx() {
       java.lang.Object ref = ex_;
@@ -528,7 +324,7 @@ public final class MessageProtos {
      *用户名片扩展字段，最大长度1024字符，用户可自行扩展，建议封装成JSON字符串
      * </pre>
      *
-     * <code>string ex = 9;</code>
+     * <code>string ex = 5;</code>
      */
     public com.google.protobuf.ByteString
         getExBytes() {
@@ -562,26 +358,14 @@ public final class MessageProtos {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
-      if (!getIconBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, icon_);
-      }
-      if (!getSignBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, sign_);
-      }
-      if (!getEmailBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, email_);
-      }
-      if (!getBirthBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, birth_);
-      }
-      if (!getMobileBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, mobile_);
+      if (!getAvatarBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, avatar_);
       }
       if (gender_ != 0) {
-        output.writeInt32(8, gender_);
+        output.writeInt32(4, gender_);
       }
       if (!getExBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, ex_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, ex_);
       }
       unknownFields.writeTo(output);
     }
@@ -597,27 +381,15 @@ public final class MessageProtos {
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
-      if (!getIconBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, icon_);
-      }
-      if (!getSignBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, sign_);
-      }
-      if (!getEmailBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, email_);
-      }
-      if (!getBirthBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, birth_);
-      }
-      if (!getMobileBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, mobile_);
+      if (!getAvatarBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, avatar_);
       }
       if (gender_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(8, gender_);
+          .computeInt32Size(4, gender_);
       }
       if (!getExBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, ex_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, ex_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -639,16 +411,8 @@ public final class MessageProtos {
           .equals(other.getUid());
       result = result && getName()
           .equals(other.getName());
-      result = result && getIcon()
-          .equals(other.getIcon());
-      result = result && getSign()
-          .equals(other.getSign());
-      result = result && getEmail()
-          .equals(other.getEmail());
-      result = result && getBirth()
-          .equals(other.getBirth());
-      result = result && getMobile()
-          .equals(other.getMobile());
+      result = result && getAvatar()
+          .equals(other.getAvatar());
       result = result && (getGender()
           == other.getGender());
       result = result && getEx()
@@ -668,16 +432,8 @@ public final class MessageProtos {
       hash = (53 * hash) + getUid().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + ICON_FIELD_NUMBER;
-      hash = (53 * hash) + getIcon().hashCode();
-      hash = (37 * hash) + SIGN_FIELD_NUMBER;
-      hash = (53 * hash) + getSign().hashCode();
-      hash = (37 * hash) + EMAIL_FIELD_NUMBER;
-      hash = (53 * hash) + getEmail().hashCode();
-      hash = (37 * hash) + BIRTH_FIELD_NUMBER;
-      hash = (53 * hash) + getBirth().hashCode();
-      hash = (37 * hash) + MOBILE_FIELD_NUMBER;
-      hash = (53 * hash) + getMobile().hashCode();
+      hash = (37 * hash) + AVATAR_FIELD_NUMBER;
+      hash = (53 * hash) + getAvatar().hashCode();
       hash = (37 * hash) + GENDER_FIELD_NUMBER;
       hash = (53 * hash) + getGender();
       hash = (37 * hash) + EX_FIELD_NUMBER;
@@ -819,15 +575,7 @@ public final class MessageProtos {
 
         name_ = "";
 
-        icon_ = "";
-
-        sign_ = "";
-
-        email_ = "";
-
-        birth_ = "";
-
-        mobile_ = "";
+        avatar_ = "";
 
         gender_ = 0;
 
@@ -857,11 +605,7 @@ public final class MessageProtos {
         chat.ono.chatsdk.proto.MessageProtos.UserData result = new chat.ono.chatsdk.proto.MessageProtos.UserData(this);
         result.uid_ = uid_;
         result.name_ = name_;
-        result.icon_ = icon_;
-        result.sign_ = sign_;
-        result.email_ = email_;
-        result.birth_ = birth_;
-        result.mobile_ = mobile_;
+        result.avatar_ = avatar_;
         result.gender_ = gender_;
         result.ex_ = ex_;
         onBuilt();
@@ -913,24 +657,8 @@ public final class MessageProtos {
           name_ = other.name_;
           onChanged();
         }
-        if (!other.getIcon().isEmpty()) {
-          icon_ = other.icon_;
-          onChanged();
-        }
-        if (!other.getSign().isEmpty()) {
-          sign_ = other.sign_;
-          onChanged();
-        }
-        if (!other.getEmail().isEmpty()) {
-          email_ = other.email_;
-          onChanged();
-        }
-        if (!other.getBirth().isEmpty()) {
-          birth_ = other.birth_;
-          onChanged();
-        }
-        if (!other.getMobile().isEmpty()) {
-          mobile_ = other.mobile_;
+        if (!other.getAvatar().isEmpty()) {
+          avatar_ = other.avatar_;
           onChanged();
         }
         if (other.getGender() != 0) {
@@ -1105,347 +833,71 @@ public final class MessageProtos {
         return this;
       }
 
-      private java.lang.Object icon_ = "";
+      private java.lang.Object avatar_ = "";
       /**
-       * <code>string icon = 3;</code>
+       * <code>string avatar = 3;</code>
        */
-      public java.lang.String getIcon() {
-        java.lang.Object ref = icon_;
+      public java.lang.String getAvatar() {
+        java.lang.Object ref = avatar_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          icon_ = s;
+          avatar_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string icon = 3;</code>
+       * <code>string avatar = 3;</code>
        */
       public com.google.protobuf.ByteString
-          getIconBytes() {
-        java.lang.Object ref = icon_;
+          getAvatarBytes() {
+        java.lang.Object ref = avatar_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          icon_ = b;
+          avatar_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string icon = 3;</code>
+       * <code>string avatar = 3;</code>
        */
-      public Builder setIcon(
+      public Builder setAvatar(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        icon_ = value;
+        avatar_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string icon = 3;</code>
+       * <code>string avatar = 3;</code>
        */
-      public Builder clearIcon() {
+      public Builder clearAvatar() {
         
-        icon_ = getDefaultInstance().getIcon();
+        avatar_ = getDefaultInstance().getAvatar();
         onChanged();
         return this;
       }
       /**
-       * <code>string icon = 3;</code>
+       * <code>string avatar = 3;</code>
        */
-      public Builder setIconBytes(
+      public Builder setAvatarBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        icon_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object sign_ = "";
-      /**
-       * <code>string sign = 4;</code>
-       */
-      public java.lang.String getSign() {
-        java.lang.Object ref = sign_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          sign_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string sign = 4;</code>
-       */
-      public com.google.protobuf.ByteString
-          getSignBytes() {
-        java.lang.Object ref = sign_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          sign_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string sign = 4;</code>
-       */
-      public Builder setSign(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        sign_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string sign = 4;</code>
-       */
-      public Builder clearSign() {
-        
-        sign_ = getDefaultInstance().getSign();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string sign = 4;</code>
-       */
-      public Builder setSignBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        sign_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object email_ = "";
-      /**
-       * <code>string email = 5;</code>
-       */
-      public java.lang.String getEmail() {
-        java.lang.Object ref = email_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          email_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string email = 5;</code>
-       */
-      public com.google.protobuf.ByteString
-          getEmailBytes() {
-        java.lang.Object ref = email_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          email_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string email = 5;</code>
-       */
-      public Builder setEmail(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        email_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string email = 5;</code>
-       */
-      public Builder clearEmail() {
-        
-        email_ = getDefaultInstance().getEmail();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string email = 5;</code>
-       */
-      public Builder setEmailBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        email_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object birth_ = "";
-      /**
-       * <code>string birth = 6;</code>
-       */
-      public java.lang.String getBirth() {
-        java.lang.Object ref = birth_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          birth_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string birth = 6;</code>
-       */
-      public com.google.protobuf.ByteString
-          getBirthBytes() {
-        java.lang.Object ref = birth_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          birth_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string birth = 6;</code>
-       */
-      public Builder setBirth(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        birth_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string birth = 6;</code>
-       */
-      public Builder clearBirth() {
-        
-        birth_ = getDefaultInstance().getBirth();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string birth = 6;</code>
-       */
-      public Builder setBirthBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        birth_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object mobile_ = "";
-      /**
-       * <code>string mobile = 7;</code>
-       */
-      public java.lang.String getMobile() {
-        java.lang.Object ref = mobile_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          mobile_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string mobile = 7;</code>
-       */
-      public com.google.protobuf.ByteString
-          getMobileBytes() {
-        java.lang.Object ref = mobile_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          mobile_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string mobile = 7;</code>
-       */
-      public Builder setMobile(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        mobile_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string mobile = 7;</code>
-       */
-      public Builder clearMobile() {
-        
-        mobile_ = getDefaultInstance().getMobile();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string mobile = 7;</code>
-       */
-      public Builder setMobileBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        mobile_ = value;
+        avatar_ = value;
         onChanged();
         return this;
       }
@@ -1456,7 +908,7 @@ public final class MessageProtos {
        *用户性别，0表示未知，1表示男，2女表示女，其它会报参数错误
        * </pre>
        *
-       * <code>int32 gender = 8;</code>
+       * <code>int32 gender = 4;</code>
        */
       public int getGender() {
         return gender_;
@@ -1466,7 +918,7 @@ public final class MessageProtos {
        *用户性别，0表示未知，1表示男，2女表示女，其它会报参数错误
        * </pre>
        *
-       * <code>int32 gender = 8;</code>
+       * <code>int32 gender = 4;</code>
        */
       public Builder setGender(int value) {
         
@@ -1479,7 +931,7 @@ public final class MessageProtos {
        *用户性别，0表示未知，1表示男，2女表示女，其它会报参数错误
        * </pre>
        *
-       * <code>int32 gender = 8;</code>
+       * <code>int32 gender = 4;</code>
        */
       public Builder clearGender() {
         
@@ -1494,7 +946,7 @@ public final class MessageProtos {
        *用户名片扩展字段，最大长度1024字符，用户可自行扩展，建议封装成JSON字符串
        * </pre>
        *
-       * <code>string ex = 9;</code>
+       * <code>string ex = 5;</code>
        */
       public java.lang.String getEx() {
         java.lang.Object ref = ex_;
@@ -1513,7 +965,7 @@ public final class MessageProtos {
        *用户名片扩展字段，最大长度1024字符，用户可自行扩展，建议封装成JSON字符串
        * </pre>
        *
-       * <code>string ex = 9;</code>
+       * <code>string ex = 5;</code>
        */
       public com.google.protobuf.ByteString
           getExBytes() {
@@ -1533,7 +985,7 @@ public final class MessageProtos {
        *用户名片扩展字段，最大长度1024字符，用户可自行扩展，建议封装成JSON字符串
        * </pre>
        *
-       * <code>string ex = 9;</code>
+       * <code>string ex = 5;</code>
        */
       public Builder setEx(
           java.lang.String value) {
@@ -1550,7 +1002,7 @@ public final class MessageProtos {
        *用户名片扩展字段，最大长度1024字符，用户可自行扩展，建议封装成JSON字符串
        * </pre>
        *
-       * <code>string ex = 9;</code>
+       * <code>string ex = 5;</code>
        */
       public Builder clearEx() {
         
@@ -1563,7 +1015,7 @@ public final class MessageProtos {
        *用户名片扩展字段，最大长度1024字符，用户可自行扩展，建议封装成JSON字符串
        * </pre>
        *
-       * <code>string ex = 9;</code>
+       * <code>string ex = 5;</code>
        */
       public Builder setExBytes(
           com.google.protobuf.ByteString value) {
@@ -1678,6 +1130,19 @@ public final class MessageProtos {
      * <code>double time = 6;</code>
      */
     double getTime();
+
+    /**
+     * <code>.UserData user = 7;</code>
+     */
+    boolean hasUser();
+    /**
+     * <code>.UserData user = 7;</code>
+     */
+    chat.ono.chatsdk.proto.MessageProtos.UserData getUser();
+    /**
+     * <code>.UserData user = 7;</code>
+     */
+    chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder getUserOrBuilder();
   }
   /**
    * Protobuf type {@code Message}
@@ -1763,6 +1228,19 @@ public final class MessageProtos {
             case 49: {
 
               time_ = input.readDouble();
+              break;
+            }
+            case 58: {
+              chat.ono.chatsdk.proto.MessageProtos.UserData.Builder subBuilder = null;
+              if (user_ != null) {
+                subBuilder = user_.toBuilder();
+              }
+              user_ = input.readMessage(chat.ono.chatsdk.proto.MessageProtos.UserData.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(user_);
+                user_ = subBuilder.buildPartial();
+              }
+
               break;
             }
           }
@@ -1943,6 +1421,27 @@ public final class MessageProtos {
       return time_;
     }
 
+    public static final int USER_FIELD_NUMBER = 7;
+    private chat.ono.chatsdk.proto.MessageProtos.UserData user_;
+    /**
+     * <code>.UserData user = 7;</code>
+     */
+    public boolean hasUser() {
+      return user_ != null;
+    }
+    /**
+     * <code>.UserData user = 7;</code>
+     */
+    public chat.ono.chatsdk.proto.MessageProtos.UserData getUser() {
+      return user_ == null ? chat.ono.chatsdk.proto.MessageProtos.UserData.getDefaultInstance() : user_;
+    }
+    /**
+     * <code>.UserData user = 7;</code>
+     */
+    public chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder getUserOrBuilder() {
+      return getUser();
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -1973,6 +1472,9 @@ public final class MessageProtos {
       if (time_ != 0D) {
         output.writeDouble(6, time_);
       }
+      if (user_ != null) {
+        output.writeMessage(7, getUser());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2000,6 +1502,10 @@ public final class MessageProtos {
       if (time_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(6, time_);
+      }
+      if (user_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getUser());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2031,6 +1537,11 @@ public final class MessageProtos {
           java.lang.Double.doubleToLongBits(getTime())
           == java.lang.Double.doubleToLongBits(
               other.getTime()));
+      result = result && (hasUser() == other.hasUser());
+      if (hasUser()) {
+        result = result && getUser()
+            .equals(other.getUser());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2055,6 +1566,10 @@ public final class MessageProtos {
       hash = (37 * hash) + TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getTime()));
+      if (hasUser()) {
+        hash = (37 * hash) + USER_FIELD_NUMBER;
+        hash = (53 * hash) + getUser().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2196,6 +1711,12 @@ public final class MessageProtos {
 
         time_ = 0D;
 
+        if (userBuilder_ == null) {
+          user_ = null;
+        } else {
+          user_ = null;
+          userBuilder_ = null;
+        }
         return this;
       }
 
@@ -2224,6 +1745,11 @@ public final class MessageProtos {
         result.to_ = to_;
         result.data_ = data_;
         result.time_ = time_;
+        if (userBuilder_ == null) {
+          result.user_ = user_;
+        } else {
+          result.user_ = userBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -2286,6 +1812,9 @@ public final class MessageProtos {
         }
         if (other.getTime() != 0D) {
           setTime(other.getTime());
+        }
+        if (other.hasUser()) {
+          mergeUser(other.getUser());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2641,6 +2170,123 @@ public final class MessageProtos {
         onChanged();
         return this;
       }
+
+      private chat.ono.chatsdk.proto.MessageProtos.UserData user_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          chat.ono.chatsdk.proto.MessageProtos.UserData, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder, chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> userBuilder_;
+      /**
+       * <code>.UserData user = 7;</code>
+       */
+      public boolean hasUser() {
+        return userBuilder_ != null || user_ != null;
+      }
+      /**
+       * <code>.UserData user = 7;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserData getUser() {
+        if (userBuilder_ == null) {
+          return user_ == null ? chat.ono.chatsdk.proto.MessageProtos.UserData.getDefaultInstance() : user_;
+        } else {
+          return userBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.UserData user = 7;</code>
+       */
+      public Builder setUser(chat.ono.chatsdk.proto.MessageProtos.UserData value) {
+        if (userBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          user_ = value;
+          onChanged();
+        } else {
+          userBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.UserData user = 7;</code>
+       */
+      public Builder setUser(
+          chat.ono.chatsdk.proto.MessageProtos.UserData.Builder builderForValue) {
+        if (userBuilder_ == null) {
+          user_ = builderForValue.build();
+          onChanged();
+        } else {
+          userBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.UserData user = 7;</code>
+       */
+      public Builder mergeUser(chat.ono.chatsdk.proto.MessageProtos.UserData value) {
+        if (userBuilder_ == null) {
+          if (user_ != null) {
+            user_ =
+              chat.ono.chatsdk.proto.MessageProtos.UserData.newBuilder(user_).mergeFrom(value).buildPartial();
+          } else {
+            user_ = value;
+          }
+          onChanged();
+        } else {
+          userBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.UserData user = 7;</code>
+       */
+      public Builder clearUser() {
+        if (userBuilder_ == null) {
+          user_ = null;
+          onChanged();
+        } else {
+          user_ = null;
+          userBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.UserData user = 7;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserData.Builder getUserBuilder() {
+        
+        onChanged();
+        return getUserFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.UserData user = 7;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder getUserOrBuilder() {
+        if (userBuilder_ != null) {
+          return userBuilder_.getMessageOrBuilder();
+        } else {
+          return user_ == null ?
+              chat.ono.chatsdk.proto.MessageProtos.UserData.getDefaultInstance() : user_;
+        }
+      }
+      /**
+       * <code>.UserData user = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          chat.ono.chatsdk.proto.MessageProtos.UserData, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder, chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> 
+          getUserFieldBuilder() {
+        if (userBuilder_ == null) {
+          userBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              chat.ono.chatsdk.proto.MessageProtos.UserData, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder, chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder>(
+                  getUser(),
+                  getParentForChildren(),
+                  isClean());
+          user_ = null;
+        }
+        return userBuilder_;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFieldsProto3(unknownFields);
@@ -2685,6 +2331,668 @@ public final class MessageProtos {
     }
 
     public chat.ono.chatsdk.proto.MessageProtos.Message getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FriendOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Friend)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string uid = 1;</code>
+     */
+    java.lang.String getUid();
+    /**
+     * <code>string uid = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getUidBytes();
+
+    /**
+     * <code>string remark = 2;</code>
+     */
+    java.lang.String getRemark();
+    /**
+     * <code>string remark = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getRemarkBytes();
+  }
+  /**
+   * Protobuf type {@code Friend}
+   */
+  public  static final class Friend extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Friend)
+      FriendOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Friend.newBuilder() to construct.
+    private Friend(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Friend() {
+      uid_ = "";
+      remark_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Friend(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              uid_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              remark_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return chat.ono.chatsdk.proto.MessageProtos.internal_static_Friend_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return chat.ono.chatsdk.proto.MessageProtos.internal_static_Friend_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              chat.ono.chatsdk.proto.MessageProtos.Friend.class, chat.ono.chatsdk.proto.MessageProtos.Friend.Builder.class);
+    }
+
+    public static final int UID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object uid_;
+    /**
+     * <code>string uid = 1;</code>
+     */
+    public java.lang.String getUid() {
+      java.lang.Object ref = uid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        uid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string uid = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUidBytes() {
+      java.lang.Object ref = uid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        uid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int REMARK_FIELD_NUMBER = 2;
+    private volatile java.lang.Object remark_;
+    /**
+     * <code>string remark = 2;</code>
+     */
+    public java.lang.String getRemark() {
+      java.lang.Object ref = remark_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        remark_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string remark = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRemarkBytes() {
+      java.lang.Object ref = remark_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        remark_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getUidBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uid_);
+      }
+      if (!getRemarkBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, remark_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getUidBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uid_);
+      }
+      if (!getRemarkBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, remark_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof chat.ono.chatsdk.proto.MessageProtos.Friend)) {
+        return super.equals(obj);
+      }
+      chat.ono.chatsdk.proto.MessageProtos.Friend other = (chat.ono.chatsdk.proto.MessageProtos.Friend) obj;
+
+      boolean result = true;
+      result = result && getUid()
+          .equals(other.getUid());
+      result = result && getRemark()
+          .equals(other.getRemark());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + UID_FIELD_NUMBER;
+      hash = (53 * hash) + getUid().hashCode();
+      hash = (37 * hash) + REMARK_FIELD_NUMBER;
+      hash = (53 * hash) + getRemark().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static chat.ono.chatsdk.proto.MessageProtos.Friend parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.Friend parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.Friend parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.Friend parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.Friend parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.Friend parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.Friend parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.Friend parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.Friend parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.Friend parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.Friend parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.Friend parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(chat.ono.chatsdk.proto.MessageProtos.Friend prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Friend}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Friend)
+        chat.ono.chatsdk.proto.MessageProtos.FriendOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_Friend_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_Friend_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                chat.ono.chatsdk.proto.MessageProtos.Friend.class, chat.ono.chatsdk.proto.MessageProtos.Friend.Builder.class);
+      }
+
+      // Construct using chat.ono.chatsdk.proto.MessageProtos.Friend.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        uid_ = "";
+
+        remark_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_Friend_descriptor;
+      }
+
+      public chat.ono.chatsdk.proto.MessageProtos.Friend getDefaultInstanceForType() {
+        return chat.ono.chatsdk.proto.MessageProtos.Friend.getDefaultInstance();
+      }
+
+      public chat.ono.chatsdk.proto.MessageProtos.Friend build() {
+        chat.ono.chatsdk.proto.MessageProtos.Friend result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public chat.ono.chatsdk.proto.MessageProtos.Friend buildPartial() {
+        chat.ono.chatsdk.proto.MessageProtos.Friend result = new chat.ono.chatsdk.proto.MessageProtos.Friend(this);
+        result.uid_ = uid_;
+        result.remark_ = remark_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof chat.ono.chatsdk.proto.MessageProtos.Friend) {
+          return mergeFrom((chat.ono.chatsdk.proto.MessageProtos.Friend)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(chat.ono.chatsdk.proto.MessageProtos.Friend other) {
+        if (other == chat.ono.chatsdk.proto.MessageProtos.Friend.getDefaultInstance()) return this;
+        if (!other.getUid().isEmpty()) {
+          uid_ = other.uid_;
+          onChanged();
+        }
+        if (!other.getRemark().isEmpty()) {
+          remark_ = other.remark_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        chat.ono.chatsdk.proto.MessageProtos.Friend parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (chat.ono.chatsdk.proto.MessageProtos.Friend) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object uid_ = "";
+      /**
+       * <code>string uid = 1;</code>
+       */
+      public java.lang.String getUid() {
+        java.lang.Object ref = uid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          uid_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string uid = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUidBytes() {
+        java.lang.Object ref = uid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          uid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string uid = 1;</code>
+       */
+      public Builder setUid(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        uid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string uid = 1;</code>
+       */
+      public Builder clearUid() {
+        
+        uid_ = getDefaultInstance().getUid();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string uid = 1;</code>
+       */
+      public Builder setUidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        uid_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object remark_ = "";
+      /**
+       * <code>string remark = 2;</code>
+       */
+      public java.lang.String getRemark() {
+        java.lang.Object ref = remark_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          remark_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string remark = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRemarkBytes() {
+        java.lang.Object ref = remark_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          remark_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string remark = 2;</code>
+       */
+      public Builder setRemark(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        remark_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string remark = 2;</code>
+       */
+      public Builder clearRemark() {
+        
+        remark_ = getDefaultInstance().getRemark();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string remark = 2;</code>
+       */
+      public Builder setRemarkBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        remark_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Friend)
+    }
+
+    // @@protoc_insertion_point(class_scope:Friend)
+    private static final chat.ono.chatsdk.proto.MessageProtos.Friend DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new chat.ono.chatsdk.proto.MessageProtos.Friend();
+    }
+
+    public static chat.ono.chatsdk.proto.MessageProtos.Friend getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Friend>
+        PARSER = new com.google.protobuf.AbstractParser<Friend>() {
+      public Friend parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Friend(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Friend> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Friend> getParserForType() {
+      return PARSER;
+    }
+
+    public chat.ono.chatsdk.proto.MessageProtos.Friend getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5301,6 +5609,1386 @@ public final class MessageProtos {
 
   }
 
+  public interface FriendOperationsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:FriendOperations)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .UserData adds = 1;</code>
+     */
+    java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> 
+        getAddsList();
+    /**
+     * <code>repeated .UserData adds = 1;</code>
+     */
+    chat.ono.chatsdk.proto.MessageProtos.UserData getAdds(int index);
+    /**
+     * <code>repeated .UserData adds = 1;</code>
+     */
+    int getAddsCount();
+    /**
+     * <code>repeated .UserData adds = 1;</code>
+     */
+    java.util.List<? extends chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> 
+        getAddsOrBuilderList();
+    /**
+     * <code>repeated .UserData adds = 1;</code>
+     */
+    chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder getAddsOrBuilder(
+        int index);
+
+    /**
+     * <code>repeated .UserData updates = 2;</code>
+     */
+    java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> 
+        getUpdatesList();
+    /**
+     * <code>repeated .UserData updates = 2;</code>
+     */
+    chat.ono.chatsdk.proto.MessageProtos.UserData getUpdates(int index);
+    /**
+     * <code>repeated .UserData updates = 2;</code>
+     */
+    int getUpdatesCount();
+    /**
+     * <code>repeated .UserData updates = 2;</code>
+     */
+    java.util.List<? extends chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> 
+        getUpdatesOrBuilderList();
+    /**
+     * <code>repeated .UserData updates = 2;</code>
+     */
+    chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder getUpdatesOrBuilder(
+        int index);
+
+    /**
+     * <code>repeated string deletes = 3;</code>
+     */
+    java.util.List<java.lang.String>
+        getDeletesList();
+    /**
+     * <code>repeated string deletes = 3;</code>
+     */
+    int getDeletesCount();
+    /**
+     * <code>repeated string deletes = 3;</code>
+     */
+    java.lang.String getDeletes(int index);
+    /**
+     * <code>repeated string deletes = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getDeletesBytes(int index);
+
+    /**
+     * <code>int64 friendsUpdateTime = 4;</code>
+     */
+    long getFriendsUpdateTime();
+  }
+  /**
+   * Protobuf type {@code FriendOperations}
+   */
+  public  static final class FriendOperations extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:FriendOperations)
+      FriendOperationsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FriendOperations.newBuilder() to construct.
+    private FriendOperations(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FriendOperations() {
+      adds_ = java.util.Collections.emptyList();
+      updates_ = java.util.Collections.emptyList();
+      deletes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      friendsUpdateTime_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FriendOperations(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                adds_ = new java.util.ArrayList<chat.ono.chatsdk.proto.MessageProtos.UserData>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              adds_.add(
+                  input.readMessage(chat.ono.chatsdk.proto.MessageProtos.UserData.parser(), extensionRegistry));
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                updates_ = new java.util.ArrayList<chat.ono.chatsdk.proto.MessageProtos.UserData>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              updates_.add(
+                  input.readMessage(chat.ono.chatsdk.proto.MessageProtos.UserData.parser(), extensionRegistry));
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                deletes_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              deletes_.add(s);
+              break;
+            }
+            case 32: {
+
+              friendsUpdateTime_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          adds_ = java.util.Collections.unmodifiableList(adds_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          updates_ = java.util.Collections.unmodifiableList(updates_);
+        }
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          deletes_ = deletes_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendOperations_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendOperations_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              chat.ono.chatsdk.proto.MessageProtos.FriendOperations.class, chat.ono.chatsdk.proto.MessageProtos.FriendOperations.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int ADDS_FIELD_NUMBER = 1;
+    private java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> adds_;
+    /**
+     * <code>repeated .UserData adds = 1;</code>
+     */
+    public java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> getAddsList() {
+      return adds_;
+    }
+    /**
+     * <code>repeated .UserData adds = 1;</code>
+     */
+    public java.util.List<? extends chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> 
+        getAddsOrBuilderList() {
+      return adds_;
+    }
+    /**
+     * <code>repeated .UserData adds = 1;</code>
+     */
+    public int getAddsCount() {
+      return adds_.size();
+    }
+    /**
+     * <code>repeated .UserData adds = 1;</code>
+     */
+    public chat.ono.chatsdk.proto.MessageProtos.UserData getAdds(int index) {
+      return adds_.get(index);
+    }
+    /**
+     * <code>repeated .UserData adds = 1;</code>
+     */
+    public chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder getAddsOrBuilder(
+        int index) {
+      return adds_.get(index);
+    }
+
+    public static final int UPDATES_FIELD_NUMBER = 2;
+    private java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> updates_;
+    /**
+     * <code>repeated .UserData updates = 2;</code>
+     */
+    public java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> getUpdatesList() {
+      return updates_;
+    }
+    /**
+     * <code>repeated .UserData updates = 2;</code>
+     */
+    public java.util.List<? extends chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> 
+        getUpdatesOrBuilderList() {
+      return updates_;
+    }
+    /**
+     * <code>repeated .UserData updates = 2;</code>
+     */
+    public int getUpdatesCount() {
+      return updates_.size();
+    }
+    /**
+     * <code>repeated .UserData updates = 2;</code>
+     */
+    public chat.ono.chatsdk.proto.MessageProtos.UserData getUpdates(int index) {
+      return updates_.get(index);
+    }
+    /**
+     * <code>repeated .UserData updates = 2;</code>
+     */
+    public chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder getUpdatesOrBuilder(
+        int index) {
+      return updates_.get(index);
+    }
+
+    public static final int DELETES_FIELD_NUMBER = 3;
+    private com.google.protobuf.LazyStringList deletes_;
+    /**
+     * <code>repeated string deletes = 3;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getDeletesList() {
+      return deletes_;
+    }
+    /**
+     * <code>repeated string deletes = 3;</code>
+     */
+    public int getDeletesCount() {
+      return deletes_.size();
+    }
+    /**
+     * <code>repeated string deletes = 3;</code>
+     */
+    public java.lang.String getDeletes(int index) {
+      return deletes_.get(index);
+    }
+    /**
+     * <code>repeated string deletes = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDeletesBytes(int index) {
+      return deletes_.getByteString(index);
+    }
+
+    public static final int FRIENDSUPDATETIME_FIELD_NUMBER = 4;
+    private long friendsUpdateTime_;
+    /**
+     * <code>int64 friendsUpdateTime = 4;</code>
+     */
+    public long getFriendsUpdateTime() {
+      return friendsUpdateTime_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < adds_.size(); i++) {
+        output.writeMessage(1, adds_.get(i));
+      }
+      for (int i = 0; i < updates_.size(); i++) {
+        output.writeMessage(2, updates_.get(i));
+      }
+      for (int i = 0; i < deletes_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, deletes_.getRaw(i));
+      }
+      if (friendsUpdateTime_ != 0L) {
+        output.writeInt64(4, friendsUpdateTime_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < adds_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, adds_.get(i));
+      }
+      for (int i = 0; i < updates_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, updates_.get(i));
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < deletes_.size(); i++) {
+          dataSize += computeStringSizeNoTag(deletes_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getDeletesList().size();
+      }
+      if (friendsUpdateTime_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, friendsUpdateTime_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof chat.ono.chatsdk.proto.MessageProtos.FriendOperations)) {
+        return super.equals(obj);
+      }
+      chat.ono.chatsdk.proto.MessageProtos.FriendOperations other = (chat.ono.chatsdk.proto.MessageProtos.FriendOperations) obj;
+
+      boolean result = true;
+      result = result && getAddsList()
+          .equals(other.getAddsList());
+      result = result && getUpdatesList()
+          .equals(other.getUpdatesList());
+      result = result && getDeletesList()
+          .equals(other.getDeletesList());
+      result = result && (getFriendsUpdateTime()
+          == other.getFriendsUpdateTime());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getAddsCount() > 0) {
+        hash = (37 * hash) + ADDS_FIELD_NUMBER;
+        hash = (53 * hash) + getAddsList().hashCode();
+      }
+      if (getUpdatesCount() > 0) {
+        hash = (37 * hash) + UPDATES_FIELD_NUMBER;
+        hash = (53 * hash) + getUpdatesList().hashCode();
+      }
+      if (getDeletesCount() > 0) {
+        hash = (37 * hash) + DELETES_FIELD_NUMBER;
+        hash = (53 * hash) + getDeletesList().hashCode();
+      }
+      hash = (37 * hash) + FRIENDSUPDATETIME_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getFriendsUpdateTime());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendOperations parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendOperations parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendOperations parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendOperations parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendOperations parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendOperations parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendOperations parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendOperations parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendOperations parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendOperations parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendOperations parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendOperations parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(chat.ono.chatsdk.proto.MessageProtos.FriendOperations prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code FriendOperations}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:FriendOperations)
+        chat.ono.chatsdk.proto.MessageProtos.FriendOperationsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendOperations_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendOperations_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                chat.ono.chatsdk.proto.MessageProtos.FriendOperations.class, chat.ono.chatsdk.proto.MessageProtos.FriendOperations.Builder.class);
+      }
+
+      // Construct using chat.ono.chatsdk.proto.MessageProtos.FriendOperations.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getAddsFieldBuilder();
+          getUpdatesFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (addsBuilder_ == null) {
+          adds_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          addsBuilder_.clear();
+        }
+        if (updatesBuilder_ == null) {
+          updates_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          updatesBuilder_.clear();
+        }
+        deletes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        friendsUpdateTime_ = 0L;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendOperations_descriptor;
+      }
+
+      public chat.ono.chatsdk.proto.MessageProtos.FriendOperations getDefaultInstanceForType() {
+        return chat.ono.chatsdk.proto.MessageProtos.FriendOperations.getDefaultInstance();
+      }
+
+      public chat.ono.chatsdk.proto.MessageProtos.FriendOperations build() {
+        chat.ono.chatsdk.proto.MessageProtos.FriendOperations result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public chat.ono.chatsdk.proto.MessageProtos.FriendOperations buildPartial() {
+        chat.ono.chatsdk.proto.MessageProtos.FriendOperations result = new chat.ono.chatsdk.proto.MessageProtos.FriendOperations(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (addsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            adds_ = java.util.Collections.unmodifiableList(adds_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.adds_ = adds_;
+        } else {
+          result.adds_ = addsBuilder_.build();
+        }
+        if (updatesBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            updates_ = java.util.Collections.unmodifiableList(updates_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.updates_ = updates_;
+        } else {
+          result.updates_ = updatesBuilder_.build();
+        }
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          deletes_ = deletes_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.deletes_ = deletes_;
+        result.friendsUpdateTime_ = friendsUpdateTime_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof chat.ono.chatsdk.proto.MessageProtos.FriendOperations) {
+          return mergeFrom((chat.ono.chatsdk.proto.MessageProtos.FriendOperations)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(chat.ono.chatsdk.proto.MessageProtos.FriendOperations other) {
+        if (other == chat.ono.chatsdk.proto.MessageProtos.FriendOperations.getDefaultInstance()) return this;
+        if (addsBuilder_ == null) {
+          if (!other.adds_.isEmpty()) {
+            if (adds_.isEmpty()) {
+              adds_ = other.adds_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureAddsIsMutable();
+              adds_.addAll(other.adds_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.adds_.isEmpty()) {
+            if (addsBuilder_.isEmpty()) {
+              addsBuilder_.dispose();
+              addsBuilder_ = null;
+              adds_ = other.adds_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              addsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getAddsFieldBuilder() : null;
+            } else {
+              addsBuilder_.addAllMessages(other.adds_);
+            }
+          }
+        }
+        if (updatesBuilder_ == null) {
+          if (!other.updates_.isEmpty()) {
+            if (updates_.isEmpty()) {
+              updates_ = other.updates_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureUpdatesIsMutable();
+              updates_.addAll(other.updates_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.updates_.isEmpty()) {
+            if (updatesBuilder_.isEmpty()) {
+              updatesBuilder_.dispose();
+              updatesBuilder_ = null;
+              updates_ = other.updates_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              updatesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getUpdatesFieldBuilder() : null;
+            } else {
+              updatesBuilder_.addAllMessages(other.updates_);
+            }
+          }
+        }
+        if (!other.deletes_.isEmpty()) {
+          if (deletes_.isEmpty()) {
+            deletes_ = other.deletes_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureDeletesIsMutable();
+            deletes_.addAll(other.deletes_);
+          }
+          onChanged();
+        }
+        if (other.getFriendsUpdateTime() != 0L) {
+          setFriendsUpdateTime(other.getFriendsUpdateTime());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        chat.ono.chatsdk.proto.MessageProtos.FriendOperations parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (chat.ono.chatsdk.proto.MessageProtos.FriendOperations) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> adds_ =
+        java.util.Collections.emptyList();
+      private void ensureAddsIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          adds_ = new java.util.ArrayList<chat.ono.chatsdk.proto.MessageProtos.UserData>(adds_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          chat.ono.chatsdk.proto.MessageProtos.UserData, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder, chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> addsBuilder_;
+
+      /**
+       * <code>repeated .UserData adds = 1;</code>
+       */
+      public java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> getAddsList() {
+        if (addsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(adds_);
+        } else {
+          return addsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .UserData adds = 1;</code>
+       */
+      public int getAddsCount() {
+        if (addsBuilder_ == null) {
+          return adds_.size();
+        } else {
+          return addsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .UserData adds = 1;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserData getAdds(int index) {
+        if (addsBuilder_ == null) {
+          return adds_.get(index);
+        } else {
+          return addsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .UserData adds = 1;</code>
+       */
+      public Builder setAdds(
+          int index, chat.ono.chatsdk.proto.MessageProtos.UserData value) {
+        if (addsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAddsIsMutable();
+          adds_.set(index, value);
+          onChanged();
+        } else {
+          addsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData adds = 1;</code>
+       */
+      public Builder setAdds(
+          int index, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder builderForValue) {
+        if (addsBuilder_ == null) {
+          ensureAddsIsMutable();
+          adds_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          addsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData adds = 1;</code>
+       */
+      public Builder addAdds(chat.ono.chatsdk.proto.MessageProtos.UserData value) {
+        if (addsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAddsIsMutable();
+          adds_.add(value);
+          onChanged();
+        } else {
+          addsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData adds = 1;</code>
+       */
+      public Builder addAdds(
+          int index, chat.ono.chatsdk.proto.MessageProtos.UserData value) {
+        if (addsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAddsIsMutable();
+          adds_.add(index, value);
+          onChanged();
+        } else {
+          addsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData adds = 1;</code>
+       */
+      public Builder addAdds(
+          chat.ono.chatsdk.proto.MessageProtos.UserData.Builder builderForValue) {
+        if (addsBuilder_ == null) {
+          ensureAddsIsMutable();
+          adds_.add(builderForValue.build());
+          onChanged();
+        } else {
+          addsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData adds = 1;</code>
+       */
+      public Builder addAdds(
+          int index, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder builderForValue) {
+        if (addsBuilder_ == null) {
+          ensureAddsIsMutable();
+          adds_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          addsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData adds = 1;</code>
+       */
+      public Builder addAllAdds(
+          java.lang.Iterable<? extends chat.ono.chatsdk.proto.MessageProtos.UserData> values) {
+        if (addsBuilder_ == null) {
+          ensureAddsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, adds_);
+          onChanged();
+        } else {
+          addsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData adds = 1;</code>
+       */
+      public Builder clearAdds() {
+        if (addsBuilder_ == null) {
+          adds_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          addsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData adds = 1;</code>
+       */
+      public Builder removeAdds(int index) {
+        if (addsBuilder_ == null) {
+          ensureAddsIsMutable();
+          adds_.remove(index);
+          onChanged();
+        } else {
+          addsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData adds = 1;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserData.Builder getAddsBuilder(
+          int index) {
+        return getAddsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .UserData adds = 1;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder getAddsOrBuilder(
+          int index) {
+        if (addsBuilder_ == null) {
+          return adds_.get(index);  } else {
+          return addsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .UserData adds = 1;</code>
+       */
+      public java.util.List<? extends chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> 
+           getAddsOrBuilderList() {
+        if (addsBuilder_ != null) {
+          return addsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(adds_);
+        }
+      }
+      /**
+       * <code>repeated .UserData adds = 1;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserData.Builder addAddsBuilder() {
+        return getAddsFieldBuilder().addBuilder(
+            chat.ono.chatsdk.proto.MessageProtos.UserData.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .UserData adds = 1;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserData.Builder addAddsBuilder(
+          int index) {
+        return getAddsFieldBuilder().addBuilder(
+            index, chat.ono.chatsdk.proto.MessageProtos.UserData.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .UserData adds = 1;</code>
+       */
+      public java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData.Builder> 
+           getAddsBuilderList() {
+        return getAddsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          chat.ono.chatsdk.proto.MessageProtos.UserData, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder, chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> 
+          getAddsFieldBuilder() {
+        if (addsBuilder_ == null) {
+          addsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              chat.ono.chatsdk.proto.MessageProtos.UserData, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder, chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder>(
+                  adds_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          adds_ = null;
+        }
+        return addsBuilder_;
+      }
+
+      private java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> updates_ =
+        java.util.Collections.emptyList();
+      private void ensureUpdatesIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          updates_ = new java.util.ArrayList<chat.ono.chatsdk.proto.MessageProtos.UserData>(updates_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          chat.ono.chatsdk.proto.MessageProtos.UserData, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder, chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> updatesBuilder_;
+
+      /**
+       * <code>repeated .UserData updates = 2;</code>
+       */
+      public java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> getUpdatesList() {
+        if (updatesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(updates_);
+        } else {
+          return updatesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .UserData updates = 2;</code>
+       */
+      public int getUpdatesCount() {
+        if (updatesBuilder_ == null) {
+          return updates_.size();
+        } else {
+          return updatesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .UserData updates = 2;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserData getUpdates(int index) {
+        if (updatesBuilder_ == null) {
+          return updates_.get(index);
+        } else {
+          return updatesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .UserData updates = 2;</code>
+       */
+      public Builder setUpdates(
+          int index, chat.ono.chatsdk.proto.MessageProtos.UserData value) {
+        if (updatesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUpdatesIsMutable();
+          updates_.set(index, value);
+          onChanged();
+        } else {
+          updatesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData updates = 2;</code>
+       */
+      public Builder setUpdates(
+          int index, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder builderForValue) {
+        if (updatesBuilder_ == null) {
+          ensureUpdatesIsMutable();
+          updates_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          updatesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData updates = 2;</code>
+       */
+      public Builder addUpdates(chat.ono.chatsdk.proto.MessageProtos.UserData value) {
+        if (updatesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUpdatesIsMutable();
+          updates_.add(value);
+          onChanged();
+        } else {
+          updatesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData updates = 2;</code>
+       */
+      public Builder addUpdates(
+          int index, chat.ono.chatsdk.proto.MessageProtos.UserData value) {
+        if (updatesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUpdatesIsMutable();
+          updates_.add(index, value);
+          onChanged();
+        } else {
+          updatesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData updates = 2;</code>
+       */
+      public Builder addUpdates(
+          chat.ono.chatsdk.proto.MessageProtos.UserData.Builder builderForValue) {
+        if (updatesBuilder_ == null) {
+          ensureUpdatesIsMutable();
+          updates_.add(builderForValue.build());
+          onChanged();
+        } else {
+          updatesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData updates = 2;</code>
+       */
+      public Builder addUpdates(
+          int index, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder builderForValue) {
+        if (updatesBuilder_ == null) {
+          ensureUpdatesIsMutable();
+          updates_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          updatesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData updates = 2;</code>
+       */
+      public Builder addAllUpdates(
+          java.lang.Iterable<? extends chat.ono.chatsdk.proto.MessageProtos.UserData> values) {
+        if (updatesBuilder_ == null) {
+          ensureUpdatesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, updates_);
+          onChanged();
+        } else {
+          updatesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData updates = 2;</code>
+       */
+      public Builder clearUpdates() {
+        if (updatesBuilder_ == null) {
+          updates_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          updatesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData updates = 2;</code>
+       */
+      public Builder removeUpdates(int index) {
+        if (updatesBuilder_ == null) {
+          ensureUpdatesIsMutable();
+          updates_.remove(index);
+          onChanged();
+        } else {
+          updatesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData updates = 2;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserData.Builder getUpdatesBuilder(
+          int index) {
+        return getUpdatesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .UserData updates = 2;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder getUpdatesOrBuilder(
+          int index) {
+        if (updatesBuilder_ == null) {
+          return updates_.get(index);  } else {
+          return updatesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .UserData updates = 2;</code>
+       */
+      public java.util.List<? extends chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> 
+           getUpdatesOrBuilderList() {
+        if (updatesBuilder_ != null) {
+          return updatesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(updates_);
+        }
+      }
+      /**
+       * <code>repeated .UserData updates = 2;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserData.Builder addUpdatesBuilder() {
+        return getUpdatesFieldBuilder().addBuilder(
+            chat.ono.chatsdk.proto.MessageProtos.UserData.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .UserData updates = 2;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserData.Builder addUpdatesBuilder(
+          int index) {
+        return getUpdatesFieldBuilder().addBuilder(
+            index, chat.ono.chatsdk.proto.MessageProtos.UserData.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .UserData updates = 2;</code>
+       */
+      public java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData.Builder> 
+           getUpdatesBuilderList() {
+        return getUpdatesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          chat.ono.chatsdk.proto.MessageProtos.UserData, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder, chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> 
+          getUpdatesFieldBuilder() {
+        if (updatesBuilder_ == null) {
+          updatesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              chat.ono.chatsdk.proto.MessageProtos.UserData, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder, chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder>(
+                  updates_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          updates_ = null;
+        }
+        return updatesBuilder_;
+      }
+
+      private com.google.protobuf.LazyStringList deletes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureDeletesIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          deletes_ = new com.google.protobuf.LazyStringArrayList(deletes_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <code>repeated string deletes = 3;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getDeletesList() {
+        return deletes_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string deletes = 3;</code>
+       */
+      public int getDeletesCount() {
+        return deletes_.size();
+      }
+      /**
+       * <code>repeated string deletes = 3;</code>
+       */
+      public java.lang.String getDeletes(int index) {
+        return deletes_.get(index);
+      }
+      /**
+       * <code>repeated string deletes = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDeletesBytes(int index) {
+        return deletes_.getByteString(index);
+      }
+      /**
+       * <code>repeated string deletes = 3;</code>
+       */
+      public Builder setDeletes(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureDeletesIsMutable();
+        deletes_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string deletes = 3;</code>
+       */
+      public Builder addDeletes(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureDeletesIsMutable();
+        deletes_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string deletes = 3;</code>
+       */
+      public Builder addAllDeletes(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureDeletesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, deletes_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string deletes = 3;</code>
+       */
+      public Builder clearDeletes() {
+        deletes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string deletes = 3;</code>
+       */
+      public Builder addDeletesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureDeletesIsMutable();
+        deletes_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private long friendsUpdateTime_ ;
+      /**
+       * <code>int64 friendsUpdateTime = 4;</code>
+       */
+      public long getFriendsUpdateTime() {
+        return friendsUpdateTime_;
+      }
+      /**
+       * <code>int64 friendsUpdateTime = 4;</code>
+       */
+      public Builder setFriendsUpdateTime(long value) {
+        
+        friendsUpdateTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 friendsUpdateTime = 4;</code>
+       */
+      public Builder clearFriendsUpdateTime() {
+        
+        friendsUpdateTime_ = 0L;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:FriendOperations)
+    }
+
+    // @@protoc_insertion_point(class_scope:FriendOperations)
+    private static final chat.ono.chatsdk.proto.MessageProtos.FriendOperations DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new chat.ono.chatsdk.proto.MessageProtos.FriendOperations();
+    }
+
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendOperations getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<FriendOperations>
+        PARSER = new com.google.protobuf.AbstractParser<FriendOperations>() {
+      public FriendOperations parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FriendOperations(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FriendOperations> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FriendOperations> getParserForType() {
+      return PARSER;
+    }
+
+    public chat.ono.chatsdk.proto.MessageProtos.FriendOperations getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface UserLoginRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:UserLoginRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -5314,6 +7002,11 @@ public final class MessageProtos {
      */
     com.google.protobuf.ByteString
         getTokenBytes();
+
+    /**
+     * <code>int64 friendsUpdateTime = 2;</code>
+     */
+    long getFriendsUpdateTime();
   }
   /**
    * <pre>
@@ -5333,6 +7026,7 @@ public final class MessageProtos {
     }
     private UserLoginRequest() {
       token_ = "";
+      friendsUpdateTime_ = 0L;
     }
 
     @java.lang.Override
@@ -5370,6 +7064,11 @@ public final class MessageProtos {
               java.lang.String s = input.readStringRequireUtf8();
 
               token_ = s;
+              break;
+            }
+            case 16: {
+
+              friendsUpdateTime_ = input.readInt64();
               break;
             }
           }
@@ -5430,6 +7129,15 @@ public final class MessageProtos {
       }
     }
 
+    public static final int FRIENDSUPDATETIME_FIELD_NUMBER = 2;
+    private long friendsUpdateTime_;
+    /**
+     * <code>int64 friendsUpdateTime = 2;</code>
+     */
+    public long getFriendsUpdateTime() {
+      return friendsUpdateTime_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -5445,6 +7153,9 @@ public final class MessageProtos {
       if (!getTokenBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, token_);
       }
+      if (friendsUpdateTime_ != 0L) {
+        output.writeInt64(2, friendsUpdateTime_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -5455,6 +7166,10 @@ public final class MessageProtos {
       size = 0;
       if (!getTokenBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, token_);
+      }
+      if (friendsUpdateTime_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, friendsUpdateTime_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5474,6 +7189,8 @@ public final class MessageProtos {
       boolean result = true;
       result = result && getToken()
           .equals(other.getToken());
+      result = result && (getFriendsUpdateTime()
+          == other.getFriendsUpdateTime());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -5487,6 +7204,9 @@ public final class MessageProtos {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + TOKEN_FIELD_NUMBER;
       hash = (53 * hash) + getToken().hashCode();
+      hash = (37 * hash) + FRIENDSUPDATETIME_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getFriendsUpdateTime());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5622,6 +7342,8 @@ public final class MessageProtos {
         super.clear();
         token_ = "";
 
+        friendsUpdateTime_ = 0L;
+
         return this;
       }
 
@@ -5645,6 +7367,7 @@ public final class MessageProtos {
       public chat.ono.chatsdk.proto.MessageProtos.UserLoginRequest buildPartial() {
         chat.ono.chatsdk.proto.MessageProtos.UserLoginRequest result = new chat.ono.chatsdk.proto.MessageProtos.UserLoginRequest(this);
         result.token_ = token_;
+        result.friendsUpdateTime_ = friendsUpdateTime_;
         onBuilt();
         return result;
       }
@@ -5689,6 +7412,9 @@ public final class MessageProtos {
         if (!other.getToken().isEmpty()) {
           token_ = other.token_;
           onChanged();
+        }
+        if (other.getFriendsUpdateTime() != 0L) {
+          setFriendsUpdateTime(other.getFriendsUpdateTime());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5785,6 +7511,32 @@ public final class MessageProtos {
         onChanged();
         return this;
       }
+
+      private long friendsUpdateTime_ ;
+      /**
+       * <code>int64 friendsUpdateTime = 2;</code>
+       */
+      public long getFriendsUpdateTime() {
+        return friendsUpdateTime_;
+      }
+      /**
+       * <code>int64 friendsUpdateTime = 2;</code>
+       */
+      public Builder setFriendsUpdateTime(long value) {
+        
+        friendsUpdateTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 friendsUpdateTime = 2;</code>
+       */
+      public Builder clearFriendsUpdateTime() {
+        
+        friendsUpdateTime_ = 0L;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFieldsProto3(unknownFields);
@@ -5874,6 +7626,19 @@ public final class MessageProtos {
      */
     chat.ono.chatsdk.proto.MessageProtos.MessageOrBuilder getMessagesOrBuilder(
         int index);
+
+    /**
+     * <code>.FriendOperations friendOperations = 3;</code>
+     */
+    boolean hasFriendOperations();
+    /**
+     * <code>.FriendOperations friendOperations = 3;</code>
+     */
+    chat.ono.chatsdk.proto.MessageProtos.FriendOperations getFriendOperations();
+    /**
+     * <code>.FriendOperations friendOperations = 3;</code>
+     */
+    chat.ono.chatsdk.proto.MessageProtos.FriendOperationsOrBuilder getFriendOperationsOrBuilder();
   }
   /**
    * <pre>
@@ -5946,6 +7711,19 @@ public final class MessageProtos {
               }
               messages_.add(
                   input.readMessage(chat.ono.chatsdk.proto.MessageProtos.Message.parser(), extensionRegistry));
+              break;
+            }
+            case 26: {
+              chat.ono.chatsdk.proto.MessageProtos.FriendOperations.Builder subBuilder = null;
+              if (friendOperations_ != null) {
+                subBuilder = friendOperations_.toBuilder();
+              }
+              friendOperations_ = input.readMessage(chat.ono.chatsdk.proto.MessageProtos.FriendOperations.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(friendOperations_);
+                friendOperations_ = subBuilder.buildPartial();
+              }
+
               break;
             }
           }
@@ -6032,6 +7810,27 @@ public final class MessageProtos {
       return messages_.get(index);
     }
 
+    public static final int FRIENDOPERATIONS_FIELD_NUMBER = 3;
+    private chat.ono.chatsdk.proto.MessageProtos.FriendOperations friendOperations_;
+    /**
+     * <code>.FriendOperations friendOperations = 3;</code>
+     */
+    public boolean hasFriendOperations() {
+      return friendOperations_ != null;
+    }
+    /**
+     * <code>.FriendOperations friendOperations = 3;</code>
+     */
+    public chat.ono.chatsdk.proto.MessageProtos.FriendOperations getFriendOperations() {
+      return friendOperations_ == null ? chat.ono.chatsdk.proto.MessageProtos.FriendOperations.getDefaultInstance() : friendOperations_;
+    }
+    /**
+     * <code>.FriendOperations friendOperations = 3;</code>
+     */
+    public chat.ono.chatsdk.proto.MessageProtos.FriendOperationsOrBuilder getFriendOperationsOrBuilder() {
+      return getFriendOperations();
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -6050,6 +7849,9 @@ public final class MessageProtos {
       for (int i = 0; i < messages_.size(); i++) {
         output.writeMessage(2, messages_.get(i));
       }
+      if (friendOperations_ != null) {
+        output.writeMessage(3, getFriendOperations());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6065,6 +7867,10 @@ public final class MessageProtos {
       for (int i = 0; i < messages_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, messages_.get(i));
+      }
+      if (friendOperations_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getFriendOperations());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6089,6 +7895,11 @@ public final class MessageProtos {
       }
       result = result && getMessagesList()
           .equals(other.getMessagesList());
+      result = result && (hasFriendOperations() == other.hasFriendOperations());
+      if (hasFriendOperations()) {
+        result = result && getFriendOperations()
+            .equals(other.getFriendOperations());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -6107,6 +7918,10 @@ public final class MessageProtos {
       if (getMessagesCount() > 0) {
         hash = (37 * hash) + MESSAGES_FIELD_NUMBER;
         hash = (53 * hash) + getMessagesList().hashCode();
+      }
+      if (hasFriendOperations()) {
+        hash = (37 * hash) + FRIENDOPERATIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getFriendOperations().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -6254,6 +8069,12 @@ public final class MessageProtos {
         } else {
           messagesBuilder_.clear();
         }
+        if (friendOperationsBuilder_ == null) {
+          friendOperations_ = null;
+        } else {
+          friendOperations_ = null;
+          friendOperationsBuilder_ = null;
+        }
         return this;
       }
 
@@ -6291,6 +8112,11 @@ public final class MessageProtos {
           result.messages_ = messages_;
         } else {
           result.messages_ = messagesBuilder_.build();
+        }
+        if (friendOperationsBuilder_ == null) {
+          result.friendOperations_ = friendOperations_;
+        } else {
+          result.friendOperations_ = friendOperationsBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -6362,6 +8188,9 @@ public final class MessageProtos {
               messagesBuilder_.addAllMessages(other.messages_);
             }
           }
+        }
+        if (other.hasFriendOperations()) {
+          mergeFriendOperations(other.getFriendOperations());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -6746,6 +8575,123 @@ public final class MessageProtos {
           messages_ = null;
         }
         return messagesBuilder_;
+      }
+
+      private chat.ono.chatsdk.proto.MessageProtos.FriendOperations friendOperations_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          chat.ono.chatsdk.proto.MessageProtos.FriendOperations, chat.ono.chatsdk.proto.MessageProtos.FriendOperations.Builder, chat.ono.chatsdk.proto.MessageProtos.FriendOperationsOrBuilder> friendOperationsBuilder_;
+      /**
+       * <code>.FriendOperations friendOperations = 3;</code>
+       */
+      public boolean hasFriendOperations() {
+        return friendOperationsBuilder_ != null || friendOperations_ != null;
+      }
+      /**
+       * <code>.FriendOperations friendOperations = 3;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.FriendOperations getFriendOperations() {
+        if (friendOperationsBuilder_ == null) {
+          return friendOperations_ == null ? chat.ono.chatsdk.proto.MessageProtos.FriendOperations.getDefaultInstance() : friendOperations_;
+        } else {
+          return friendOperationsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.FriendOperations friendOperations = 3;</code>
+       */
+      public Builder setFriendOperations(chat.ono.chatsdk.proto.MessageProtos.FriendOperations value) {
+        if (friendOperationsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          friendOperations_ = value;
+          onChanged();
+        } else {
+          friendOperationsBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.FriendOperations friendOperations = 3;</code>
+       */
+      public Builder setFriendOperations(
+          chat.ono.chatsdk.proto.MessageProtos.FriendOperations.Builder builderForValue) {
+        if (friendOperationsBuilder_ == null) {
+          friendOperations_ = builderForValue.build();
+          onChanged();
+        } else {
+          friendOperationsBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.FriendOperations friendOperations = 3;</code>
+       */
+      public Builder mergeFriendOperations(chat.ono.chatsdk.proto.MessageProtos.FriendOperations value) {
+        if (friendOperationsBuilder_ == null) {
+          if (friendOperations_ != null) {
+            friendOperations_ =
+              chat.ono.chatsdk.proto.MessageProtos.FriendOperations.newBuilder(friendOperations_).mergeFrom(value).buildPartial();
+          } else {
+            friendOperations_ = value;
+          }
+          onChanged();
+        } else {
+          friendOperationsBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.FriendOperations friendOperations = 3;</code>
+       */
+      public Builder clearFriendOperations() {
+        if (friendOperationsBuilder_ == null) {
+          friendOperations_ = null;
+          onChanged();
+        } else {
+          friendOperations_ = null;
+          friendOperationsBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.FriendOperations friendOperations = 3;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.FriendOperations.Builder getFriendOperationsBuilder() {
+        
+        onChanged();
+        return getFriendOperationsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.FriendOperations friendOperations = 3;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.FriendOperationsOrBuilder getFriendOperationsOrBuilder() {
+        if (friendOperationsBuilder_ != null) {
+          return friendOperationsBuilder_.getMessageOrBuilder();
+        } else {
+          return friendOperations_ == null ?
+              chat.ono.chatsdk.proto.MessageProtos.FriendOperations.getDefaultInstance() : friendOperations_;
+        }
+      }
+      /**
+       * <code>.FriendOperations friendOperations = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          chat.ono.chatsdk.proto.MessageProtos.FriendOperations, chat.ono.chatsdk.proto.MessageProtos.FriendOperations.Builder, chat.ono.chatsdk.proto.MessageProtos.FriendOperationsOrBuilder> 
+          getFriendOperationsFieldBuilder() {
+        if (friendOperationsBuilder_ == null) {
+          friendOperationsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              chat.ono.chatsdk.proto.MessageProtos.FriendOperations, chat.ono.chatsdk.proto.MessageProtos.FriendOperations.Builder, chat.ono.chatsdk.proto.MessageProtos.FriendOperationsOrBuilder>(
+                  getFriendOperations(),
+                  getParentForChildren(),
+                  isClean());
+          friendOperations_ = null;
+        }
+        return friendOperationsBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -7898,6 +9844,1342 @@ public final class MessageProtos {
     }
 
     public chat.ono.chatsdk.proto.MessageProtos.UserProfileResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface UserProfilesRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:UserProfilesRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated string uids = 1;</code>
+     */
+    java.util.List<java.lang.String>
+        getUidsList();
+    /**
+     * <code>repeated string uids = 1;</code>
+     */
+    int getUidsCount();
+    /**
+     * <code>repeated string uids = 1;</code>
+     */
+    java.lang.String getUids(int index);
+    /**
+     * <code>repeated string uids = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getUidsBytes(int index);
+  }
+  /**
+   * Protobuf type {@code UserProfilesRequest}
+   */
+  public  static final class UserProfilesRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:UserProfilesRequest)
+      UserProfilesRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use UserProfilesRequest.newBuilder() to construct.
+    private UserProfilesRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private UserProfilesRequest() {
+      uids_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private UserProfilesRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                uids_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              uids_.add(s);
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          uids_ = uids_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return chat.ono.chatsdk.proto.MessageProtos.internal_static_UserProfilesRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return chat.ono.chatsdk.proto.MessageProtos.internal_static_UserProfilesRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest.class, chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest.Builder.class);
+    }
+
+    public static final int UIDS_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList uids_;
+    /**
+     * <code>repeated string uids = 1;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getUidsList() {
+      return uids_;
+    }
+    /**
+     * <code>repeated string uids = 1;</code>
+     */
+    public int getUidsCount() {
+      return uids_.size();
+    }
+    /**
+     * <code>repeated string uids = 1;</code>
+     */
+    public java.lang.String getUids(int index) {
+      return uids_.get(index);
+    }
+    /**
+     * <code>repeated string uids = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUidsBytes(int index) {
+      return uids_.getByteString(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < uids_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uids_.getRaw(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < uids_.size(); i++) {
+          dataSize += computeStringSizeNoTag(uids_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getUidsList().size();
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest)) {
+        return super.equals(obj);
+      }
+      chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest other = (chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest) obj;
+
+      boolean result = true;
+      result = result && getUidsList()
+          .equals(other.getUidsList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getUidsCount() > 0) {
+        hash = (37 * hash) + UIDS_FIELD_NUMBER;
+        hash = (53 * hash) + getUidsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code UserProfilesRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:UserProfilesRequest)
+        chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_UserProfilesRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_UserProfilesRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest.class, chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest.Builder.class);
+      }
+
+      // Construct using chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        uids_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_UserProfilesRequest_descriptor;
+      }
+
+      public chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest getDefaultInstanceForType() {
+        return chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest.getDefaultInstance();
+      }
+
+      public chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest build() {
+        chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest buildPartial() {
+        chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest result = new chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          uids_ = uids_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.uids_ = uids_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest) {
+          return mergeFrom((chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest other) {
+        if (other == chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest.getDefaultInstance()) return this;
+        if (!other.uids_.isEmpty()) {
+          if (uids_.isEmpty()) {
+            uids_ = other.uids_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureUidsIsMutable();
+            uids_.addAll(other.uids_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.LazyStringList uids_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureUidsIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          uids_ = new com.google.protobuf.LazyStringArrayList(uids_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string uids = 1;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getUidsList() {
+        return uids_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string uids = 1;</code>
+       */
+      public int getUidsCount() {
+        return uids_.size();
+      }
+      /**
+       * <code>repeated string uids = 1;</code>
+       */
+      public java.lang.String getUids(int index) {
+        return uids_.get(index);
+      }
+      /**
+       * <code>repeated string uids = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUidsBytes(int index) {
+        return uids_.getByteString(index);
+      }
+      /**
+       * <code>repeated string uids = 1;</code>
+       */
+      public Builder setUids(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureUidsIsMutable();
+        uids_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string uids = 1;</code>
+       */
+      public Builder addUids(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureUidsIsMutable();
+        uids_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string uids = 1;</code>
+       */
+      public Builder addAllUids(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureUidsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, uids_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string uids = 1;</code>
+       */
+      public Builder clearUids() {
+        uids_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string uids = 1;</code>
+       */
+      public Builder addUidsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureUidsIsMutable();
+        uids_.add(value);
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:UserProfilesRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:UserProfilesRequest)
+    private static final chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest();
+    }
+
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<UserProfilesRequest>
+        PARSER = new com.google.protobuf.AbstractParser<UserProfilesRequest>() {
+      public UserProfilesRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new UserProfilesRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<UserProfilesRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UserProfilesRequest> getParserForType() {
+      return PARSER;
+    }
+
+    public chat.ono.chatsdk.proto.MessageProtos.UserProfilesRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface UserProfilesResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:UserProfilesResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .UserData users = 1;</code>
+     */
+    java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> 
+        getUsersList();
+    /**
+     * <code>repeated .UserData users = 1;</code>
+     */
+    chat.ono.chatsdk.proto.MessageProtos.UserData getUsers(int index);
+    /**
+     * <code>repeated .UserData users = 1;</code>
+     */
+    int getUsersCount();
+    /**
+     * <code>repeated .UserData users = 1;</code>
+     */
+    java.util.List<? extends chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> 
+        getUsersOrBuilderList();
+    /**
+     * <code>repeated .UserData users = 1;</code>
+     */
+    chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder getUsersOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code UserProfilesResponse}
+   */
+  public  static final class UserProfilesResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:UserProfilesResponse)
+      UserProfilesResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use UserProfilesResponse.newBuilder() to construct.
+    private UserProfilesResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private UserProfilesResponse() {
+      users_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private UserProfilesResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                users_ = new java.util.ArrayList<chat.ono.chatsdk.proto.MessageProtos.UserData>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              users_.add(
+                  input.readMessage(chat.ono.chatsdk.proto.MessageProtos.UserData.parser(), extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          users_ = java.util.Collections.unmodifiableList(users_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return chat.ono.chatsdk.proto.MessageProtos.internal_static_UserProfilesResponse_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return chat.ono.chatsdk.proto.MessageProtos.internal_static_UserProfilesResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse.class, chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse.Builder.class);
+    }
+
+    public static final int USERS_FIELD_NUMBER = 1;
+    private java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> users_;
+    /**
+     * <code>repeated .UserData users = 1;</code>
+     */
+    public java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> getUsersList() {
+      return users_;
+    }
+    /**
+     * <code>repeated .UserData users = 1;</code>
+     */
+    public java.util.List<? extends chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> 
+        getUsersOrBuilderList() {
+      return users_;
+    }
+    /**
+     * <code>repeated .UserData users = 1;</code>
+     */
+    public int getUsersCount() {
+      return users_.size();
+    }
+    /**
+     * <code>repeated .UserData users = 1;</code>
+     */
+    public chat.ono.chatsdk.proto.MessageProtos.UserData getUsers(int index) {
+      return users_.get(index);
+    }
+    /**
+     * <code>repeated .UserData users = 1;</code>
+     */
+    public chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder getUsersOrBuilder(
+        int index) {
+      return users_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < users_.size(); i++) {
+        output.writeMessage(1, users_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < users_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, users_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse)) {
+        return super.equals(obj);
+      }
+      chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse other = (chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse) obj;
+
+      boolean result = true;
+      result = result && getUsersList()
+          .equals(other.getUsersList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getUsersCount() > 0) {
+        hash = (37 * hash) + USERS_FIELD_NUMBER;
+        hash = (53 * hash) + getUsersList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code UserProfilesResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:UserProfilesResponse)
+        chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_UserProfilesResponse_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_UserProfilesResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse.class, chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse.Builder.class);
+      }
+
+      // Construct using chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getUsersFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (usersBuilder_ == null) {
+          users_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          usersBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_UserProfilesResponse_descriptor;
+      }
+
+      public chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse getDefaultInstanceForType() {
+        return chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse.getDefaultInstance();
+      }
+
+      public chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse build() {
+        chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse buildPartial() {
+        chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse result = new chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (usersBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            users_ = java.util.Collections.unmodifiableList(users_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.users_ = users_;
+        } else {
+          result.users_ = usersBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse) {
+          return mergeFrom((chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse other) {
+        if (other == chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse.getDefaultInstance()) return this;
+        if (usersBuilder_ == null) {
+          if (!other.users_.isEmpty()) {
+            if (users_.isEmpty()) {
+              users_ = other.users_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureUsersIsMutable();
+              users_.addAll(other.users_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.users_.isEmpty()) {
+            if (usersBuilder_.isEmpty()) {
+              usersBuilder_.dispose();
+              usersBuilder_ = null;
+              users_ = other.users_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              usersBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getUsersFieldBuilder() : null;
+            } else {
+              usersBuilder_.addAllMessages(other.users_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> users_ =
+        java.util.Collections.emptyList();
+      private void ensureUsersIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          users_ = new java.util.ArrayList<chat.ono.chatsdk.proto.MessageProtos.UserData>(users_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          chat.ono.chatsdk.proto.MessageProtos.UserData, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder, chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> usersBuilder_;
+
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> getUsersList() {
+        if (usersBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(users_);
+        } else {
+          return usersBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public int getUsersCount() {
+        if (usersBuilder_ == null) {
+          return users_.size();
+        } else {
+          return usersBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserData getUsers(int index) {
+        if (usersBuilder_ == null) {
+          return users_.get(index);
+        } else {
+          return usersBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public Builder setUsers(
+          int index, chat.ono.chatsdk.proto.MessageProtos.UserData value) {
+        if (usersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUsersIsMutable();
+          users_.set(index, value);
+          onChanged();
+        } else {
+          usersBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public Builder setUsers(
+          int index, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder builderForValue) {
+        if (usersBuilder_ == null) {
+          ensureUsersIsMutable();
+          users_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          usersBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public Builder addUsers(chat.ono.chatsdk.proto.MessageProtos.UserData value) {
+        if (usersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUsersIsMutable();
+          users_.add(value);
+          onChanged();
+        } else {
+          usersBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public Builder addUsers(
+          int index, chat.ono.chatsdk.proto.MessageProtos.UserData value) {
+        if (usersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUsersIsMutable();
+          users_.add(index, value);
+          onChanged();
+        } else {
+          usersBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public Builder addUsers(
+          chat.ono.chatsdk.proto.MessageProtos.UserData.Builder builderForValue) {
+        if (usersBuilder_ == null) {
+          ensureUsersIsMutable();
+          users_.add(builderForValue.build());
+          onChanged();
+        } else {
+          usersBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public Builder addUsers(
+          int index, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder builderForValue) {
+        if (usersBuilder_ == null) {
+          ensureUsersIsMutable();
+          users_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          usersBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public Builder addAllUsers(
+          java.lang.Iterable<? extends chat.ono.chatsdk.proto.MessageProtos.UserData> values) {
+        if (usersBuilder_ == null) {
+          ensureUsersIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, users_);
+          onChanged();
+        } else {
+          usersBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public Builder clearUsers() {
+        if (usersBuilder_ == null) {
+          users_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          usersBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public Builder removeUsers(int index) {
+        if (usersBuilder_ == null) {
+          ensureUsersIsMutable();
+          users_.remove(index);
+          onChanged();
+        } else {
+          usersBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserData.Builder getUsersBuilder(
+          int index) {
+        return getUsersFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder getUsersOrBuilder(
+          int index) {
+        if (usersBuilder_ == null) {
+          return users_.get(index);  } else {
+          return usersBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public java.util.List<? extends chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> 
+           getUsersOrBuilderList() {
+        if (usersBuilder_ != null) {
+          return usersBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(users_);
+        }
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserData.Builder addUsersBuilder() {
+        return getUsersFieldBuilder().addBuilder(
+            chat.ono.chatsdk.proto.MessageProtos.UserData.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserData.Builder addUsersBuilder(
+          int index) {
+        return getUsersFieldBuilder().addBuilder(
+            index, chat.ono.chatsdk.proto.MessageProtos.UserData.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData.Builder> 
+           getUsersBuilderList() {
+        return getUsersFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          chat.ono.chatsdk.proto.MessageProtos.UserData, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder, chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> 
+          getUsersFieldBuilder() {
+        if (usersBuilder_ == null) {
+          usersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              chat.ono.chatsdk.proto.MessageProtos.UserData, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder, chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder>(
+                  users_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          users_ = null;
+        }
+        return usersBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:UserProfilesResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:UserProfilesResponse)
+    private static final chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse();
+    }
+
+    public static chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<UserProfilesResponse>
+        PARSER = new com.google.protobuf.AbstractParser<UserProfilesResponse>() {
+      public UserProfilesResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new UserProfilesResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<UserProfilesResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UserProfilesResponse> getParserForType() {
+      return PARSER;
+    }
+
+    public chat.ono.chatsdk.proto.MessageProtos.UserProfilesResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -10032,27 +13314,33 @@ public final class MessageProtos {
 
   }
 
-  public interface FriendListRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:FriendListRequest)
+  public interface FriendUpdatesRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:FriendUpdatesRequest)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 friendsUpdateTime = 1;</code>
+     */
+    long getFriendsUpdateTime();
   }
   /**
    * <pre>
    *请求 好友列表
    * </pre>
    *
-   * Protobuf type {@code FriendListRequest}
+   * Protobuf type {@code FriendUpdatesRequest}
    */
-  public  static final class FriendListRequest extends
+  public  static final class FriendUpdatesRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:FriendListRequest)
-      FriendListRequestOrBuilder {
+      // @@protoc_insertion_point(message_implements:FriendUpdatesRequest)
+      FriendUpdatesRequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use FriendListRequest.newBuilder() to construct.
-    private FriendListRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use FriendUpdatesRequest.newBuilder() to construct.
+    private FriendUpdatesRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private FriendListRequest() {
+    private FriendUpdatesRequest() {
+      friendsUpdateTime_ = 0L;
     }
 
     @java.lang.Override
@@ -10060,7 +13348,7 @@ public final class MessageProtos {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private FriendListRequest(
+    private FriendUpdatesRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -10068,6 +13356,7 @@ public final class MessageProtos {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -10085,6 +13374,11 @@ public final class MessageProtos {
               }
               break;
             }
+            case 8: {
+
+              friendsUpdateTime_ = input.readInt64();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -10099,14 +13393,23 @@ public final class MessageProtos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendListRequest_descriptor;
+      return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendUpdatesRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendListRequest_fieldAccessorTable
+      return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendUpdatesRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              chat.ono.chatsdk.proto.MessageProtos.FriendListRequest.class, chat.ono.chatsdk.proto.MessageProtos.FriendListRequest.Builder.class);
+              chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest.class, chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest.Builder.class);
+    }
+
+    public static final int FRIENDSUPDATETIME_FIELD_NUMBER = 1;
+    private long friendsUpdateTime_;
+    /**
+     * <code>int64 friendsUpdateTime = 1;</code>
+     */
+    public long getFriendsUpdateTime() {
+      return friendsUpdateTime_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -10121,6 +13424,9 @@ public final class MessageProtos {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (friendsUpdateTime_ != 0L) {
+        output.writeInt64(1, friendsUpdateTime_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -10129,6 +13435,10 @@ public final class MessageProtos {
       if (size != -1) return size;
 
       size = 0;
+      if (friendsUpdateTime_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, friendsUpdateTime_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -10139,12 +13449,14 @@ public final class MessageProtos {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof chat.ono.chatsdk.proto.MessageProtos.FriendListRequest)) {
+      if (!(obj instanceof chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest)) {
         return super.equals(obj);
       }
-      chat.ono.chatsdk.proto.MessageProtos.FriendListRequest other = (chat.ono.chatsdk.proto.MessageProtos.FriendListRequest) obj;
+      chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest other = (chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest) obj;
 
       boolean result = true;
+      result = result && (getFriendsUpdateTime()
+          == other.getFriendsUpdateTime());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -10156,74 +13468,77 @@ public final class MessageProtos {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FRIENDSUPDATETIME_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getFriendsUpdateTime());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListRequest parseFrom(
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListRequest parseFrom(
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListRequest parseFrom(
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListRequest parseFrom(
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListRequest parseFrom(byte[] data)
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListRequest parseFrom(
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListRequest parseFrom(java.io.InputStream input)
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListRequest parseFrom(
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListRequest parseDelimitedFrom(java.io.InputStream input)
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListRequest parseDelimitedFrom(
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListRequest parseFrom(
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListRequest parseFrom(
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -10235,7 +13550,7 @@ public final class MessageProtos {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(chat.ono.chatsdk.proto.MessageProtos.FriendListRequest prototype) {
+    public static Builder newBuilder(chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -10254,25 +13569,25 @@ public final class MessageProtos {
      *请求 好友列表
      * </pre>
      *
-     * Protobuf type {@code FriendListRequest}
+     * Protobuf type {@code FriendUpdatesRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:FriendListRequest)
-        chat.ono.chatsdk.proto.MessageProtos.FriendListRequestOrBuilder {
+        // @@protoc_insertion_point(builder_implements:FriendUpdatesRequest)
+        chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendListRequest_descriptor;
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendUpdatesRequest_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendListRequest_fieldAccessorTable
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendUpdatesRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                chat.ono.chatsdk.proto.MessageProtos.FriendListRequest.class, chat.ono.chatsdk.proto.MessageProtos.FriendListRequest.Builder.class);
+                chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest.class, chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest.Builder.class);
       }
 
-      // Construct using chat.ono.chatsdk.proto.MessageProtos.FriendListRequest.newBuilder()
+      // Construct using chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -10289,28 +13604,31 @@ public final class MessageProtos {
       }
       public Builder clear() {
         super.clear();
+        friendsUpdateTime_ = 0L;
+
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendListRequest_descriptor;
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendUpdatesRequest_descriptor;
       }
 
-      public chat.ono.chatsdk.proto.MessageProtos.FriendListRequest getDefaultInstanceForType() {
-        return chat.ono.chatsdk.proto.MessageProtos.FriendListRequest.getDefaultInstance();
+      public chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest getDefaultInstanceForType() {
+        return chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest.getDefaultInstance();
       }
 
-      public chat.ono.chatsdk.proto.MessageProtos.FriendListRequest build() {
-        chat.ono.chatsdk.proto.MessageProtos.FriendListRequest result = buildPartial();
+      public chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest build() {
+        chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public chat.ono.chatsdk.proto.MessageProtos.FriendListRequest buildPartial() {
-        chat.ono.chatsdk.proto.MessageProtos.FriendListRequest result = new chat.ono.chatsdk.proto.MessageProtos.FriendListRequest(this);
+      public chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest buildPartial() {
+        chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest result = new chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest(this);
+        result.friendsUpdateTime_ = friendsUpdateTime_;
         onBuilt();
         return result;
       }
@@ -10342,16 +13660,19 @@ public final class MessageProtos {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof chat.ono.chatsdk.proto.MessageProtos.FriendListRequest) {
-          return mergeFrom((chat.ono.chatsdk.proto.MessageProtos.FriendListRequest)other);
+        if (other instanceof chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest) {
+          return mergeFrom((chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(chat.ono.chatsdk.proto.MessageProtos.FriendListRequest other) {
-        if (other == chat.ono.chatsdk.proto.MessageProtos.FriendListRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest other) {
+        if (other == chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest.getDefaultInstance()) return this;
+        if (other.getFriendsUpdateTime() != 0L) {
+          setFriendsUpdateTime(other.getFriendsUpdateTime());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -10365,17 +13686,43 @@ public final class MessageProtos {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        chat.ono.chatsdk.proto.MessageProtos.FriendListRequest parsedMessage = null;
+        chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (chat.ono.chatsdk.proto.MessageProtos.FriendListRequest) e.getUnfinishedMessage();
+          parsedMessage = (chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
           }
         }
+        return this;
+      }
+
+      private long friendsUpdateTime_ ;
+      /**
+       * <code>int64 friendsUpdateTime = 1;</code>
+       */
+      public long getFriendsUpdateTime() {
+        return friendsUpdateTime_;
+      }
+      /**
+       * <code>int64 friendsUpdateTime = 1;</code>
+       */
+      public Builder setFriendsUpdateTime(long value) {
+        
+        friendsUpdateTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 friendsUpdateTime = 1;</code>
+       */
+      public Builder clearFriendsUpdateTime() {
+        
+        friendsUpdateTime_ = 0L;
+        onChanged();
         return this;
       }
       public final Builder setUnknownFields(
@@ -10389,90 +13736,78 @@ public final class MessageProtos {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:FriendListRequest)
+      // @@protoc_insertion_point(builder_scope:FriendUpdatesRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:FriendListRequest)
-    private static final chat.ono.chatsdk.proto.MessageProtos.FriendListRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:FriendUpdatesRequest)
+    private static final chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new chat.ono.chatsdk.proto.MessageProtos.FriendListRequest();
+      DEFAULT_INSTANCE = new chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest();
     }
 
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListRequest getDefaultInstance() {
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<FriendListRequest>
-        PARSER = new com.google.protobuf.AbstractParser<FriendListRequest>() {
-      public FriendListRequest parsePartialFrom(
+    private static final com.google.protobuf.Parser<FriendUpdatesRequest>
+        PARSER = new com.google.protobuf.AbstractParser<FriendUpdatesRequest>() {
+      public FriendUpdatesRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FriendListRequest(input, extensionRegistry);
+        return new FriendUpdatesRequest(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<FriendListRequest> parser() {
+    public static com.google.protobuf.Parser<FriendUpdatesRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<FriendListRequest> getParserForType() {
+    public com.google.protobuf.Parser<FriendUpdatesRequest> getParserForType() {
       return PARSER;
     }
 
-    public chat.ono.chatsdk.proto.MessageProtos.FriendListRequest getDefaultInstanceForType() {
+    public chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface FriendListResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:FriendListResponse)
+  public interface FriendUpdatesResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:FriendUpdatesResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .UserData friends = 1;</code>
+     * <code>.FriendOperations friendOperations = 1;</code>
      */
-    java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> 
-        getFriendsList();
+    boolean hasFriendOperations();
     /**
-     * <code>repeated .UserData friends = 1;</code>
+     * <code>.FriendOperations friendOperations = 1;</code>
      */
-    chat.ono.chatsdk.proto.MessageProtos.UserData getFriends(int index);
+    chat.ono.chatsdk.proto.MessageProtos.FriendOperations getFriendOperations();
     /**
-     * <code>repeated .UserData friends = 1;</code>
+     * <code>.FriendOperations friendOperations = 1;</code>
      */
-    int getFriendsCount();
-    /**
-     * <code>repeated .UserData friends = 1;</code>
-     */
-    java.util.List<? extends chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> 
-        getFriendsOrBuilderList();
-    /**
-     * <code>repeated .UserData friends = 1;</code>
-     */
-    chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder getFriendsOrBuilder(
-        int index);
+    chat.ono.chatsdk.proto.MessageProtos.FriendOperationsOrBuilder getFriendOperationsOrBuilder();
   }
   /**
    * <pre>
    *响应 好友列表
    * </pre>
    *
-   * Protobuf type {@code FriendListResponse}
+   * Protobuf type {@code FriendUpdatesResponse}
    */
-  public  static final class FriendListResponse extends
+  public  static final class FriendUpdatesResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:FriendListResponse)
-      FriendListResponseOrBuilder {
+      // @@protoc_insertion_point(message_implements:FriendUpdatesResponse)
+      FriendUpdatesResponseOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use FriendListResponse.newBuilder() to construct.
-    private FriendListResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use FriendUpdatesResponse.newBuilder() to construct.
+    private FriendUpdatesResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private FriendListResponse() {
-      friends_ = java.util.Collections.emptyList();
+    private FriendUpdatesResponse() {
     }
 
     @java.lang.Override
@@ -10480,7 +13815,7 @@ public final class MessageProtos {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private FriendListResponse(
+    private FriendUpdatesResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -10507,12 +13842,16 @@ public final class MessageProtos {
               break;
             }
             case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                friends_ = new java.util.ArrayList<chat.ono.chatsdk.proto.MessageProtos.UserData>();
-                mutable_bitField0_ |= 0x00000001;
+              chat.ono.chatsdk.proto.MessageProtos.FriendOperations.Builder subBuilder = null;
+              if (friendOperations_ != null) {
+                subBuilder = friendOperations_.toBuilder();
               }
-              friends_.add(
-                  input.readMessage(chat.ono.chatsdk.proto.MessageProtos.UserData.parser(), extensionRegistry));
+              friendOperations_ = input.readMessage(chat.ono.chatsdk.proto.MessageProtos.FriendOperations.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(friendOperations_);
+                friendOperations_ = subBuilder.buildPartial();
+              }
+
               break;
             }
           }
@@ -10523,58 +13862,41 @@ public final class MessageProtos {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          friends_ = java.util.Collections.unmodifiableList(friends_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendListResponse_descriptor;
+      return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendUpdatesResponse_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendListResponse_fieldAccessorTable
+      return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendUpdatesResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              chat.ono.chatsdk.proto.MessageProtos.FriendListResponse.class, chat.ono.chatsdk.proto.MessageProtos.FriendListResponse.Builder.class);
+              chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse.class, chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse.Builder.class);
     }
 
-    public static final int FRIENDS_FIELD_NUMBER = 1;
-    private java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> friends_;
+    public static final int FRIENDOPERATIONS_FIELD_NUMBER = 1;
+    private chat.ono.chatsdk.proto.MessageProtos.FriendOperations friendOperations_;
     /**
-     * <code>repeated .UserData friends = 1;</code>
+     * <code>.FriendOperations friendOperations = 1;</code>
      */
-    public java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> getFriendsList() {
-      return friends_;
+    public boolean hasFriendOperations() {
+      return friendOperations_ != null;
     }
     /**
-     * <code>repeated .UserData friends = 1;</code>
+     * <code>.FriendOperations friendOperations = 1;</code>
      */
-    public java.util.List<? extends chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> 
-        getFriendsOrBuilderList() {
-      return friends_;
+    public chat.ono.chatsdk.proto.MessageProtos.FriendOperations getFriendOperations() {
+      return friendOperations_ == null ? chat.ono.chatsdk.proto.MessageProtos.FriendOperations.getDefaultInstance() : friendOperations_;
     }
     /**
-     * <code>repeated .UserData friends = 1;</code>
+     * <code>.FriendOperations friendOperations = 1;</code>
      */
-    public int getFriendsCount() {
-      return friends_.size();
-    }
-    /**
-     * <code>repeated .UserData friends = 1;</code>
-     */
-    public chat.ono.chatsdk.proto.MessageProtos.UserData getFriends(int index) {
-      return friends_.get(index);
-    }
-    /**
-     * <code>repeated .UserData friends = 1;</code>
-     */
-    public chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder getFriendsOrBuilder(
-        int index) {
-      return friends_.get(index);
+    public chat.ono.chatsdk.proto.MessageProtos.FriendOperationsOrBuilder getFriendOperationsOrBuilder() {
+      return getFriendOperations();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -10589,8 +13911,8 @@ public final class MessageProtos {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      for (int i = 0; i < friends_.size(); i++) {
-        output.writeMessage(1, friends_.get(i));
+      if (friendOperations_ != null) {
+        output.writeMessage(1, getFriendOperations());
       }
       unknownFields.writeTo(output);
     }
@@ -10600,9 +13922,9 @@ public final class MessageProtos {
       if (size != -1) return size;
 
       size = 0;
-      for (int i = 0; i < friends_.size(); i++) {
+      if (friendOperations_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, friends_.get(i));
+          .computeMessageSize(1, getFriendOperations());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -10614,14 +13936,17 @@ public final class MessageProtos {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof chat.ono.chatsdk.proto.MessageProtos.FriendListResponse)) {
+      if (!(obj instanceof chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse)) {
         return super.equals(obj);
       }
-      chat.ono.chatsdk.proto.MessageProtos.FriendListResponse other = (chat.ono.chatsdk.proto.MessageProtos.FriendListResponse) obj;
+      chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse other = (chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse) obj;
 
       boolean result = true;
-      result = result && getFriendsList()
-          .equals(other.getFriendsList());
+      result = result && (hasFriendOperations() == other.hasFriendOperations());
+      if (hasFriendOperations()) {
+        result = result && getFriendOperations()
+            .equals(other.getFriendOperations());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -10633,78 +13958,78 @@ public final class MessageProtos {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (getFriendsCount() > 0) {
-        hash = (37 * hash) + FRIENDS_FIELD_NUMBER;
-        hash = (53 * hash) + getFriendsList().hashCode();
+      if (hasFriendOperations()) {
+        hash = (37 * hash) + FRIENDOPERATIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getFriendOperations().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListResponse parseFrom(
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListResponse parseFrom(
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListResponse parseFrom(
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListResponse parseFrom(
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListResponse parseFrom(byte[] data)
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListResponse parseFrom(
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListResponse parseFrom(java.io.InputStream input)
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListResponse parseFrom(
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListResponse parseDelimitedFrom(java.io.InputStream input)
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListResponse parseDelimitedFrom(
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListResponse parseFrom(
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListResponse parseFrom(
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -10716,7 +14041,7 @@ public final class MessageProtos {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(chat.ono.chatsdk.proto.MessageProtos.FriendListResponse prototype) {
+    public static Builder newBuilder(chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -10735,25 +14060,25 @@ public final class MessageProtos {
      *响应 好友列表
      * </pre>
      *
-     * Protobuf type {@code FriendListResponse}
+     * Protobuf type {@code FriendUpdatesResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:FriendListResponse)
-        chat.ono.chatsdk.proto.MessageProtos.FriendListResponseOrBuilder {
+        // @@protoc_insertion_point(builder_implements:FriendUpdatesResponse)
+        chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendListResponse_descriptor;
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendUpdatesResponse_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendListResponse_fieldAccessorTable
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendUpdatesResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                chat.ono.chatsdk.proto.MessageProtos.FriendListResponse.class, chat.ono.chatsdk.proto.MessageProtos.FriendListResponse.Builder.class);
+                chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse.class, chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse.Builder.class);
       }
 
-      // Construct using chat.ono.chatsdk.proto.MessageProtos.FriendListResponse.newBuilder()
+      // Construct using chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -10766,48 +14091,42 @@ public final class MessageProtos {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getFriendsFieldBuilder();
         }
       }
       public Builder clear() {
         super.clear();
-        if (friendsBuilder_ == null) {
-          friends_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+        if (friendOperationsBuilder_ == null) {
+          friendOperations_ = null;
         } else {
-          friendsBuilder_.clear();
+          friendOperations_ = null;
+          friendOperationsBuilder_ = null;
         }
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendListResponse_descriptor;
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendUpdatesResponse_descriptor;
       }
 
-      public chat.ono.chatsdk.proto.MessageProtos.FriendListResponse getDefaultInstanceForType() {
-        return chat.ono.chatsdk.proto.MessageProtos.FriendListResponse.getDefaultInstance();
+      public chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse getDefaultInstanceForType() {
+        return chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse.getDefaultInstance();
       }
 
-      public chat.ono.chatsdk.proto.MessageProtos.FriendListResponse build() {
-        chat.ono.chatsdk.proto.MessageProtos.FriendListResponse result = buildPartial();
+      public chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse build() {
+        chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public chat.ono.chatsdk.proto.MessageProtos.FriendListResponse buildPartial() {
-        chat.ono.chatsdk.proto.MessageProtos.FriendListResponse result = new chat.ono.chatsdk.proto.MessageProtos.FriendListResponse(this);
-        int from_bitField0_ = bitField0_;
-        if (friendsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            friends_ = java.util.Collections.unmodifiableList(friends_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.friends_ = friends_;
+      public chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse buildPartial() {
+        chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse result = new chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse(this);
+        if (friendOperationsBuilder_ == null) {
+          result.friendOperations_ = friendOperations_;
         } else {
-          result.friends_ = friendsBuilder_.build();
+          result.friendOperations_ = friendOperationsBuilder_.build();
         }
         onBuilt();
         return result;
@@ -10840,41 +14159,18 @@ public final class MessageProtos {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof chat.ono.chatsdk.proto.MessageProtos.FriendListResponse) {
-          return mergeFrom((chat.ono.chatsdk.proto.MessageProtos.FriendListResponse)other);
+        if (other instanceof chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse) {
+          return mergeFrom((chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(chat.ono.chatsdk.proto.MessageProtos.FriendListResponse other) {
-        if (other == chat.ono.chatsdk.proto.MessageProtos.FriendListResponse.getDefaultInstance()) return this;
-        if (friendsBuilder_ == null) {
-          if (!other.friends_.isEmpty()) {
-            if (friends_.isEmpty()) {
-              friends_ = other.friends_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureFriendsIsMutable();
-              friends_.addAll(other.friends_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.friends_.isEmpty()) {
-            if (friendsBuilder_.isEmpty()) {
-              friendsBuilder_.dispose();
-              friendsBuilder_ = null;
-              friends_ = other.friends_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              friendsBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getFriendsFieldBuilder() : null;
-            } else {
-              friendsBuilder_.addAllMessages(other.friends_);
-            }
-          }
+      public Builder mergeFrom(chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse other) {
+        if (other == chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse.getDefaultInstance()) return this;
+        if (other.hasFriendOperations()) {
+          mergeFriendOperations(other.getFriendOperations());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -10889,11 +14185,11 @@ public final class MessageProtos {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        chat.ono.chatsdk.proto.MessageProtos.FriendListResponse parsedMessage = null;
+        chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (chat.ono.chatsdk.proto.MessageProtos.FriendListResponse) e.getUnfinishedMessage();
+          parsedMessage = (chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -10902,246 +14198,122 @@ public final class MessageProtos {
         }
         return this;
       }
-      private int bitField0_;
 
-      private java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> friends_ =
-        java.util.Collections.emptyList();
-      private void ensureFriendsIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          friends_ = new java.util.ArrayList<chat.ono.chatsdk.proto.MessageProtos.UserData>(friends_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          chat.ono.chatsdk.proto.MessageProtos.UserData, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder, chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> friendsBuilder_;
-
+      private chat.ono.chatsdk.proto.MessageProtos.FriendOperations friendOperations_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          chat.ono.chatsdk.proto.MessageProtos.FriendOperations, chat.ono.chatsdk.proto.MessageProtos.FriendOperations.Builder, chat.ono.chatsdk.proto.MessageProtos.FriendOperationsOrBuilder> friendOperationsBuilder_;
       /**
-       * <code>repeated .UserData friends = 1;</code>
+       * <code>.FriendOperations friendOperations = 1;</code>
        */
-      public java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> getFriendsList() {
-        if (friendsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(friends_);
+      public boolean hasFriendOperations() {
+        return friendOperationsBuilder_ != null || friendOperations_ != null;
+      }
+      /**
+       * <code>.FriendOperations friendOperations = 1;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.FriendOperations getFriendOperations() {
+        if (friendOperationsBuilder_ == null) {
+          return friendOperations_ == null ? chat.ono.chatsdk.proto.MessageProtos.FriendOperations.getDefaultInstance() : friendOperations_;
         } else {
-          return friendsBuilder_.getMessageList();
+          return friendOperationsBuilder_.getMessage();
         }
       }
       /**
-       * <code>repeated .UserData friends = 1;</code>
+       * <code>.FriendOperations friendOperations = 1;</code>
        */
-      public int getFriendsCount() {
-        if (friendsBuilder_ == null) {
-          return friends_.size();
-        } else {
-          return friendsBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .UserData friends = 1;</code>
-       */
-      public chat.ono.chatsdk.proto.MessageProtos.UserData getFriends(int index) {
-        if (friendsBuilder_ == null) {
-          return friends_.get(index);
-        } else {
-          return friendsBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .UserData friends = 1;</code>
-       */
-      public Builder setFriends(
-          int index, chat.ono.chatsdk.proto.MessageProtos.UserData value) {
-        if (friendsBuilder_ == null) {
+      public Builder setFriendOperations(chat.ono.chatsdk.proto.MessageProtos.FriendOperations value) {
+        if (friendOperationsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureFriendsIsMutable();
-          friends_.set(index, value);
+          friendOperations_ = value;
           onChanged();
         } else {
-          friendsBuilder_.setMessage(index, value);
+          friendOperationsBuilder_.setMessage(value);
         }
+
         return this;
       }
       /**
-       * <code>repeated .UserData friends = 1;</code>
+       * <code>.FriendOperations friendOperations = 1;</code>
        */
-      public Builder setFriends(
-          int index, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder builderForValue) {
-        if (friendsBuilder_ == null) {
-          ensureFriendsIsMutable();
-          friends_.set(index, builderForValue.build());
+      public Builder setFriendOperations(
+          chat.ono.chatsdk.proto.MessageProtos.FriendOperations.Builder builderForValue) {
+        if (friendOperationsBuilder_ == null) {
+          friendOperations_ = builderForValue.build();
           onChanged();
         } else {
-          friendsBuilder_.setMessage(index, builderForValue.build());
+          friendOperationsBuilder_.setMessage(builderForValue.build());
         }
+
         return this;
       }
       /**
-       * <code>repeated .UserData friends = 1;</code>
+       * <code>.FriendOperations friendOperations = 1;</code>
        */
-      public Builder addFriends(chat.ono.chatsdk.proto.MessageProtos.UserData value) {
-        if (friendsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
+      public Builder mergeFriendOperations(chat.ono.chatsdk.proto.MessageProtos.FriendOperations value) {
+        if (friendOperationsBuilder_ == null) {
+          if (friendOperations_ != null) {
+            friendOperations_ =
+              chat.ono.chatsdk.proto.MessageProtos.FriendOperations.newBuilder(friendOperations_).mergeFrom(value).buildPartial();
+          } else {
+            friendOperations_ = value;
           }
-          ensureFriendsIsMutable();
-          friends_.add(value);
           onChanged();
         } else {
-          friendsBuilder_.addMessage(value);
+          friendOperationsBuilder_.mergeFrom(value);
         }
+
         return this;
       }
       /**
-       * <code>repeated .UserData friends = 1;</code>
+       * <code>.FriendOperations friendOperations = 1;</code>
        */
-      public Builder addFriends(
-          int index, chat.ono.chatsdk.proto.MessageProtos.UserData value) {
-        if (friendsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureFriendsIsMutable();
-          friends_.add(index, value);
+      public Builder clearFriendOperations() {
+        if (friendOperationsBuilder_ == null) {
+          friendOperations_ = null;
           onChanged();
         } else {
-          friendsBuilder_.addMessage(index, value);
+          friendOperations_ = null;
+          friendOperationsBuilder_ = null;
         }
+
         return this;
       }
       /**
-       * <code>repeated .UserData friends = 1;</code>
+       * <code>.FriendOperations friendOperations = 1;</code>
        */
-      public Builder addFriends(
-          chat.ono.chatsdk.proto.MessageProtos.UserData.Builder builderForValue) {
-        if (friendsBuilder_ == null) {
-          ensureFriendsIsMutable();
-          friends_.add(builderForValue.build());
-          onChanged();
+      public chat.ono.chatsdk.proto.MessageProtos.FriendOperations.Builder getFriendOperationsBuilder() {
+        
+        onChanged();
+        return getFriendOperationsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.FriendOperations friendOperations = 1;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.FriendOperationsOrBuilder getFriendOperationsOrBuilder() {
+        if (friendOperationsBuilder_ != null) {
+          return friendOperationsBuilder_.getMessageOrBuilder();
         } else {
-          friendsBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .UserData friends = 1;</code>
-       */
-      public Builder addFriends(
-          int index, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder builderForValue) {
-        if (friendsBuilder_ == null) {
-          ensureFriendsIsMutable();
-          friends_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          friendsBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .UserData friends = 1;</code>
-       */
-      public Builder addAllFriends(
-          java.lang.Iterable<? extends chat.ono.chatsdk.proto.MessageProtos.UserData> values) {
-        if (friendsBuilder_ == null) {
-          ensureFriendsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, friends_);
-          onChanged();
-        } else {
-          friendsBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .UserData friends = 1;</code>
-       */
-      public Builder clearFriends() {
-        if (friendsBuilder_ == null) {
-          friends_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          friendsBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .UserData friends = 1;</code>
-       */
-      public Builder removeFriends(int index) {
-        if (friendsBuilder_ == null) {
-          ensureFriendsIsMutable();
-          friends_.remove(index);
-          onChanged();
-        } else {
-          friendsBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .UserData friends = 1;</code>
-       */
-      public chat.ono.chatsdk.proto.MessageProtos.UserData.Builder getFriendsBuilder(
-          int index) {
-        return getFriendsFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .UserData friends = 1;</code>
-       */
-      public chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder getFriendsOrBuilder(
-          int index) {
-        if (friendsBuilder_ == null) {
-          return friends_.get(index);  } else {
-          return friendsBuilder_.getMessageOrBuilder(index);
+          return friendOperations_ == null ?
+              chat.ono.chatsdk.proto.MessageProtos.FriendOperations.getDefaultInstance() : friendOperations_;
         }
       }
       /**
-       * <code>repeated .UserData friends = 1;</code>
+       * <code>.FriendOperations friendOperations = 1;</code>
        */
-      public java.util.List<? extends chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> 
-           getFriendsOrBuilderList() {
-        if (friendsBuilder_ != null) {
-          return friendsBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(friends_);
-        }
-      }
-      /**
-       * <code>repeated .UserData friends = 1;</code>
-       */
-      public chat.ono.chatsdk.proto.MessageProtos.UserData.Builder addFriendsBuilder() {
-        return getFriendsFieldBuilder().addBuilder(
-            chat.ono.chatsdk.proto.MessageProtos.UserData.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .UserData friends = 1;</code>
-       */
-      public chat.ono.chatsdk.proto.MessageProtos.UserData.Builder addFriendsBuilder(
-          int index) {
-        return getFriendsFieldBuilder().addBuilder(
-            index, chat.ono.chatsdk.proto.MessageProtos.UserData.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .UserData friends = 1;</code>
-       */
-      public java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData.Builder> 
-           getFriendsBuilderList() {
-        return getFriendsFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          chat.ono.chatsdk.proto.MessageProtos.UserData, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder, chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> 
-          getFriendsFieldBuilder() {
-        if (friendsBuilder_ == null) {
-          friendsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              chat.ono.chatsdk.proto.MessageProtos.UserData, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder, chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder>(
-                  friends_,
-                  ((bitField0_ & 0x00000001) == 0x00000001),
+      private com.google.protobuf.SingleFieldBuilderV3<
+          chat.ono.chatsdk.proto.MessageProtos.FriendOperations, chat.ono.chatsdk.proto.MessageProtos.FriendOperations.Builder, chat.ono.chatsdk.proto.MessageProtos.FriendOperationsOrBuilder> 
+          getFriendOperationsFieldBuilder() {
+        if (friendOperationsBuilder_ == null) {
+          friendOperationsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              chat.ono.chatsdk.proto.MessageProtos.FriendOperations, chat.ono.chatsdk.proto.MessageProtos.FriendOperations.Builder, chat.ono.chatsdk.proto.MessageProtos.FriendOperationsOrBuilder>(
+                  getFriendOperations(),
                   getParentForChildren(),
                   isClean());
-          friends_ = null;
+          friendOperations_ = null;
         }
-        return friendsBuilder_;
+        return friendOperationsBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -11154,39 +14326,39 @@ public final class MessageProtos {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:FriendListResponse)
+      // @@protoc_insertion_point(builder_scope:FriendUpdatesResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:FriendListResponse)
-    private static final chat.ono.chatsdk.proto.MessageProtos.FriendListResponse DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:FriendUpdatesResponse)
+    private static final chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new chat.ono.chatsdk.proto.MessageProtos.FriendListResponse();
+      DEFAULT_INSTANCE = new chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse();
     }
 
-    public static chat.ono.chatsdk.proto.MessageProtos.FriendListResponse getDefaultInstance() {
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<FriendListResponse>
-        PARSER = new com.google.protobuf.AbstractParser<FriendListResponse>() {
-      public FriendListResponse parsePartialFrom(
+    private static final com.google.protobuf.Parser<FriendUpdatesResponse>
+        PARSER = new com.google.protobuf.AbstractParser<FriendUpdatesResponse>() {
+      public FriendUpdatesResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FriendListResponse(input, extensionRegistry);
+        return new FriendUpdatesResponse(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<FriendListResponse> parser() {
+    public static com.google.protobuf.Parser<FriendUpdatesResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<FriendListResponse> getParserForType() {
+    public com.google.protobuf.Parser<FriendUpdatesResponse> getParserForType() {
       return PARSER;
     }
 
-    public chat.ono.chatsdk.proto.MessageProtos.FriendListResponse getDefaultInstanceForType() {
+    public chat.ono.chatsdk.proto.MessageProtos.FriendUpdatesResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -14914,6 +18086,2010 @@ public final class MessageProtos {
 
   }
 
+  public interface FriendSearchRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:FriendSearchRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *关键字
+     * </pre>
+     *
+     * <code>string keyword = 1;</code>
+     */
+    java.lang.String getKeyword();
+    /**
+     * <pre>
+     *关键字
+     * </pre>
+     *
+     * <code>string keyword = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getKeywordBytes();
+  }
+  /**
+   * <pre>
+   *请求 好友模糊查找
+   * </pre>
+   *
+   * Protobuf type {@code FriendSearchRequest}
+   */
+  public  static final class FriendSearchRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:FriendSearchRequest)
+      FriendSearchRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FriendSearchRequest.newBuilder() to construct.
+    private FriendSearchRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FriendSearchRequest() {
+      keyword_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FriendSearchRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              keyword_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendSearchRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendSearchRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest.class, chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest.Builder.class);
+    }
+
+    public static final int KEYWORD_FIELD_NUMBER = 1;
+    private volatile java.lang.Object keyword_;
+    /**
+     * <pre>
+     *关键字
+     * </pre>
+     *
+     * <code>string keyword = 1;</code>
+     */
+    public java.lang.String getKeyword() {
+      java.lang.Object ref = keyword_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        keyword_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *关键字
+     * </pre>
+     *
+     * <code>string keyword = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getKeywordBytes() {
+      java.lang.Object ref = keyword_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        keyword_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getKeywordBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, keyword_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getKeywordBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, keyword_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest)) {
+        return super.equals(obj);
+      }
+      chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest other = (chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest) obj;
+
+      boolean result = true;
+      result = result && getKeyword()
+          .equals(other.getKeyword());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + KEYWORD_FIELD_NUMBER;
+      hash = (53 * hash) + getKeyword().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *请求 好友模糊查找
+     * </pre>
+     *
+     * Protobuf type {@code FriendSearchRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:FriendSearchRequest)
+        chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendSearchRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendSearchRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest.class, chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest.Builder.class);
+      }
+
+      // Construct using chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        keyword_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendSearchRequest_descriptor;
+      }
+
+      public chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest getDefaultInstanceForType() {
+        return chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest.getDefaultInstance();
+      }
+
+      public chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest build() {
+        chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest buildPartial() {
+        chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest result = new chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest(this);
+        result.keyword_ = keyword_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest) {
+          return mergeFrom((chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest other) {
+        if (other == chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest.getDefaultInstance()) return this;
+        if (!other.getKeyword().isEmpty()) {
+          keyword_ = other.keyword_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object keyword_ = "";
+      /**
+       * <pre>
+       *关键字
+       * </pre>
+       *
+       * <code>string keyword = 1;</code>
+       */
+      public java.lang.String getKeyword() {
+        java.lang.Object ref = keyword_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          keyword_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *关键字
+       * </pre>
+       *
+       * <code>string keyword = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getKeywordBytes() {
+        java.lang.Object ref = keyword_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          keyword_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *关键字
+       * </pre>
+       *
+       * <code>string keyword = 1;</code>
+       */
+      public Builder setKeyword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        keyword_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *关键字
+       * </pre>
+       *
+       * <code>string keyword = 1;</code>
+       */
+      public Builder clearKeyword() {
+        
+        keyword_ = getDefaultInstance().getKeyword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *关键字
+       * </pre>
+       *
+       * <code>string keyword = 1;</code>
+       */
+      public Builder setKeywordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        keyword_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:FriendSearchRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:FriendSearchRequest)
+    private static final chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest();
+    }
+
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<FriendSearchRequest>
+        PARSER = new com.google.protobuf.AbstractParser<FriendSearchRequest>() {
+      public FriendSearchRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FriendSearchRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FriendSearchRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FriendSearchRequest> getParserForType() {
+      return PARSER;
+    }
+
+    public chat.ono.chatsdk.proto.MessageProtos.FriendSearchRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FriendSearchResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:FriendSearchResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .UserData users = 1;</code>
+     */
+    java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> 
+        getUsersList();
+    /**
+     * <code>repeated .UserData users = 1;</code>
+     */
+    chat.ono.chatsdk.proto.MessageProtos.UserData getUsers(int index);
+    /**
+     * <code>repeated .UserData users = 1;</code>
+     */
+    int getUsersCount();
+    /**
+     * <code>repeated .UserData users = 1;</code>
+     */
+    java.util.List<? extends chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> 
+        getUsersOrBuilderList();
+    /**
+     * <code>repeated .UserData users = 1;</code>
+     */
+    chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder getUsersOrBuilder(
+        int index);
+  }
+  /**
+   * <pre>
+   *响应 好友模糊查找
+   * </pre>
+   *
+   * Protobuf type {@code FriendSearchResponse}
+   */
+  public  static final class FriendSearchResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:FriendSearchResponse)
+      FriendSearchResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FriendSearchResponse.newBuilder() to construct.
+    private FriendSearchResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FriendSearchResponse() {
+      users_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FriendSearchResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                users_ = new java.util.ArrayList<chat.ono.chatsdk.proto.MessageProtos.UserData>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              users_.add(
+                  input.readMessage(chat.ono.chatsdk.proto.MessageProtos.UserData.parser(), extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          users_ = java.util.Collections.unmodifiableList(users_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendSearchResponse_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendSearchResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse.class, chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse.Builder.class);
+    }
+
+    public static final int USERS_FIELD_NUMBER = 1;
+    private java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> users_;
+    /**
+     * <code>repeated .UserData users = 1;</code>
+     */
+    public java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> getUsersList() {
+      return users_;
+    }
+    /**
+     * <code>repeated .UserData users = 1;</code>
+     */
+    public java.util.List<? extends chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> 
+        getUsersOrBuilderList() {
+      return users_;
+    }
+    /**
+     * <code>repeated .UserData users = 1;</code>
+     */
+    public int getUsersCount() {
+      return users_.size();
+    }
+    /**
+     * <code>repeated .UserData users = 1;</code>
+     */
+    public chat.ono.chatsdk.proto.MessageProtos.UserData getUsers(int index) {
+      return users_.get(index);
+    }
+    /**
+     * <code>repeated .UserData users = 1;</code>
+     */
+    public chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder getUsersOrBuilder(
+        int index) {
+      return users_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < users_.size(); i++) {
+        output.writeMessage(1, users_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < users_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, users_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse)) {
+        return super.equals(obj);
+      }
+      chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse other = (chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse) obj;
+
+      boolean result = true;
+      result = result && getUsersList()
+          .equals(other.getUsersList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getUsersCount() > 0) {
+        hash = (37 * hash) + USERS_FIELD_NUMBER;
+        hash = (53 * hash) + getUsersList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *响应 好友模糊查找
+     * </pre>
+     *
+     * Protobuf type {@code FriendSearchResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:FriendSearchResponse)
+        chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendSearchResponse_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendSearchResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse.class, chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse.Builder.class);
+      }
+
+      // Construct using chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getUsersFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (usersBuilder_ == null) {
+          users_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          usersBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendSearchResponse_descriptor;
+      }
+
+      public chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse getDefaultInstanceForType() {
+        return chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse.getDefaultInstance();
+      }
+
+      public chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse build() {
+        chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse buildPartial() {
+        chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse result = new chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (usersBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            users_ = java.util.Collections.unmodifiableList(users_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.users_ = users_;
+        } else {
+          result.users_ = usersBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse) {
+          return mergeFrom((chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse other) {
+        if (other == chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse.getDefaultInstance()) return this;
+        if (usersBuilder_ == null) {
+          if (!other.users_.isEmpty()) {
+            if (users_.isEmpty()) {
+              users_ = other.users_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureUsersIsMutable();
+              users_.addAll(other.users_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.users_.isEmpty()) {
+            if (usersBuilder_.isEmpty()) {
+              usersBuilder_.dispose();
+              usersBuilder_ = null;
+              users_ = other.users_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              usersBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getUsersFieldBuilder() : null;
+            } else {
+              usersBuilder_.addAllMessages(other.users_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> users_ =
+        java.util.Collections.emptyList();
+      private void ensureUsersIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          users_ = new java.util.ArrayList<chat.ono.chatsdk.proto.MessageProtos.UserData>(users_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          chat.ono.chatsdk.proto.MessageProtos.UserData, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder, chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> usersBuilder_;
+
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData> getUsersList() {
+        if (usersBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(users_);
+        } else {
+          return usersBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public int getUsersCount() {
+        if (usersBuilder_ == null) {
+          return users_.size();
+        } else {
+          return usersBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserData getUsers(int index) {
+        if (usersBuilder_ == null) {
+          return users_.get(index);
+        } else {
+          return usersBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public Builder setUsers(
+          int index, chat.ono.chatsdk.proto.MessageProtos.UserData value) {
+        if (usersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUsersIsMutable();
+          users_.set(index, value);
+          onChanged();
+        } else {
+          usersBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public Builder setUsers(
+          int index, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder builderForValue) {
+        if (usersBuilder_ == null) {
+          ensureUsersIsMutable();
+          users_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          usersBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public Builder addUsers(chat.ono.chatsdk.proto.MessageProtos.UserData value) {
+        if (usersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUsersIsMutable();
+          users_.add(value);
+          onChanged();
+        } else {
+          usersBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public Builder addUsers(
+          int index, chat.ono.chatsdk.proto.MessageProtos.UserData value) {
+        if (usersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUsersIsMutable();
+          users_.add(index, value);
+          onChanged();
+        } else {
+          usersBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public Builder addUsers(
+          chat.ono.chatsdk.proto.MessageProtos.UserData.Builder builderForValue) {
+        if (usersBuilder_ == null) {
+          ensureUsersIsMutable();
+          users_.add(builderForValue.build());
+          onChanged();
+        } else {
+          usersBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public Builder addUsers(
+          int index, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder builderForValue) {
+        if (usersBuilder_ == null) {
+          ensureUsersIsMutable();
+          users_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          usersBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public Builder addAllUsers(
+          java.lang.Iterable<? extends chat.ono.chatsdk.proto.MessageProtos.UserData> values) {
+        if (usersBuilder_ == null) {
+          ensureUsersIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, users_);
+          onChanged();
+        } else {
+          usersBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public Builder clearUsers() {
+        if (usersBuilder_ == null) {
+          users_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          usersBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public Builder removeUsers(int index) {
+        if (usersBuilder_ == null) {
+          ensureUsersIsMutable();
+          users_.remove(index);
+          onChanged();
+        } else {
+          usersBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserData.Builder getUsersBuilder(
+          int index) {
+        return getUsersFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder getUsersOrBuilder(
+          int index) {
+        if (usersBuilder_ == null) {
+          return users_.get(index);  } else {
+          return usersBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public java.util.List<? extends chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> 
+           getUsersOrBuilderList() {
+        if (usersBuilder_ != null) {
+          return usersBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(users_);
+        }
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserData.Builder addUsersBuilder() {
+        return getUsersFieldBuilder().addBuilder(
+            chat.ono.chatsdk.proto.MessageProtos.UserData.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public chat.ono.chatsdk.proto.MessageProtos.UserData.Builder addUsersBuilder(
+          int index) {
+        return getUsersFieldBuilder().addBuilder(
+            index, chat.ono.chatsdk.proto.MessageProtos.UserData.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .UserData users = 1;</code>
+       */
+      public java.util.List<chat.ono.chatsdk.proto.MessageProtos.UserData.Builder> 
+           getUsersBuilderList() {
+        return getUsersFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          chat.ono.chatsdk.proto.MessageProtos.UserData, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder, chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder> 
+          getUsersFieldBuilder() {
+        if (usersBuilder_ == null) {
+          usersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              chat.ono.chatsdk.proto.MessageProtos.UserData, chat.ono.chatsdk.proto.MessageProtos.UserData.Builder, chat.ono.chatsdk.proto.MessageProtos.UserDataOrBuilder>(
+                  users_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          users_ = null;
+        }
+        return usersBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:FriendSearchResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:FriendSearchResponse)
+    private static final chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse();
+    }
+
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<FriendSearchResponse>
+        PARSER = new com.google.protobuf.AbstractParser<FriendSearchResponse>() {
+      public FriendSearchResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FriendSearchResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FriendSearchResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FriendSearchResponse> getParserForType() {
+      return PARSER;
+    }
+
+    public chat.ono.chatsdk.proto.MessageProtos.FriendSearchResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FriendRemarkRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:FriendRemarkRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string uid = 1;</code>
+     */
+    java.lang.String getUid();
+    /**
+     * <code>string uid = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getUidBytes();
+
+    /**
+     * <code>string remark = 2;</code>
+     */
+    java.lang.String getRemark();
+    /**
+     * <code>string remark = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getRemarkBytes();
+  }
+  /**
+   * <pre>
+   *请求 好友备注
+   * </pre>
+   *
+   * Protobuf type {@code FriendRemarkRequest}
+   */
+  public  static final class FriendRemarkRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:FriendRemarkRequest)
+      FriendRemarkRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FriendRemarkRequest.newBuilder() to construct.
+    private FriendRemarkRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FriendRemarkRequest() {
+      uid_ = "";
+      remark_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FriendRemarkRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              uid_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              remark_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendRemarkRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendRemarkRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest.class, chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest.Builder.class);
+    }
+
+    public static final int UID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object uid_;
+    /**
+     * <code>string uid = 1;</code>
+     */
+    public java.lang.String getUid() {
+      java.lang.Object ref = uid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        uid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string uid = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUidBytes() {
+      java.lang.Object ref = uid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        uid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int REMARK_FIELD_NUMBER = 2;
+    private volatile java.lang.Object remark_;
+    /**
+     * <code>string remark = 2;</code>
+     */
+    public java.lang.String getRemark() {
+      java.lang.Object ref = remark_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        remark_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string remark = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRemarkBytes() {
+      java.lang.Object ref = remark_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        remark_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getUidBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uid_);
+      }
+      if (!getRemarkBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, remark_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getUidBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uid_);
+      }
+      if (!getRemarkBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, remark_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest)) {
+        return super.equals(obj);
+      }
+      chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest other = (chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest) obj;
+
+      boolean result = true;
+      result = result && getUid()
+          .equals(other.getUid());
+      result = result && getRemark()
+          .equals(other.getRemark());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + UID_FIELD_NUMBER;
+      hash = (53 * hash) + getUid().hashCode();
+      hash = (37 * hash) + REMARK_FIELD_NUMBER;
+      hash = (53 * hash) + getRemark().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *请求 好友备注
+     * </pre>
+     *
+     * Protobuf type {@code FriendRemarkRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:FriendRemarkRequest)
+        chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendRemarkRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendRemarkRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest.class, chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest.Builder.class);
+      }
+
+      // Construct using chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        uid_ = "";
+
+        remark_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return chat.ono.chatsdk.proto.MessageProtos.internal_static_FriendRemarkRequest_descriptor;
+      }
+
+      public chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest getDefaultInstanceForType() {
+        return chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest.getDefaultInstance();
+      }
+
+      public chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest build() {
+        chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest buildPartial() {
+        chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest result = new chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest(this);
+        result.uid_ = uid_;
+        result.remark_ = remark_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest) {
+          return mergeFrom((chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest other) {
+        if (other == chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest.getDefaultInstance()) return this;
+        if (!other.getUid().isEmpty()) {
+          uid_ = other.uid_;
+          onChanged();
+        }
+        if (!other.getRemark().isEmpty()) {
+          remark_ = other.remark_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object uid_ = "";
+      /**
+       * <code>string uid = 1;</code>
+       */
+      public java.lang.String getUid() {
+        java.lang.Object ref = uid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          uid_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string uid = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUidBytes() {
+        java.lang.Object ref = uid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          uid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string uid = 1;</code>
+       */
+      public Builder setUid(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        uid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string uid = 1;</code>
+       */
+      public Builder clearUid() {
+        
+        uid_ = getDefaultInstance().getUid();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string uid = 1;</code>
+       */
+      public Builder setUidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        uid_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object remark_ = "";
+      /**
+       * <code>string remark = 2;</code>
+       */
+      public java.lang.String getRemark() {
+        java.lang.Object ref = remark_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          remark_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string remark = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRemarkBytes() {
+        java.lang.Object ref = remark_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          remark_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string remark = 2;</code>
+       */
+      public Builder setRemark(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        remark_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string remark = 2;</code>
+       */
+      public Builder clearRemark() {
+        
+        remark_ = getDefaultInstance().getRemark();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string remark = 2;</code>
+       */
+      public Builder setRemarkBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        remark_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:FriendRemarkRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:FriendRemarkRequest)
+    private static final chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest();
+    }
+
+    public static chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<FriendRemarkRequest>
+        PARSER = new com.google.protobuf.AbstractParser<FriendRemarkRequest>() {
+      public FriendRemarkRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FriendRemarkRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FriendRemarkRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FriendRemarkRequest> getParserForType() {
+      return PARSER;
+    }
+
+    public chat.ono.chatsdk.proto.MessageProtos.FriendRemarkRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_UserData_descriptor;
   private static final 
@@ -14924,6 +20100,11 @@ public final class MessageProtos {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Message_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Friend_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Friend_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ErrorResponse_descriptor;
   private static final 
@@ -14945,6 +20126,11 @@ public final class MessageProtos {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_NewFriendRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_FriendOperations_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_FriendOperations_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_UserLoginRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -14965,6 +20151,16 @@ public final class MessageProtos {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_UserProfileResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_UserProfilesRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_UserProfilesRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_UserProfilesResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_UserProfilesResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ReadMessageRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -14980,15 +20176,15 @@ public final class MessageProtos {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_SendMessagenResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_FriendListRequest_descriptor;
+    internal_static_FriendUpdatesRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_FriendListRequest_fieldAccessorTable;
+      internal_static_FriendUpdatesRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_FriendListResponse_descriptor;
+    internal_static_FriendUpdatesResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_FriendListResponse_fieldAccessorTable;
+      internal_static_FriendUpdatesResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_FriendRequestRequest_descriptor;
   private static final 
@@ -15019,6 +20215,21 @@ public final class MessageProtos {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_FriendDeleteRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_FriendSearchRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_FriendSearchRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_FriendSearchResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_FriendSearchResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_FriendRemarkRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_FriendRemarkRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -15028,37 +20239,48 @@ public final class MessageProtos {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016protocol.proto\"\213\001\n\010UserData\022\013\n\003uid\030\001 \001" +
-      "(\t\022\014\n\004name\030\002 \001(\t\022\014\n\004icon\030\003 \001(\t\022\014\n\004sign\030\004" +
-      " \001(\t\022\r\n\005email\030\005 \001(\t\022\r\n\005birth\030\006 \001(\t\022\016\n\006mo" +
-      "bile\030\007 \001(\t\022\016\n\006gender\030\010 \001(\005\022\n\n\002ex\030\t \001(\t\"Z" +
-      "\n\007Message\022\013\n\003mid\030\001 \001(\t\022\014\n\004type\030\002 \001(\005\022\014\n\004" +
-      "from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\014\n\004data\030\005 \001(\t\022\014\n\004" +
-      "time\030\006 \001(\001\"=\n\rErrorResponse\022\014\n\004code\030\001 \001(" +
-      "\005\022\017\n\007message\030\002 \001(\t\022\r\n\005extra\030\003 \001(\t\"\033\n\010Use" +
-      "rKick\022\017\n\007content\030\001 \001(\t\"$\n\tNewFriend\022\027\n\004u" +
-      "ser\030\001 \001(\0132\t.UserData\"=\n\020NewFriendRequest" +
-      "\022\027\n\004user\030\001 \001(\0132\t.UserData\022\020\n\010greeting\030\002 " +
-      "\001(\t\"!\n\020UserLoginRequest\022\r\n\005token\030\001 \001(\t\"H" +
-      "\n\021UserLoginResponse\022\027\n\004user\030\001 \001(\0132\t.User" +
-      "Data\022\032\n\010messages\030\002 \003(\0132\010.Message\"!\n\022User" +
-      "ProfileRequest\022\013\n\003uid\030\001 \001(\t\".\n\023UserProfi" +
-      "leResponse\022\027\n\004user\030\001 \001(\0132\t.UserData\"!\n\022R" +
-      "eadMessageRequest\022\013\n\003mid\030\001 \001(\t\"I\n\022SendMe" +
-      "ssageRequest\022\014\n\004type\030\001 \001(\005\022\n\n\002to\030\002 \001(\t\022\014" +
-      "\n\004data\030\003 \001(\t\022\013\n\003mid\030\004 \001(\t\"2\n\024SendMessage" +
-      "nResponse\022\014\n\004omid\030\001 \001(\t\022\014\n\004nmid\030\002 \001(\t\"\023\n" +
-      "\021FriendListRequest\"0\n\022FriendListResponse" +
-      "\022\032\n\007friends\030\001 \003(\0132\t.UserData\"5\n\024FriendRe" +
-      "questRequest\022\013\n\003uid\030\001 \001(\t\022\020\n\010greeting\030\002 " +
-      "\001(\t\"9\n\030FriendRequestListRequest\022\r\n\005limit" +
-      "\030\001 \001(\005\022\016\n\006offset\030\002 \001(\t\"C\n\031FriendRequestL" +
-      "istResponse\022&\n\013requestList\030\001 \003(\0132\021.NewFr" +
-      "iendRequest\"!\n\022FriendAgreeRequest\022\013\n\003uid" +
-      "\030\001 \001(\t\"\"\n\023FriendIgnoreRequest\022\013\n\003uid\030\001 \001" +
-      "(\t\"\"\n\023FriendDeleteRequest\022\013\n\003uid\030\001 \001(\tB\'" +
-      "\n\026chat.ono.chatsdk.protoB\rMessageProtosb" +
-      "\006proto3"
+      "\n\016protocol.proto\"Q\n\010UserData\022\013\n\003uid\030\001 \001(" +
+      "\t\022\014\n\004name\030\002 \001(\t\022\016\n\006avatar\030\003 \001(\t\022\016\n\006gende" +
+      "r\030\004 \001(\005\022\n\n\002ex\030\005 \001(\t\"s\n\007Message\022\013\n\003mid\030\001 " +
+      "\001(\t\022\014\n\004type\030\002 \001(\005\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 " +
+      "\001(\t\022\014\n\004data\030\005 \001(\t\022\014\n\004time\030\006 \001(\001\022\027\n\004user\030" +
+      "\007 \001(\0132\t.UserData\"%\n\006Friend\022\013\n\003uid\030\001 \001(\t\022" +
+      "\016\n\006remark\030\002 \001(\t\"=\n\rErrorResponse\022\014\n\004code" +
+      "\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022\r\n\005extra\030\003 \001(\t\"\033" +
+      "\n\010UserKick\022\017\n\007content\030\001 \001(\t\"$\n\tNewFriend" +
+      "\022\027\n\004user\030\001 \001(\0132\t.UserData\"=\n\020NewFriendRe" +
+      "quest\022\027\n\004user\030\001 \001(\0132\t.UserData\022\020\n\010greeti" +
+      "ng\030\002 \001(\t\"s\n\020FriendOperations\022\027\n\004adds\030\001 \003" +
+      "(\0132\t.UserData\022\032\n\007updates\030\002 \003(\0132\t.UserDat" +
+      "a\022\017\n\007deletes\030\003 \003(\t\022\031\n\021friendsUpdateTime\030" +
+      "\004 \001(\003\"<\n\020UserLoginRequest\022\r\n\005token\030\001 \001(\t" +
+      "\022\031\n\021friendsUpdateTime\030\002 \001(\003\"u\n\021UserLogin" +
+      "Response\022\027\n\004user\030\001 \001(\0132\t.UserData\022\032\n\010mes" +
+      "sages\030\002 \003(\0132\010.Message\022+\n\020friendOperation" +
+      "s\030\003 \001(\0132\021.FriendOperations\"!\n\022UserProfil" +
+      "eRequest\022\013\n\003uid\030\001 \001(\t\".\n\023UserProfileResp" +
+      "onse\022\027\n\004user\030\001 \001(\0132\t.UserData\"#\n\023UserPro" +
+      "filesRequest\022\014\n\004uids\030\001 \003(\t\"0\n\024UserProfil" +
+      "esResponse\022\030\n\005users\030\001 \003(\0132\t.UserData\"!\n\022" +
+      "ReadMessageRequest\022\013\n\003mid\030\001 \001(\t\"I\n\022SendM" +
+      "essageRequest\022\014\n\004type\030\001 \001(\005\022\n\n\002to\030\002 \001(\t\022" +
+      "\014\n\004data\030\003 \001(\t\022\013\n\003mid\030\004 \001(\t\"2\n\024SendMessag" +
+      "enResponse\022\014\n\004omid\030\001 \001(\t\022\014\n\004nmid\030\002 \001(\t\"1" +
+      "\n\024FriendUpdatesRequest\022\031\n\021friendsUpdateT" +
+      "ime\030\001 \001(\003\"D\n\025FriendUpdatesResponse\022+\n\020fr" +
+      "iendOperations\030\001 \001(\0132\021.FriendOperations\"" +
+      "5\n\024FriendRequestRequest\022\013\n\003uid\030\001 \001(\t\022\020\n\010" +
+      "greeting\030\002 \001(\t\"9\n\030FriendRequestListReque" +
+      "st\022\r\n\005limit\030\001 \001(\005\022\016\n\006offset\030\002 \001(\t\"C\n\031Fri" +
+      "endRequestListResponse\022&\n\013requestList\030\001 " +
+      "\003(\0132\021.NewFriendRequest\"!\n\022FriendAgreeReq" +
+      "uest\022\013\n\003uid\030\001 \001(\t\"\"\n\023FriendIgnoreRequest" +
+      "\022\013\n\003uid\030\001 \001(\t\"\"\n\023FriendDeleteRequest\022\013\n\003" +
+      "uid\030\001 \001(\t\"&\n\023FriendSearchRequest\022\017\n\007keyw" +
+      "ord\030\001 \001(\t\"0\n\024FriendSearchResponse\022\030\n\005use" +
+      "rs\030\001 \003(\0132\t.UserData\"2\n\023FriendRemarkReque" +
+      "st\022\013\n\003uid\030\001 \001(\t\022\016\n\006remark\030\002 \001(\tB\'\n\026chat." +
+      "ono.chatsdk.protoB\rMessageProtosb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -15077,127 +20299,169 @@ public final class MessageProtos {
     internal_static_UserData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserData_descriptor,
-        new java.lang.String[] { "Uid", "Name", "Icon", "Sign", "Email", "Birth", "Mobile", "Gender", "Ex", });
+        new java.lang.String[] { "Uid", "Name", "Avatar", "Gender", "Ex", });
     internal_static_Message_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Message_descriptor,
-        new java.lang.String[] { "Mid", "Type", "From", "To", "Data", "Time", });
-    internal_static_ErrorResponse_descriptor =
+        new java.lang.String[] { "Mid", "Type", "From", "To", "Data", "Time", "User", });
+    internal_static_Friend_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_Friend_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Friend_descriptor,
+        new java.lang.String[] { "Uid", "Remark", });
+    internal_static_ErrorResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_ErrorResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ErrorResponse_descriptor,
         new java.lang.String[] { "Code", "Message", "Extra", });
     internal_static_UserKick_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_UserKick_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserKick_descriptor,
         new java.lang.String[] { "Content", });
     internal_static_NewFriend_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_NewFriend_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_NewFriend_descriptor,
         new java.lang.String[] { "User", });
     internal_static_NewFriendRequest_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_NewFriendRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_NewFriendRequest_descriptor,
         new java.lang.String[] { "User", "Greeting", });
+    internal_static_FriendOperations_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_FriendOperations_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_FriendOperations_descriptor,
+        new java.lang.String[] { "Adds", "Updates", "Deletes", "FriendsUpdateTime", });
     internal_static_UserLoginRequest_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_UserLoginRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserLoginRequest_descriptor,
-        new java.lang.String[] { "Token", });
+        new java.lang.String[] { "Token", "FriendsUpdateTime", });
     internal_static_UserLoginResponse_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_UserLoginResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserLoginResponse_descriptor,
-        new java.lang.String[] { "User", "Messages", });
+        new java.lang.String[] { "User", "Messages", "FriendOperations", });
     internal_static_UserProfileRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_UserProfileRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserProfileRequest_descriptor,
         new java.lang.String[] { "Uid", });
     internal_static_UserProfileResponse_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_UserProfileResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserProfileResponse_descriptor,
         new java.lang.String[] { "User", });
+    internal_static_UserProfilesRequest_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_UserProfilesRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_UserProfilesRequest_descriptor,
+        new java.lang.String[] { "Uids", });
+    internal_static_UserProfilesResponse_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_UserProfilesResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_UserProfilesResponse_descriptor,
+        new java.lang.String[] { "Users", });
     internal_static_ReadMessageRequest_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_ReadMessageRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReadMessageRequest_descriptor,
         new java.lang.String[] { "Mid", });
     internal_static_SendMessageRequest_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_SendMessageRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SendMessageRequest_descriptor,
         new java.lang.String[] { "Type", "To", "Data", "Mid", });
     internal_static_SendMessagenResponse_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_SendMessagenResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SendMessagenResponse_descriptor,
         new java.lang.String[] { "Omid", "Nmid", });
-    internal_static_FriendListRequest_descriptor =
-      getDescriptor().getMessageTypes().get(13);
-    internal_static_FriendListRequest_fieldAccessorTable = new
+    internal_static_FriendUpdatesRequest_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_FriendUpdatesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_FriendListRequest_descriptor,
-        new java.lang.String[] { });
-    internal_static_FriendListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(14);
-    internal_static_FriendListResponse_fieldAccessorTable = new
+        internal_static_FriendUpdatesRequest_descriptor,
+        new java.lang.String[] { "FriendsUpdateTime", });
+    internal_static_FriendUpdatesResponse_descriptor =
+      getDescriptor().getMessageTypes().get(18);
+    internal_static_FriendUpdatesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_FriendListResponse_descriptor,
-        new java.lang.String[] { "Friends", });
+        internal_static_FriendUpdatesResponse_descriptor,
+        new java.lang.String[] { "FriendOperations", });
     internal_static_FriendRequestRequest_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_FriendRequestRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_FriendRequestRequest_descriptor,
         new java.lang.String[] { "Uid", "Greeting", });
     internal_static_FriendRequestListRequest_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_FriendRequestListRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_FriendRequestListRequest_descriptor,
         new java.lang.String[] { "Limit", "Offset", });
     internal_static_FriendRequestListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_FriendRequestListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_FriendRequestListResponse_descriptor,
         new java.lang.String[] { "RequestList", });
     internal_static_FriendAgreeRequest_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_FriendAgreeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_FriendAgreeRequest_descriptor,
         new java.lang.String[] { "Uid", });
     internal_static_FriendIgnoreRequest_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_FriendIgnoreRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_FriendIgnoreRequest_descriptor,
         new java.lang.String[] { "Uid", });
     internal_static_FriendDeleteRequest_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_FriendDeleteRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_FriendDeleteRequest_descriptor,
         new java.lang.String[] { "Uid", });
+    internal_static_FriendSearchRequest_descriptor =
+      getDescriptor().getMessageTypes().get(25);
+    internal_static_FriendSearchRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_FriendSearchRequest_descriptor,
+        new java.lang.String[] { "Keyword", });
+    internal_static_FriendSearchResponse_descriptor =
+      getDescriptor().getMessageTypes().get(26);
+    internal_static_FriendSearchResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_FriendSearchResponse_descriptor,
+        new java.lang.String[] { "Users", });
+    internal_static_FriendRemarkRequest_descriptor =
+      getDescriptor().getMessageTypes().get(27);
+    internal_static_FriendRemarkRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_FriendRemarkRequest_descriptor,
+        new java.lang.String[] { "Uid", "Remark", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

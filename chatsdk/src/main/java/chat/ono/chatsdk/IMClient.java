@@ -87,7 +87,7 @@ public class IMClient {
                 User user = new User();
                 user.setUserId(userData.getUid());
                 user.setNickname(userData.getName());
-                user.setAvatar(userData.getIcon());
+                user.setAvatar(userData.getAvatar());
                 user.setGender(userData.getGender());
                 callback.onSuccess(user);
             }
