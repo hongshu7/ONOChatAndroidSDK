@@ -8,6 +8,7 @@ import com.google.protobuf.Message;
 
 import java.util.List;
 
+import chat.ono.chatsdk.callback.ErrorInfo;
 import chat.ono.chatsdk.core.DB;
 import chat.ono.chatsdk.core.IMCallback;
 import chat.ono.chatsdk.core.IMCore;
@@ -192,7 +193,7 @@ public class IMClient {
             @Override
             public void errorResponse(MessageProtos.ErrorResponse error) {
                 if (failureCallback != null) {
-                    failureCallback.onError(FailureCallback.toError(error));
+                    failureCallback.onError(ErrorInfo.fromMessage(error));
                 }
             }
         });
@@ -241,7 +242,7 @@ public class IMClient {
             @Override
             public void errorResponse(MessageProtos.ErrorResponse error) {
                 if (failureCallback != null) {
-                    failureCallback.onError(FailureCallback.toError(error));
+                    failureCallback.onError(ErrorInfo.fromMessage(error));
                 }
             }
         });
@@ -285,7 +286,7 @@ public class IMClient {
             @Override
             public void errorResponse(MessageProtos.ErrorResponse error) {
                 if (failureCallback != null) {
-                    failureCallback.onError(FailureCallback.toError(error));
+                    failureCallback.onError(ErrorInfo.fromMessage(error));
                 }
             }
         });

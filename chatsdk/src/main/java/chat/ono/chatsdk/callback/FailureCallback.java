@@ -1,6 +1,5 @@
 package chat.ono.chatsdk.callback;
 
-import chat.ono.chatsdk.proto.MessageProtos;
 
 /**
  * Created by kevin on 2018/5/27.
@@ -8,5 +7,5 @@ import chat.ono.chatsdk.proto.MessageProtos;
 
 public interface FailureCallback {
 
-    void onError(Error error);
+    void onError(ErrorInfo error);
 }

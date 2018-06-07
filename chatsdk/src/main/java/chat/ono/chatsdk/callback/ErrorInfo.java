@@ -2,11 +2,11 @@ package chat.ono.chatsdk.callback;
 
 import chat.ono.chatsdk.proto.MessageProtos;
 
-public class ErrorData {
+public class ErrorInfo {
     private int code;
     private String message;
 
-    public ErrorData(int code, String message) {
+    public ErrorInfo(int code, String message) {
         this.code = code;
         this.message = message;
     }
@@ -27,7 +27,7 @@ public class ErrorData {
         this.message = message;
     }
 
-    public static ErrorData fromMessage(MessageProtos.ErrorResponse ep) {
-        return new ErrorData(ep.getCode(), ep.getMessage());
+    public static ErrorInfo fromMessage(MessageProtos.ErrorResponse ep) {
+        return new ErrorInfo(ep.getCode(), ep.getMessage());
     }
 }
