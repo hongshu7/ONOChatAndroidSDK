@@ -26,6 +26,7 @@ public class DB {
 			openTimes = 0;
 		}
 		if (openTimes == 0) {
+			//Log.v(TAG, "dbHelper:" + dbHelper);
 			db = dbHelper.getReadableDatabase();
 		}
 		openTimes++;
@@ -34,7 +35,10 @@ public class DB {
 
 	private static void closeDB() {
 		openTimes--;
-		if (openTimes == 0) {
+		if (db == null) {
+			openTimes = 0;
+		}
+		if (openTimes == 0 && db != null) {
 			db.close();
 			db = null;
 		}

@@ -1,9 +1,10 @@
-package chat.ono.chatdemo
+package chat.ono.chatdemo.ui
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import chat.ono.chatdemo.R
 
 import chat.ono.chatsdk.IMClient
 import kotlinx.android.synthetic.main.activity_main.*
@@ -21,11 +22,11 @@ class MainActivity : AppCompatActivity() {
 
     fun connectToChat(token: String) {
         btn_login.isEnabled = false
-        IMClient.setup("101.201.236.225", 3001)
         IMClient.connect(token, {
             tv_msg.text =  "login success with user:${it.nickname}"
             Handler().postDelayed({
                 startActivity(Intent(this@MainActivity, ConversationActivity::class.java))
+                finish()
             }, 1000)
         },  {
             btn_login.isEnabled = true

@@ -32,6 +32,7 @@ import chat.ono.chatsdk.utils.ObjectId;
 public class IMClient {
 
     static {
+        Log.v("IMClient", "IMClient init");
         IMCore.getInstance().addPushListener("push.message", new IMCallback() {
             @Override
             public void callback(Message message) {
@@ -39,15 +40,23 @@ public class IMClient {
             }
         });
     }
+    public static class Options {
+        public String host;
+        public int port;
+        public Options(String host, int port) {
+            this.host = host;
+            this.port = port;
+        }
+    }
 
     private static Context context;
     public static Context getContext() {
         return context;
     }
-    public static void setContext(Context context) {
-        IMClient.context = context;
+    public static void init(Context ctx, Options opts) {
+        context = ctx;
+        IMCore.getInstance().setup(opts.host, opts.port);
     }
-
 
     public static boolean isBackground() {
         ActivityManager activityManager = (ActivityManager) context
@@ -228,7 +237,7 @@ public class IMClient {
                 .setData(message.encode())
                 .setMid(message.getMessageId())
                 .build();
-        IMCore.getInstance().request("client.message.send", request, new Response() {
+        IMCore.getInstance().request("im.message.send", request, new Response() {
             @Override
             public void successResponse(Message msg) {
                 message.setSend(true);

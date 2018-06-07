@@ -15,26 +15,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:text="会话"
-            android:textColor="#fff"
-            android:textSize="20sp"/>
-        <TextView
-            android:id="@+id/tb_tv_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:text="+"
+            android:text="联系人"
             android:textColor="#fff"
             android:textSize="20sp"/>
     </android.support.v7.widget.Toolbar>
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_conversation"
+        android:id="@+id/rv_contacts"
         android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_conversation">
+        tools:listitem="@layout/item_contact">
 
     </android.support.v7.widget.RecyclerView>
 

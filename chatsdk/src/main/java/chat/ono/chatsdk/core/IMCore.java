@@ -170,7 +170,7 @@ public class IMCore implements SocketCallback {
             //登录
             if (SocketManger.getInstance().isConnect()) {
                 MessageProtos.UserLoginRequest request = MessageProtos.UserLoginRequest.newBuilder().setToken(this.loginToken).build();
-                request("client.user.login", request, new Response() {
+                request("im.user.login", request, new Response() {
                     @Override
                     public void successResponse(com.google.protobuf.Message message) {
                         MessageProtos.UserData ud = ((MessageProtos.UserLoginResponse)message).getUser();

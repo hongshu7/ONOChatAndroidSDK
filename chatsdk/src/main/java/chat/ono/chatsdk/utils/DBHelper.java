@@ -21,10 +21,11 @@ public class DBHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		String sql = FileHelper.readAssetsFile(IMClient.getContext(), "message_db.sql");
-		String[] sqls = sql.split("\n");
-		for (String line : sqls) {
-			if (line != null && !line.isEmpty()) {
-				db.execSQL(line);
+		String[] sqls = sql.split(";");
+		for (String s : sqls) {
+			Log.v(TAG, "sql: "+ s);
+			if (!s.trim().isEmpty()) {
+				db.execSQL(s);
 			}
 		}
 	}

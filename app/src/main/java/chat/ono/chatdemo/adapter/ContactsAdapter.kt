@@ -6,15 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import chat.ono.chatdemo.R
-import chat.ono.chatsdk.model.Conversation
+import chat.ono.chatsdk.model.User
 import com.bumptech.glide.Glide
 
-import kotlinx.android.synthetic.main.item_conversation.view.*
+import kotlinx.android.synthetic.main.item_contact.view.*
 
-class ConversationAdapter(context: Context, data:ArrayList<Conversation>? = null) : BaseAdapter<ConversationAdapter.ItemViewHolder, Conversation>(context, data) {
+class ContactsAdapter(context: Context, data:ArrayList<User>? = null) : BaseAdapter<ContactsAdapter.ItemViewHolder, User>(context, data) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        var view = LayoutInflater.from(context).inflate(R.layout.item_conversation, parent)
+        var view = LayoutInflater.from(context).inflate(R.layout.item_contact, parent)
         return ItemViewHolder(view)
     }
 
@@ -23,9 +23,9 @@ class ConversationAdapter(context: Context, data:ArrayList<Conversation>? = null
     }
 
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(conversation: Conversation) {
-            Glide.with(itemView).load(conversation.user.avatar).into(itemView.iv_avatar)
-            itemView.tv_name.text = conversation.user.nickname
+        fun bind(user: User) {
+            Glide.with(itemView).load(user.avatar).into(itemView.iv_avatar)
+            itemView.tv_name.text = user.nickname
         }
     }
 }
