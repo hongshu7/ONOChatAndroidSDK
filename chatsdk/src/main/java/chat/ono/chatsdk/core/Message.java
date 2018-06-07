@@ -66,6 +66,7 @@ public class Message {
         return  isError;
     }
 
+    @SuppressWarnings("unchecked")
     public void decode(byte[] bytes) {
         int length = bytes.length;
         int offset = 0;
