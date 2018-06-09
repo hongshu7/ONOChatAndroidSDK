@@ -7,6 +7,6 @@ class ChatApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        IMClient.init(this, IMClient.Options("101.201.236.225", 3001))
+        IMClient.init(this)
     }
 }

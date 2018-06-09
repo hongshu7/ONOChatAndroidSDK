@@ -37,8 +37,6 @@ public class IMCore implements SocketCallback {
     private Map<String, List<CallbackInfo>> pushMap;
     private int listenerId;
 
-    private boolean isSetup;
-
     private String loginToken;
     private User user;
     private String userId;
@@ -76,22 +74,13 @@ public class IMCore implements SocketCallback {
         return ri == null ? "" : ri.getRoute();
     }
 
-    public void setup(String host, int port) {
-        SocketManger.getInstance().setup(host, port);
-        isSetup = true;
-    }
 
-    public void connect() {
-        if (!isSetup) {
-            return;
-        }
+    public void connect(String host, int port) {
+        SocketManger.getInstance().setupGate(host, port);
         SocketManger.getInstance().connect();
     }
 
     public void disconnect() {
-        if (!isSetup) {
-            return;
-        }
         SocketManger.getInstance().disconnect();
     }
 
@@ -268,10 +257,10 @@ public class IMCore implements SocketCallback {
     }
 
 
-    public void login(String token, Response callback) {
+    public void login(String host, int port, String token, Response callback) {
         this.loginToken = token;
         this.loginCallback = callback;
-        connect();
+        connect(host, port);
     }
 
     public void bindClientId(String clientId) {

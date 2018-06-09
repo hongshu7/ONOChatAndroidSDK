@@ -30,16 +30,6 @@ import chat.ono.chatsdk.utils.ObjectId;
  */
 
 public class IMClient {
-
-    static {
-        Log.v("IMClient", "IMClient init");
-        IMCore.getInstance().addPushListener("push.message", new IMCallback() {
-            @Override
-            public void callback(Message message) {
-                receiveMessage((chat.ono.chatsdk.proto.MessageProtos.Message)message, true);
-            }
-        });
-    }
     public static class Options {
         public String host;
         public int port;
@@ -50,12 +40,30 @@ public class IMClient {
     }
 
     private static Context context;
+    private static Options options;
+
+    static {
+        options = new Options("ono-chat.340wan.com", 3000);
+        Log.v("IMClient", "IMClient init");
+        IMCore.getInstance().addPushListener("push.message", new IMCallback() {
+            @Override
+            public void callback(Message message) {
+                receiveMessage((chat.ono.chatsdk.proto.MessageProtos.Message)message, true);
+            }
+        });
+    }
+
     public static Context getContext() {
         return context;
     }
+
+    public static void init(Context ctx) {
+        context = ctx;
+    }
+
     public static void init(Context ctx, Options opts) {
         context = ctx;
-        IMCore.getInstance().setup(opts.host, opts.port);
+        options = opts;
     }
 
     public static boolean isBackground() {
@@ -163,12 +171,9 @@ public class IMClient {
         return conversation;
     }
 
-    public static void setup(String host, int port) {
-        IMCore.getInstance().setup(host, port);
-    }
 
     public static void connect(String token, final SuccessCallback<User> successCallback, final FailureCallback failureCallback) {
-        IMCore.getInstance().login(token, new Response() {
+        IMCore.getInstance().login(options.host, options.port, token, new Response() {
             @Override
             public void successResponse(Message message) {
                 MessageProtos.UserLoginResponse response = (MessageProtos.UserLoginResponse)message;

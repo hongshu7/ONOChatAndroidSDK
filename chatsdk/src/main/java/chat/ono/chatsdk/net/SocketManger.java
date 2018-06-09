@@ -5,15 +5,24 @@ import android.os.Handler.Callback;
 import android.os.Message;
 import android.util.Log;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import chat.ono.chatsdk.core.Packet;
 
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.Socket;
 import java.net.SocketAddress;
+import java.net.URL;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.BlockingQueue;
@@ -29,8 +38,9 @@ public class SocketManger implements Runnable, Callback {
 	protected Socket socket;
 	protected SocketCallback callback;
 
-	private String host;
-	private int port = 0;
+	private String gateUrl;
+	private String chatIp;
+	private int chatPort = 0;
 	private Handler handler;
 
 	private int failTimes;
@@ -67,9 +77,8 @@ public class SocketManger implements Runnable, Callback {
 	 * @param host 服务器地址
 	 * @param port 端口号
 	 */
-	public void setup(String host, int port) {
-		this.host = host;
-		this.port = port;
+	public void setupGate(String host, int port) {
+		this.gateUrl = "http://" + host + ":" + port;
 	}
 
 	public void connect() {
@@ -138,13 +147,47 @@ public class SocketManger implements Runnable, Callback {
 
 	}
 
+	public static String httpGet(String urlToRead) {
+		StringBuilder result = new StringBuilder();
+		try {
+			Log.v("IM", "url:" + urlToRead);
+			URL url = new URL(urlToRead);
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			conn.setRequestMethod("GET");
+			BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+			String line;
+			while ((line = rd.readLine()) != null) {
+				result.append(line);
+			}
+			rd.close();
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (ProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return result.toString();
+	}
+
 	@Override
 	public void run() {
 
 		// 连接
-		SocketAddress addr = new InetSocketAddress(host, port);
 		try {
-			Log.v("IM", "connect to " + host + ":" + port + " ...");
+
+			//读取门服务器信息
+			if (chatIp == null) {
+				String result = httpGet(gateUrl);
+				Log.v("IM", result);
+				JSONObject obj = new JSONObject(result);
+				chatIp = obj.getString("ip");
+				chatPort = obj.getInt("port");
+			}
+
+			//连接节点服务器
+			SocketAddress addr = new InetSocketAddress(chatIp, chatPort);
+			Log.v("IM", "connect to " + chatIp + ":" + chatPort + " ...");
 			Log.v("IM", "connect...");
 			socket = new Socket();
 			socket.connect(addr, 2000); //最长不超过2秒，否则超时
@@ -167,12 +210,16 @@ public class SocketManger implements Runnable, Callback {
 
 				this.triggerCallBack(packet);
 			}
-		} catch (IOException e) {
+		} catch (Exception e) {
 			if (this.closed) {
 				return;
 			}
+			if (!this.connected) {
+				chatIp = null;  //没有连接到，需要重新获取ip
+			}
 			this.connected = false;
 			this.failTimes++;
+			Log.v("IM", "error:" + e.getMessage());
 			Log.v("IM", "fail times:" + this.failTimes);
             //Log.v("IM", "fail reason:" + e.getMessage());
 			if (this.sending) {
@@ -208,7 +255,7 @@ public class SocketManger implements Runnable, Callback {
 				} else {
 					sleepTime = 1200;
 				}
-				Thread.sleep(sleepTime*1000);
+				Thread.sleep(sleepTime * 1000);
 			} catch (InterruptedException e1) {
 				e1.printStackTrace();
 			}

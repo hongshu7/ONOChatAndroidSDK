@@ -237,7 +237,7 @@ public class DB {
 		values.put("type", msg.getType());
 		values.put("data", msg.encode());
 
-		db.insert("conversation", null, values);
+		db.insert("message", null, values);
 
 		msg.setInserted(true);
 
@@ -298,7 +298,7 @@ public class DB {
 			if (cursor.getCount() == 0) return null;
 			user = new User();
 			if (cursor.moveToNext()) {
-				user.setUserId(cursor.getString(cursor.getColumnIndex("userId")));
+				user.setUserId(cursor.getString(cursor.getColumnIndex("user_id")));
 				user.setNickname(cursor.getString(cursor.getColumnIndex("nickname")));
 				user.setAvatar(cursor.getString(cursor.getColumnIndex("avatar")));
 				user.setGender(cursor.getInt(cursor.getColumnIndex("gender")));
