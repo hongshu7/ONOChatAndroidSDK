@@ -6,4 +6,10 @@ package chat.ono.chatsdk.core;
 
 public abstract class MessageCallback {
     abstract public void onReceived(chat.ono.chatsdk.model.Message message);
+
+    //onMessageReceived
+
+    //onConversationUpdate ?
+
+    //onNewFriend ?
 }

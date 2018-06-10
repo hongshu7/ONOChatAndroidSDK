@@ -11,8 +11,8 @@ CREATE TABLE `conversation` (
 CREATE TABLE `message` (
     `message_id`	TEXT NOT NULL,
     `belong_id`	TEXT NOT NULL,
+    `target_id`	TEXT NOT NULL,
     `user_id`	TEXT NOT NULL,
-    `target_id`	TEXT NOT NULL DEFAULT '',
     `type`	INTEGER NOT NULL DEFAULT 1,
     `data`	TEXT,
     `timestamp`	REAL DEFAULT 0,

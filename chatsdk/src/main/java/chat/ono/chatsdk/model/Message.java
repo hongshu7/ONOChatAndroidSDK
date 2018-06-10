@@ -9,9 +9,9 @@ public abstract class Message extends UpdatableModel {
     private String targetId;
     private String userId;
     private double timestamp;
-    private Boolean isSend;
-    private Boolean isSelf;
-    private Boolean isError;
+    private Boolean isSend = false;
+    private Boolean isSelf = false;
+    private Boolean isError = false;
 
     private User user;
 

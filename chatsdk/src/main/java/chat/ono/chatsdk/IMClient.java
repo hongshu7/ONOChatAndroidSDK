@@ -4,8 +4,6 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.util.Log;
 
-import com.google.protobuf.Message;
-
 import java.util.List;
 
 import chat.ono.chatsdk.callback.ErrorInfo;
@@ -19,6 +17,7 @@ import chat.ono.chatsdk.callback.FailureCallback;
 import chat.ono.chatsdk.model.AudioMessage;
 import chat.ono.chatsdk.model.Conversation;
 import chat.ono.chatsdk.model.ImageMessage;
+import chat.ono.chatsdk.model.Message;
 import chat.ono.chatsdk.model.SmileMessage;
 import chat.ono.chatsdk.model.TextMessage;
 import chat.ono.chatsdk.model.User;
@@ -47,7 +46,7 @@ public class IMClient {
         Log.v("IMClient", "IMClient init");
         IMCore.getInstance().addPushListener("push.message", new IMCallback() {
             @Override
-            public void callback(Message message) {
+            public void callback(com.google.protobuf.Message message) {
                 receiveMessage((chat.ono.chatsdk.proto.MessageProtos.Message)message, true);
             }
         });
@@ -92,8 +91,9 @@ public class IMClient {
     }
 
     private static void receiveMessage(chat.ono.chatsdk.proto.MessageProtos.Message msg, boolean dispatch) {
-        chat.ono.chatsdk.model.Message message = createMessageFromType(msg.getType());
+        Message message = createMessageFromType(msg.getType());
 
+        User sendUser = DB.fetchUser(message.getUserId());
         message.setMessageId(msg.getMid());
         message.setTimestamp(System.currentTimeMillis());
         message.setSend(true);
@@ -102,6 +102,7 @@ public class IMClient {
         message.setTargetId(targetId);
         //message.setUser(IMCore.getInstance().getUser());
         message.setUserId(msg.getFrom());
+        message.setUser(sendUser);
         message.decode(msg.getData());
 
         //save message
@@ -109,6 +110,7 @@ public class IMClient {
 
         //update conversion
         Conversation conversation = getOrCreateConversation(targetId);
+        conversation.setUser(sendUser);
         conversation.setLastMessage(message);
         conversation.setContactTime(System.currentTimeMillis());
         conversation.setUnreadCount(conversation.getUnreadCount() + 1);
@@ -138,7 +140,7 @@ public class IMClient {
         return user;
     }
 
-    public static chat.ono.chatsdk.model.Message createMessageFromType(int type) {
+    public static Message createMessageFromType(int type) {
 
         switch (type) {
             case 1:
@@ -164,6 +166,7 @@ public class IMClient {
     private static Conversation getOrCreateConversation(String targetId, int conversationType) {
         Conversation conversation = DB.fetchConversation(targetId);
         if (conversation == null) {
+            Log.i("IM", "conversation null for targetId:" + targetId);
             conversation = new Conversation();
             conversation.setConversationType(conversationType);
             conversation.setTargetId(targetId);
@@ -175,7 +178,7 @@ public class IMClient {
     public static void connect(String token, final SuccessCallback<User> successCallback, final FailureCallback failureCallback) {
         IMCore.getInstance().login(options.host, options.port, token, new Response() {
             @Override
-            public void successResponse(Message message) {
+            public void successResponse(com.google.protobuf.Message message) {
                 MessageProtos.UserLoginResponse response = (MessageProtos.UserLoginResponse)message;
                 MessageProtos.UserData userData = response.getUser();
                 //获取自身信息
@@ -189,12 +192,31 @@ public class IMClient {
                     user.setGender(userData.getGender());
                     DB.updateUser(user);
                 }
+
                 if (successCallback != null) {
                     successCallback.onSuccess(user);
                 }
 
                 //同步联系人
-                //todo:...
+                MessageProtos.FriendOperations friendOperations = response.getFriendOperations();
+                if (friendOperations != null) {
+                    if (friendOperations.getAddsCount() > 0) {
+                        for (MessageProtos.UserData ud : friendOperations.getAddsList()) {
+                            User um = convertUserFromMessage(ud);
+                            Log.v("IM", "add user:" + um.getUserId());
+                            DB.addUser(um);
+                            DB.addFriend(um.getUserId());
+                        }
+                    }
+                    if (friendOperations.getDeletesCount() > 0) {
+                        for (String userId : friendOperations.getDeletesList()) {
+                            DB.deleteFriend(userId);
+                        }
+                    }
+                    if (friendOperations.getUpdatesCount() > 0) {
+                        //todo: update
+                    }
+                }
 
                 //收上次未读消息
                 if (response.getMessagesCount() > 0) {
@@ -213,7 +235,7 @@ public class IMClient {
         });
     }
 
-    public static void sendMessage(final chat.ono.chatsdk.model.Message message, String targetId, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
+    public static void sendMessage(final Message message, String targetId, final SuccessCallback<Message> successCallback, final FailureCallback failureCallback) {
 
         message.setMessageId(generateMessageId());
         message.setTimestamp(System.currentTimeMillis());
@@ -224,9 +246,10 @@ public class IMClient {
 
         DB.addMessage(message);
 
-        Conversation conversation = getOrCreateConversation(targetId);
+        final Conversation conversation = getOrCreateConversation(targetId);
         conversation.setUnreadCount(0);
         conversation.setContactTime(System.currentTimeMillis());
+        conversation.setUser(DB.fetchUser(targetId));
         conversation.setLastMessage(message);
 
         if (conversation.isInserted()) {
@@ -244,12 +267,15 @@ public class IMClient {
                 .build();
         IMCore.getInstance().request("im.message.send", request, new Response() {
             @Override
-            public void successResponse(Message msg) {
+            public void successResponse(com.google.protobuf.Message msg) {
+                MessageProtos.SendMessagenResponse smr = (MessageProtos.SendMessagenResponse)msg;
+                message.setMessageId(smr.getNmid());
                 message.setSend(true);
-                DB.updateMessage(message);
-
+                conversation.setLastMessageId(smr.getNmid());
+                DB.updateMessage(message, smr.getOmid());
+                DB.updateConversation(conversation);
                 if (successCallback != null) {
-                    successCallback.onSuccess(message.getMessageId());
+                    successCallback.onSuccess(message);
                 }
             }
 
@@ -264,11 +290,29 @@ public class IMClient {
     }
 
     public static List<Conversation> getConversationList() {
-        return DB.fetchConversations();
+        List<Conversation> conversations =  DB.fetchConversations();
+        for (Conversation conversation : conversations) {
+            if (conversation.getConversationType() == Conversation.ConversationType.Private) {
+                conversation.setUser(DB.fetchUser(conversation.getTargetId()));
+            } else {
+                //todo: fill group
+            }
+            conversation.setLastMessage(DB.fetchMessage(conversation.getLastMessageId()));
+        }
+        return conversations;
     }
 
     public static Conversation getConversation(String tagetId) {
-        return DB.fetchConversation(tagetId);
+        Conversation conversation = DB.fetchConversation(tagetId);
+        if (conversation != null) {
+            if (conversation.getConversationType() == Conversation.ConversationType.Private) {
+                conversation.setUser(DB.fetchUser(conversation.getTargetId()));
+            } else {
+                //todo: fill group
+            }
+            conversation.setLastMessage(DB.fetchMessage(conversation.getLastMessageId()));
+        }
+        return conversation;
     }
 
     public static List<User> getFriends() {
@@ -289,9 +333,10 @@ public class IMClient {
                 .build();
         IMCore.getInstance().request("im.user.profile", request, new Response() {
             @Override
-            public void successResponse(Message message) {
-                MessageProtos.UserData userData = (MessageProtos.UserData)message;
-                User user = convertUserFromMessage(userData);
+            public void successResponse(com.google.protobuf.Message message) {
+                MessageProtos.UserProfileResponse upr = (MessageProtos.UserProfileResponse)message;
+                User user = convertUserFromMessage(upr.getUser());
+                DB.addUser(user); //save to local
                 if (successCallback != null) {
                     successCallback.onSuccess(user);
                 }
@@ -306,4 +351,28 @@ public class IMClient {
         });
 
     }
+
+    public static Message getMessage(String messageId) {
+        Message message = DB.fetchMessage(messageId);
+        if (message != null) {
+            message.setUser(DB.fetchUser(message.getUserId()));
+        }
+        return message;
+    }
+
+    public static List<Message> getMessageList(String targetId, String offfset, int limit) {
+        List<Message> messages = DB.fetchMessages(targetId, offfset, limit);
+        User selfUser = IMCore.getInstance().getUser();
+        User targetUser = DB.fetchUser(targetId);
+        for (Message message: messages) {
+            message.setUser(message.isSelf() ? selfUser : targetUser);
+        }
+        return messages;
+    }
+
+    //friendSearchByKeyword
+
+    //friendAddWithUserId
+
+
 }
