@@ -306,4 +306,28 @@ public class IMClient {
         });
 
     }
+
+    public static void searchFriends(String keyword, final SuccessCallback<List<User>> successCallback, final FailureCallback failureCallback) {
+
+    }
+
+    public static void requestFriend(String userId, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
+
+    }
+
+    public static void agreeFriend(String userId, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
+
+    }
+
+    public static void ignoreFriend(String userId, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
+
+    }
+
+    public static void deleteFriend(String userId, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
+
+    }
+
+    public static void remarkFriend(String userId, String remark, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
+
+    }
 }
