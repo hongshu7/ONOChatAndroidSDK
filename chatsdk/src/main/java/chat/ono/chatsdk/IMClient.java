@@ -352,6 +352,7 @@ public class IMClient {
 
     }
 
+<<<<<<< HEAD
     public static Message getMessage(String messageId) {
         Message message = DB.fetchMessage(messageId);
         if (message != null) {
@@ -370,9 +371,28 @@ public class IMClient {
         return messages;
     }
 
-    //friendSearchByKeyword
+    public static void searchFriends(String keyword, final SuccessCallback<List<User>> successCallback, final FailureCallback failureCallback) {
 
-    //friendAddWithUserId
+    }
 
+    public static void requestFriend(String userId, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
+
+    }
+
+    public static void agreeFriend(String userId, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
+
+    }
+
+    public static void ignoreFriend(String userId, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
+
+    }
+
+    public static void deleteFriend(String userId, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
+
+    }
+
+    public static void remarkFriend(String userId, String remark, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
+
+    }
 
 }
