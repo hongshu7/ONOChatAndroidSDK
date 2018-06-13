@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import chat.ono.chatsdk.callback.ErrorInfo;
@@ -16,6 +17,7 @@ import chat.ono.chatsdk.callback.SuccessCallback;
 import chat.ono.chatsdk.callback.FailureCallback;
 import chat.ono.chatsdk.model.AudioMessage;
 import chat.ono.chatsdk.model.Conversation;
+import chat.ono.chatsdk.model.FriendRequest;
 import chat.ono.chatsdk.model.ImageMessage;
 import chat.ono.chatsdk.model.Message;
 import chat.ono.chatsdk.model.SmileMessage;
@@ -352,7 +354,6 @@ public class IMClient {
 
     }
 
-<<<<<<< HEAD
     public static Message getMessage(String messageId) {
         Message message = DB.fetchMessage(messageId);
         if (message != null) {
@@ -372,27 +373,153 @@ public class IMClient {
     }
 
     public static void searchFriends(String keyword, final SuccessCallback<List<User>> successCallback, final FailureCallback failureCallback) {
+        final MessageProtos.FriendSearchRequest request = MessageProtos.FriendSearchRequest.newBuilder().setKeyword(keyword).build();
+        IMCore.getInstance().request("im.friend.search", request, new Response() {
+            @Override
+            public void successResponse(com.google.protobuf.Message message) {
+                MessageProtos.FriendSearchResponse response = (MessageProtos.FriendSearchResponse)message;
+                List<User> users = new ArrayList<>();
+                for (MessageProtos.UserData ud : response.getUsersList()) {
+                    User user = convertUserFromMessage(ud);
+                    users.add(user);
+                }
+                if (successCallback != null) {
+                    successCallback.onSuccess(users);
+                }
+            }
 
+            @Override
+            public void errorResponse(MessageProtos.ErrorResponse error) {
+                if (failureCallback != null) {
+                    failureCallback.onError(ErrorInfo.fromMessage(error));
+                }
+            }
+        });
     }
 
-    public static void requestFriend(String userId, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
+    public static void requestFriend(String userId, String greeting, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
+        final MessageProtos.FriendRequestRequest request = MessageProtos.FriendRequestRequest.newBuilder().setUid(userId).setGreeting(greeting).build();
+        IMCore.getInstance().request("im.friend.request", request, new Response() {
+            @Override
+            public void successResponse(com.google.protobuf.Message message) {
+                if (successCallback != null) {
+                    successCallback.onSuccess(null);
+                }
+            }
 
+            @Override
+            public void errorResponse(MessageProtos.ErrorResponse error) {
+                if (failureCallback != null) {
+                    failureCallback.onError(ErrorInfo.fromMessage(error));
+                }
+            }
+        });
+    }
+
+    public static void getFriendRequestList(String offset, int limit, final SuccessCallback<List<FriendRequest>> successCallback, final FailureCallback failureCallback) {
+        final MessageProtos.FriendRequestListRequest request = MessageProtos.FriendRequestListRequest.newBuilder()
+                .setOffset(offset)
+                .setLimit(limit)
+                .build();
+        IMCore.getInstance().request("im.friend.requests", request, new Response() {
+            @Override
+            public void successResponse(com.google.protobuf.Message message) {
+                MessageProtos.FriendRequestListResponse response = (MessageProtos.FriendRequestListResponse)message;
+                List<FriendRequest> requests = new ArrayList<>();
+                for (MessageProtos.NewFriendRequest nfr : response.getRequestListList()) {
+                    FriendRequest fr = new FriendRequest();
+                    fr.setUser(convertUserFromMessage(nfr.getUser()));
+                    fr.setGreeting(nfr.getGreeting());
+                    requests.add(fr);
+                }
+                if (successCallback != null) {
+                    successCallback.onSuccess(requests);
+                }
+            }
+
+            @Override
+            public void errorResponse(MessageProtos.ErrorResponse error) {
+                if (failureCallback != null) {
+                    failureCallback.onError(ErrorInfo.fromMessage(error));
+                }
+            }
+        });
     }
 
     public static void agreeFriend(String userId, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
+        final MessageProtos.FriendAgreeRequest request = MessageProtos.FriendAgreeRequest.newBuilder().setUid(userId).build();
+        IMCore.getInstance().request("im.friend.agree", request, new Response() {
+            @Override
+            public void successResponse(com.google.protobuf.Message message) {
+                if (successCallback != null) {
+                    successCallback.onSuccess(null);
+                }
+            }
 
+            @Override
+            public void errorResponse(MessageProtos.ErrorResponse error) {
+                if (failureCallback != null) {
+                    failureCallback.onError(ErrorInfo.fromMessage(error));
+                }
+            }
+        });
     }
 
     public static void ignoreFriend(String userId, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
+        final MessageProtos.FriendIgnoreRequest request = MessageProtos.FriendIgnoreRequest.newBuilder().setUid(userId).build();
+        IMCore.getInstance().request("im.friend.ignore", request, new Response() {
+            @Override
+            public void successResponse(com.google.protobuf.Message message) {
+                if (successCallback != null) {
+                    successCallback.onSuccess(null);
+                }
+            }
 
+            @Override
+            public void errorResponse(MessageProtos.ErrorResponse error) {
+                if (failureCallback != null) {
+                    failureCallback.onError(ErrorInfo.fromMessage(error));
+                }
+            }
+        });
     }
 
     public static void deleteFriend(String userId, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
+        final MessageProtos.FriendDeleteRequest request = MessageProtos.FriendDeleteRequest.newBuilder().setUid(userId).build();
+        IMCore.getInstance().request("im.friend.delete", request, new Response() {
+            @Override
+            public void successResponse(com.google.protobuf.Message message) {
+                if (successCallback != null) {
+                    successCallback.onSuccess(null);
+                }
+            }
 
+            @Override
+            public void errorResponse(MessageProtos.ErrorResponse error) {
+                if (failureCallback != null) {
+                    failureCallback.onError(ErrorInfo.fromMessage(error));
+                }
+            }
+        });
     }
 
     public static void remarkFriend(String userId, String remark, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
+        final MessageProtos.FriendRemarkRequest request = MessageProtos.FriendRemarkRequest.newBuilder().setUid(userId).setRemark(remark).build();
+        IMCore.getInstance().request("im.friend.remark", request, new Response() {
+            @Override
+            public void successResponse(com.google.protobuf.Message message) {
+                if (successCallback != null) {
+                    successCallback.onSuccess(null);
+                }
+            }
 
+            @Override
+            public void errorResponse(MessageProtos.ErrorResponse error) {
+                if (failureCallback != null) {
+                    failureCallback.onError(ErrorInfo.fromMessage(error));
+                }
+            }
+        });
     }
 
 }
