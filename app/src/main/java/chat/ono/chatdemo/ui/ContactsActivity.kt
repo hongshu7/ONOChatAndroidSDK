@@ -39,15 +39,15 @@ class ContactsActivity : AppCompatActivity() {
         rv_list.layoutManager = LinearLayoutManager(this)
         rv_list.adapter = adapter
 
-        tb_tv_random.setOnClickListener {
-            var userId = "test_uid_00" + (Random().nextInt(9) + 1).toString()
-            IMClient.getRemoteUser(userId, {
-
-            }, null)
-            var intent = Intent(this@ContactsActivity, ChatActivity::class.java)
-            intent.putExtra("target_id", userId)
-            startActivity(intent)
-            finish()
+        tb_tv_search.setOnClickListener {
+//            var userId = "test_uid_00" + (Random().nextInt(9) + 1).toString()
+//            IMClient.getRemoteUser(userId, {
+//
+//            }, null)
+//            var intent = Intent(this@ContactsActivity, ChatActivity::class.java)
+//            intent.putExtra("target_id", userId)
+//            startActivity(intent)
+//            finish()
         }
 
     }
