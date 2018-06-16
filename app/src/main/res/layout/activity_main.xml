@@ -27,20 +27,35 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/toolbar"
+        android:gravity="center_horizontal"
         android:padding="10dp">
-        <EditText
-            android:id="@+id/et_token"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="ju9es1b7w6kproa32ghqvdt0xzmfycin"
-            android:hint="请输入Token" />
-        <Button
-            android:id="@+id/btn_login"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rc_avatar">
+            <ImageView
+                android:id="@+id/iv_avatar"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@mipmap/default_avatar"
+                />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_name"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="确定" />
+            android:textColor="#333"
+            android:textSize="16sp"
+            android:text="点击头像更新账号" />
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="登录" />
         <TextView
             android:id="@+id/tv_msg"
             android:layout_marginTop="30dp"

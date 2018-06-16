@@ -28,8 +28,8 @@ class ConversationActivity : AppCompatActivity() {
         }
         adapter.add(conversations)
 
-        rv_conversation.layoutManager = LinearLayoutManager(this)
-        rv_conversation.adapter = adapter
+        rv_list.layoutManager = LinearLayoutManager(this)
+        rv_list.adapter = adapter
 
         tb_tv_add.setOnClickListener {
             startActivity(Intent(this@ConversationActivity, ContactsActivity::class.java))

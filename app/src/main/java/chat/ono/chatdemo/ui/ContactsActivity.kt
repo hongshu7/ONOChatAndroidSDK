@@ -36,8 +36,8 @@ class ContactsActivity : AppCompatActivity() {
 
         adapter.add(users)
 
-        rv_contacts.layoutManager = LinearLayoutManager(this)
-        rv_contacts.adapter = adapter
+        rv_list.layoutManager = LinearLayoutManager(this)
+        rv_list.adapter = adapter
 
         tb_tv_random.setOnClickListener {
             var userId = "test_uid_00" + (Random().nextInt(9) + 1).toString()
