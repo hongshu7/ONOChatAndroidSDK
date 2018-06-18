@@ -52,7 +52,7 @@ class TokensActivity : AppCompatActivity() {
 
         rv_list.layoutManager = LinearLayoutManager(this)
         rv_list.adapter = adapter
-        rv_list.addItemDecoration(LineDecoration())
+        rv_list.addItemDecoration(LineDecoration(0, 0))
 
 
     }

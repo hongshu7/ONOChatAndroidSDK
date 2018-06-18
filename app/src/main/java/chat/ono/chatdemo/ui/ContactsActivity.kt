@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import chat.ono.chatdemo.R
 import chat.ono.chatdemo.adapter.ContactsAdapter
+import chat.ono.chatdemo.view.LineDecoration
 import chat.ono.chatsdk.IMClient
 import chat.ono.chatsdk.model.User
 import kotlinx.android.synthetic.main.activity_contacts.*
@@ -37,6 +38,7 @@ class ContactsActivity : AppCompatActivity() {
 
         rv_list.layoutManager = LinearLayoutManager(this)
         rv_list.adapter = adapter
+        rv_list.addItemDecoration(LineDecoration(0, 0))
 
         tb_tv_search.setOnClickListener {
             var intent = Intent(this@ContactsActivity, SearchContactActivity::class.java)

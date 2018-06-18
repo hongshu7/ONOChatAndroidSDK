@@ -26,16 +26,19 @@
         android:layout_below="@id/toolbar">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="60dp"
             android:orientation="horizontal"
             android:layout_below="@id/toolbar"
             android:padding="10dp">
             <EditText
+                android:id="@+id/et_keyword"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:layout_marginRight="15dp" />
+                android:layout_marginRight="15dp"
+                android:hint="你输入搜索关键字" />
             <Button
+                android:id="@+id/btn_search"
                 android:layout_width="80dp"
                 android:layout_height="40dp"
                 android:text="搜索" />

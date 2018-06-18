@@ -377,11 +377,13 @@ public class IMClient {
         IMCore.getInstance().request("im.friend.search", request, new Response() {
             @Override
             public void successResponse(com.google.protobuf.Message message) {
-                MessageProtos.FriendSearchResponse response = (MessageProtos.FriendSearchResponse)message;
                 List<User> users = new ArrayList<>();
-                for (MessageProtos.UserData ud : response.getUsersList()) {
-                    User user = convertUserFromMessage(ud);
-                    users.add(user);
+                if (message != null) {
+                    MessageProtos.FriendSearchResponse response = (MessageProtos.FriendSearchResponse) message;
+                    for (MessageProtos.UserData ud : response.getUsersList()) {
+                        User user = convertUserFromMessage(ud);
+                        users.add(user);
+                    }
                 }
                 if (successCallback != null) {
                     successCallback.onSuccess(users);

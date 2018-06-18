@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         btn_login.setOnClickListener {
             if (loginToken.isEmpty()) {
-                Toast.makeText(this@MainActivity, "", Toast.LENGTH_SHORT)
+                Toast.makeText(this@MainActivity, "请选择登录账号", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             connectToChat(loginToken)

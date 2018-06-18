@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import chat.ono.chatdemo.R
 import chat.ono.chatdemo.adapter.ConversationAdapter
+import chat.ono.chatdemo.view.LineDecoration
 import chat.ono.chatsdk.IMClient
 import chat.ono.chatsdk.model.Conversation
 import kotlinx.android.synthetic.main.activity_conversation.*
@@ -30,6 +31,7 @@ class ConversationActivity : AppCompatActivity() {
 
         rv_list.layoutManager = LinearLayoutManager(this)
         rv_list.adapter = adapter
+        rv_list.addItemDecoration(LineDecoration(0, 0))
 
         tb_tv_add.setOnClickListener {
             startActivity(Intent(this@ConversationActivity, ContactsActivity::class.java))

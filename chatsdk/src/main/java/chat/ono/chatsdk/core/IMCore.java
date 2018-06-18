@@ -114,7 +114,6 @@ public class IMCore implements SocketCallback {
                             ri.getResponse().successResponse(packet.getMessage().getMessage());
                         }
                     }
-
                 }
             } else {
                 //push

@@ -23,7 +23,7 @@
     </android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_message"
+        android:id="@+id/rv_list"
         android:layout_below="@id/toolbar"
         android:layout_above="@id/inputbar"
         android:layout_width="match_parent"

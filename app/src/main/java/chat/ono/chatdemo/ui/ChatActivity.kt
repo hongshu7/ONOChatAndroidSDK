@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import chat.ono.chatdemo.R
 import chat.ono.chatdemo.adapter.MessageAdapter
+import chat.ono.chatdemo.view.LineDecoration
 import chat.ono.chatsdk.IMClient
 import chat.ono.chatsdk.model.Message
 import chat.ono.chatsdk.model.TextMessage
@@ -32,8 +33,9 @@ class ChatActivity : AppCompatActivity() {
         var adapter = MessageAdapter(this)
         adapter.add(messages)
 
-        rv_message.layoutManager = LinearLayoutManager(this)
-        rv_message.adapter = adapter
+        rv_list.layoutManager = LinearLayoutManager(this)
+        rv_list.adapter = adapter
+        rv_list.addItemDecoration(LineDecoration(0, 0))
 
         btn_send.setOnClickListener {
             var text = et_text.text.toString()
