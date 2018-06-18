@@ -14,21 +14,23 @@ import kotlin.properties.Delegates
 
 class ContactsActivity : AppCompatActivity() {
 
-    var users by Delegates.notNull<List<User>>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contacts)
-        toolbar.setNavigationIcon(R.drawable.common_btn_back)
+
+        setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         toolbar.setNavigationOnClickListener{
             finish()
         }
 
-        users = IMClient.getFriends()
+        var users = IMClient.getFriends()
         var adapter = ContactsAdapter(this)
         adapter.setOnItemClickListener {
             view, position ->
-            var user = users[position]
+            var user = adapter.get(position)
             var intent = Intent(this@ContactsActivity, ChatActivity::class.java)
             intent.putExtra("target_id", user.userId)
             startActivity(intent)

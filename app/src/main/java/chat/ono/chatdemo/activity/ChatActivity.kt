@@ -22,6 +22,7 @@ class ChatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
         setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
 
         toolbar.setNavigationIcon(R.drawable.common_btn_back)
         toolbar.setNavigationOnClickListener{

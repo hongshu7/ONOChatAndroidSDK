@@ -13,11 +13,10 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
         <TextView
-            android:id="@+id/tb_tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:text="选择账号"
+            android:text="请求列表"
             android:textColor="#fff"
             android:textSize="20sp"/>
     </android.support.v7.widget.Toolbar>
@@ -26,7 +25,8 @@
         android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_conversation">
+        tools:listitem="@layout/item_contact">
+
     </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

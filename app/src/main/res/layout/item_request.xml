@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:padding="10dp">
+    <ImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true" />
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/iv_avatar"
+        android:textSize="22dp"
+        android:text="王尼玛"
+        android:textColor="#000" />
+    <TextView
+        android:id="@+id/tv_greeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/tv_name"
+        android:layout_below="@id/tv_name"
+        android:layout_marginTop="5dp"
+        android:textSize="16dp"
+        android:text="你好，我想认识你"
+        android:textColor="#999" />
+    <Button
+        android:id="@+id/btn_agree"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_toLeftOf="@id/btn_ignore"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:textSize="14dp"
+        android:text="同意"
+        android:textColor="#fff"
+        android:background="#0066cc"/>
+
+    <Button
+        android:id="@+id/btn_ignore"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:textSize="14dp"
+        android:text="忽略"
+        android:textColor="#333"
+        android:background="#cccccc"/>
+</RelativeLayout>

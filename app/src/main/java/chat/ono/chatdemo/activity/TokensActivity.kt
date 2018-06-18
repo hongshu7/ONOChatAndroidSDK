@@ -16,12 +16,14 @@ import kotlin.properties.Delegates
 
 class TokensActivity : AppCompatActivity() {
 
-    var users by Delegates.notNull<List<User>>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tokens)
-        toolbar.setNavigationIcon(R.drawable.common_btn_back)
+
+        setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         toolbar.setNavigationOnClickListener{
             finish()
         }

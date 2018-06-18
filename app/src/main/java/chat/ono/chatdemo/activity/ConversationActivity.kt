@@ -4,6 +4,8 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.view.Menu
+import android.view.MenuItem
 import chat.ono.chatdemo.R
 import chat.ono.chatdemo.adapter.ConversationAdapter
 import chat.ono.chatdemo.view.LineDecoration
@@ -13,16 +15,18 @@ import kotlinx.android.synthetic.main.activity_conversation.*
 import kotlin.properties.Delegates
 
 class ConversationActivity : AppCompatActivity() {
-    var conversations by Delegates.notNull<List<Conversation>>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conversation)
 
-        conversations = IMClient.getConversationList()
+        setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
+
+        var conversations = IMClient.getConversationList()
         var adapter = ConversationAdapter(this)
         adapter.setOnItemClickListener {
             view, position ->
-            var conversation = conversations[position]
+            var conversation = adapter.get(position)
             var intent = Intent(this@ConversationActivity, ChatActivity::class.java)
             intent.putExtra("target_id", conversation.targetId)
             startActivity(intent)
@@ -33,9 +37,21 @@ class ConversationActivity : AppCompatActivity() {
         rv_list.adapter = adapter
         rv_list.addItemDecoration(LineDecoration(0, 0))
 
-        tb_tv_add.setOnClickListener {
-            startActivity(Intent(this@ConversationActivity, ContactsActivity::class.java))
-        }
 
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.conversation_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.action_add) {
+            startActivity(Intent(this@ConversationActivity, ContactsActivity::class.java))
+        } else if (item.itemId == R.id.action_requests) {
+            startActivity(Intent(this@ConversationActivity, RequestsActivity::class.java))
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

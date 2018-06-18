@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_add"
+        android:icon="@drawable/icon_plus"
+        android:title="发起会话"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_requests"
+        android:title="请求列表"
+        app:showAsAction="never" />
+</menu>
