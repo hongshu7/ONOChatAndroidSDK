@@ -1,4 +1,4 @@
-package chat.ono.chatdemo.ui
+package chat.ono.chatdemo.activity
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -12,7 +12,6 @@ import chat.ono.chatsdk.IMClient
 import chat.ono.chatsdk.model.User
 import chat.ono.chatsdk.utils.FileHelper
 import kotlinx.android.synthetic.main.activity_tokens.*
-import java.util.*
 import kotlin.properties.Delegates
 
 class TokensActivity : AppCompatActivity() {

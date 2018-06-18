@@ -16,17 +16,17 @@
         android:supportsRtl="true"
         android:name=".ChatApp"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity" android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".activity.MainActivity" android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.TokensActivity" android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.ConversationActivity" android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.ContactsActivity" android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.SearchContactActivity" android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.ChatActivity" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".activity.TokensActivity" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.ConversationActivity" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.ContactsActivity" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.SearchContactActivity" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.ChatActivity" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

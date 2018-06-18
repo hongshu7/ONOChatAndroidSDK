@@ -1,4 +1,4 @@
-package chat.ono.chatdemo.ui
+package chat.ono.chatdemo.activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

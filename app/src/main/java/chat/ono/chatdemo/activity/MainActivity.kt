@@ -1,4 +1,4 @@
-package chat.ono.chatdemo.ui
+package chat.ono.chatdemo.activity
 
 import android.app.Activity
 import android.content.Intent
