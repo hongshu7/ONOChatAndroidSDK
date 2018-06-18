@@ -25,6 +25,7 @@
         <activity android:name=".ui.TokensActivity" android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.ConversationActivity" android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.ContactsActivity" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.SearchContactActivity" android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.ChatActivity" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustResize" />
     </application>
 
