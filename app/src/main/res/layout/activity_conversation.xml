@@ -20,15 +20,30 @@
             android:textColor="#fff"
             android:textSize="20sp"/>
         <TextView
+            android:id="@+id/tb_tv_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:layout_marginRight="10dp"
+            android:text="5"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:background="@drawable/rc_tip" />
+        <TextView
             android:id="@+id/tb_tv_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginRight="10dp"
             android:text="+"
             android:textColor="#fff"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
+
     </android.support.v7.widget.Toolbar>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_list"
