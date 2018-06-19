@@ -344,8 +344,8 @@ public class DB {
     public static void addFriend(String userId) {
         SQLiteDatabase db =  getDB();
         ContentValues values = new ContentValues();
-        values.put("belong_id", IMCore.getInstance().getUserId());
-        values.put("user_id", userId);
+        values.put("user_id", IMCore.getInstance().getUserId());
+        values.put("friend_id", userId);
         db.replace("friend", null, values);
 
         closeDB();

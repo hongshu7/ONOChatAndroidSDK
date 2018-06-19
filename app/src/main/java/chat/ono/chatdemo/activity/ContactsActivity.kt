@@ -15,6 +15,7 @@ import kotlin.properties.Delegates
 
 class ContactsActivity : AppCompatActivity() {
 
+    var adapter by Delegates.notNull<ContactsAdapter>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contacts)
@@ -27,9 +28,7 @@ class ContactsActivity : AppCompatActivity() {
         }
 
 
-
-        var users = IMClient.getFriends()
-        var adapter = ContactsAdapter(this)
+        adapter = ContactsAdapter(this)
         adapter.setOnItemClickListener {
             view, position ->
             var user = adapter.get(position)
@@ -37,8 +36,6 @@ class ContactsActivity : AppCompatActivity() {
             intent.putExtra("target_id", user.userId)
             startActivity(intent)
         }
-
-        adapter.add(users)
 
         rv_list.layoutManager = LinearLayoutManager(this)
         rv_list.adapter = adapter
@@ -54,5 +51,13 @@ class ContactsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        adapter.clear()
+        var users = IMClient.getFriends()
+        adapter.add(users)
+        adapter.notifyDataSetChanged()
     }
 }

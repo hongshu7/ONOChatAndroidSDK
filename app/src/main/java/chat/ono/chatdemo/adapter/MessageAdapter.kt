@@ -6,6 +6,7 @@ import android.view.View
 import chat.ono.chatdemo.R
 import chat.ono.chatsdk.model.Message
 import chat.ono.chatsdk.model.TextMessage
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_message.view.*
 
 class MessageAdapter(context: Context, data:ArrayList<Message>? = null) : BaseAdapter<MessageAdapter.ItemViewHolder, Message>(context, data) {
@@ -22,6 +23,7 @@ class MessageAdapter(context: Context, data:ArrayList<Message>? = null) : BaseAd
 
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(message: Message) {
+            Glide.with(itemView).load(message.user.avatar).into(itemView.iv_avatar)
             itemView.tv_name.text = message.user.nickname
             if (message is TextMessage) {
                 itemView.tv_msg.text = message.text

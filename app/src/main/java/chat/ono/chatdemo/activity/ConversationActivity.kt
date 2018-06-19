@@ -16,6 +16,8 @@ import kotlin.properties.Delegates
 
 class ConversationActivity : AppCompatActivity() {
 
+    var adapter by Delegates.notNull<ConversationAdapter>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conversation)
@@ -24,8 +26,8 @@ class ConversationActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayShowTitleEnabled(false)
 
 
-        var conversations = IMClient.getConversationList()
-        var adapter = ConversationAdapter(this)
+
+        adapter = ConversationAdapter(this)
         adapter.setOnItemClickListener {
             view, position ->
             var conversation = adapter.get(position)
@@ -33,14 +35,20 @@ class ConversationActivity : AppCompatActivity() {
             intent.putExtra("target_id", conversation.targetId)
             startActivity(intent)
         }
-        adapter.add(conversations)
+
 
         rv_list.layoutManager = LinearLayoutManager(this)
         rv_list.adapter = adapter
         rv_list.addItemDecoration(LineDecoration(0, 0))
 
+    }
 
-
+    override fun onResume() {
+        super.onResume()
+        var conversations = IMClient.getConversationList()
+        adapter.clear()
+        adapter.add(conversations)
+        adapter.notifyDataSetChanged()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -65,9 +73,9 @@ class ConversationActivity : AppCompatActivity() {
                 finish()
             }
             IMClient.logout({
-                logout()
+
             }, {
-                logout()
+
             })
         }
         return super.onOptionsItemSelected(item)

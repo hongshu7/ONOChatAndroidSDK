@@ -12,7 +12,7 @@ import chat.ono.chatsdk.callback.SuccessEmptyCallback;
 import chat.ono.chatsdk.core.DB;
 import chat.ono.chatsdk.core.IMCallback;
 import chat.ono.chatsdk.core.IMCore;
-import chat.ono.chatsdk.core.MessageCallback;
+import chat.ono.chatsdk.callback.MessageCallback;
 import chat.ono.chatsdk.core.Response;
 import chat.ono.chatsdk.callback.SuccessCallback;
 import chat.ono.chatsdk.callback.FailureCallback;
@@ -51,7 +51,13 @@ public class IMClient {
         IMCore.getInstance().addPushListener("push.message", new IMCallback() {
             @Override
             public void callback(com.google.protobuf.Message message) {
-                receiveMessage((chat.ono.chatsdk.proto.MessageProtos.Message)message, true);
+                receiveMessage((MessageProtos.Message)message, true);
+            }
+        });
+        IMCore.getInstance().addPushListener("push.newFriend", new IMCallback() {
+            @Override
+            public void callback(com.google.protobuf.Message message) {
+                receiveNewFriend((MessageProtos.NewFriend)message);
             }
         });
     }
@@ -94,7 +100,7 @@ public class IMClient {
         messageCallback = mc;
     }
 
-    private static void receiveMessage(chat.ono.chatsdk.proto.MessageProtos.Message msg, boolean dispatch) {
+    private static void receiveMessage(MessageProtos.Message msg, boolean dispatch) {
         Message message = createMessageFromType(msg.getType());
 
         User sendUser = DB.fetchUser(message.getUserId());
@@ -126,9 +132,20 @@ public class IMClient {
 
         //callback
         if (dispatch && messageCallback != null) {
-            messageCallback.onReceived(message);
+            messageCallback.onMessageReceived(message);
         }
 
+    }
+
+    private static void receiveNewFriend(MessageProtos.NewFriend nf) {
+        User friend = convertUserFromMessage(nf.getUser());
+        DB.addUser(friend);
+        DB.addFriend(friend.getUserId());
+        Log.v("IM", "push & add friend user:" + friend.getUserId());
+        //todo: update friendsUpdateTime
+        if (messageCallback != null) {
+            messageCallback.onNewFriend(friend);
+        }
     }
 
     public static String generateMessageId() {
@@ -207,7 +224,7 @@ public class IMClient {
                     if (friendOperations.getAddsCount() > 0) {
                         for (MessageProtos.UserData ud : friendOperations.getAddsList()) {
                             User um = convertUserFromMessage(ud);
-                            Log.v("IM", "add user:" + um.getUserId());
+                            Log.v("IM", "add friend user:" + um.getUserId());
                             DB.addUser(um);
                             DB.addFriend(um.getUserId());
                         }
@@ -220,11 +237,12 @@ public class IMClient {
                     if (friendOperations.getUpdatesCount() > 0) {
                         //todo: update
                     }
+                    //todo: update friendsUpdateTime
                 }
 
                 //收上次未读消息
                 if (response.getMessagesCount() > 0) {
-                    for (chat.ono.chatsdk.proto.MessageProtos.Message msg : response.getMessagesList()) {
+                    for (MessageProtos.Message msg : response.getMessagesList()) {
                         receiveMessage(msg, false);
                     }
                 }
@@ -442,6 +460,9 @@ public class IMClient {
     }
 
     public static void getFriendRequestList(String offset, int limit, final SuccessCallback<List<FriendRequest>> successCallback, final FailureCallback failureCallback) {
+        if (offset == null || offset.equals("")) {
+            offset = System.currentTimeMillis() + "";
+        }
         final MessageProtos.FriendRequestListRequest request = MessageProtos.FriendRequestListRequest.newBuilder()
                 .setOffset(offset)
                 .setLimit(limit)

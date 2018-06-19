@@ -25,6 +25,11 @@ class ConversationAdapter(context: Context, data:ArrayList<Conversation>? = null
         fun bind(conversation: Conversation) {
             Glide.with(itemView).load(conversation.user.avatar).into(itemView.iv_avatar)
             itemView.tv_name.text = conversation.user.nickname
+            var content = ""
+            if (conversation.lastMessage != null) {
+                content = conversation.lastMessage.encode()
+            }
+            itemView.tv_msg.text = content
         }
     }
 }
