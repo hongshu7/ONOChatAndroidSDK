@@ -9,7 +9,17 @@
         app:showAsAction="always" />
 
     <item
+        android:id="@+id/action_contacts"
+        android:title="联系人"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/action_requests"
         android:title="请求列表"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_logout"
+        android:title="退出登录"
         app:showAsAction="never" />
 </menu>

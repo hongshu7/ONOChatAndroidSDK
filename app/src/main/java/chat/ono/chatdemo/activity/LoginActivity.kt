@@ -10,23 +10,23 @@ import chat.ono.chatdemo.R
 
 import chat.ono.chatsdk.IMClient
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_login.*
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     protected var loginToken = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login)
 
         iv_avatar.setOnClickListener {
-            var intent = Intent(this@MainActivity, TokensActivity::class.java)
+            var intent = Intent(this@LoginActivity, TokensActivity::class.java)
             startActivityForResult(intent, 100)
         }
 
         btn_login.setOnClickListener {
             if (loginToken.isEmpty()) {
-                Toast.makeText(this@MainActivity, "请选择登录账号", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@LoginActivity, "请选择登录账号", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             connectToChat(loginToken)
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         IMClient.connect(token, {
             tv_msg.text =  "login success with user:${it.nickname}"
             Handler().postDelayed({
-                startActivity(Intent(this@MainActivity, ConversationActivity::class.java))
+                startActivity(Intent(this@LoginActivity, ConversationActivity::class.java))
                 finish()
             }, 1000)
         },  {

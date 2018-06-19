@@ -15,12 +15,14 @@ import kotlinx.android.synthetic.main.activity_conversation.*
 import kotlin.properties.Delegates
 
 class ConversationActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conversation)
 
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayShowTitleEnabled(false)
+
 
         var conversations = IMClient.getConversationList()
         var adapter = ConversationAdapter(this)
@@ -48,9 +50,25 @@ class ConversationActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.action_add) {
-            startActivity(Intent(this@ConversationActivity, ContactsActivity::class.java))
+            var intent = Intent(this@ConversationActivity, ContactsActivity::class.java)
+            intent.putExtra("showSearch", false)
+            startActivity(intent)
+        } else if (item.itemId == R.id.action_contacts) {
+            var intent = Intent(this@ConversationActivity, ContactsActivity::class.java)
+            intent.putExtra("showSearch", true)
+            startActivity(intent)
         } else if (item.itemId == R.id.action_requests) {
             startActivity(Intent(this@ConversationActivity, RequestsActivity::class.java))
+        } else if (item.itemId == R.id.action_logout) {
+            var logout =  {
+                startActivity(Intent(this@ConversationActivity, LoginActivity::class.java))
+                finish()
+            }
+            IMClient.logout({
+                logout()
+            }, {
+                logout()
+            })
         }
         return super.onOptionsItemSelected(item)
     }

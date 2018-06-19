@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import chat.ono.chatsdk.callback.ErrorInfo;
+import chat.ono.chatsdk.callback.SuccessEmptyCallback;
 import chat.ono.chatsdk.core.DB;
 import chat.ono.chatsdk.core.IMCallback;
 import chat.ono.chatsdk.core.IMCore;
@@ -23,6 +24,7 @@ import chat.ono.chatsdk.model.Message;
 import chat.ono.chatsdk.model.SmileMessage;
 import chat.ono.chatsdk.model.TextMessage;
 import chat.ono.chatsdk.model.User;
+import chat.ono.chatsdk.net.SocketManger;
 import chat.ono.chatsdk.proto.MessageProtos;
 import chat.ono.chatsdk.utils.ObjectId;
 
@@ -237,6 +239,27 @@ public class IMClient {
         });
     }
 
+    public static void logout(final SuccessEmptyCallback successCallback, final FailureCallback failureCallback) {
+
+        IMCore.getInstance().request("im.user.logout", null, new Response() {
+            @Override
+            public void successResponse(com.google.protobuf.Message message) {
+                SocketManger.getInstance().disconnect();
+                if (successCallback != null) {
+                    successCallback.onSuccess();
+                }
+            }
+
+            @Override
+            public void errorResponse(MessageProtos.ErrorResponse error) {
+                SocketManger.getInstance().disconnect();
+                if (failureCallback != null) {
+                    failureCallback.onError(ErrorInfo.fromMessage(error));
+                }
+            }
+        });
+    }
+
     public static void sendMessage(final Message message, String targetId, final SuccessCallback<Message> successCallback, final FailureCallback failureCallback) {
 
         message.setMessageId(generateMessageId());
@@ -399,13 +422,13 @@ public class IMClient {
         });
     }
 
-    public static void requestFriend(String userId, String greeting, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
+    public static void requestFriend(String userId, String greeting, final SuccessEmptyCallback successCallback, final FailureCallback failureCallback) {
         final MessageProtos.FriendRequestRequest request = MessageProtos.FriendRequestRequest.newBuilder().setUid(userId).setGreeting(greeting).build();
         IMCore.getInstance().request("im.friend.request", request, new Response() {
             @Override
             public void successResponse(com.google.protobuf.Message message) {
                 if (successCallback != null) {
-                    successCallback.onSuccess(null);
+                    successCallback.onSuccess();
                 }
             }
 
@@ -426,13 +449,15 @@ public class IMClient {
         IMCore.getInstance().request("im.friend.requests", request, new Response() {
             @Override
             public void successResponse(com.google.protobuf.Message message) {
-                MessageProtos.FriendRequestListResponse response = (MessageProtos.FriendRequestListResponse)message;
                 List<FriendRequest> requests = new ArrayList<>();
-                for (MessageProtos.NewFriendRequest nfr : response.getRequestListList()) {
-                    FriendRequest fr = new FriendRequest();
-                    fr.setUser(convertUserFromMessage(nfr.getUser()));
-                    fr.setGreeting(nfr.getGreeting());
-                    requests.add(fr);
+                if (message != null) {
+                    MessageProtos.FriendRequestListResponse response = (MessageProtos.FriendRequestListResponse) message;
+                    for (MessageProtos.NewFriendRequest nfr : response.getRequestListList()) {
+                        FriendRequest fr = new FriendRequest();
+                        fr.setUser(convertUserFromMessage(nfr.getUser()));
+                        fr.setGreeting(nfr.getGreeting());
+                        requests.add(fr);
+                    }
                 }
                 if (successCallback != null) {
                     successCallback.onSuccess(requests);
@@ -448,13 +473,13 @@ public class IMClient {
         });
     }
 
-    public static void agreeFriend(String userId, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
+    public static void agreeFriend(String userId, final SuccessEmptyCallback successCallback, final FailureCallback failureCallback) {
         final MessageProtos.FriendAgreeRequest request = MessageProtos.FriendAgreeRequest.newBuilder().setUid(userId).build();
         IMCore.getInstance().request("im.friend.agree", request, new Response() {
             @Override
             public void successResponse(com.google.protobuf.Message message) {
                 if (successCallback != null) {
-                    successCallback.onSuccess(null);
+                    successCallback.onSuccess();
                 }
             }
 
@@ -467,13 +492,13 @@ public class IMClient {
         });
     }
 
-    public static void ignoreFriend(String userId, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
+    public static void ignoreFriend(String userId, final SuccessEmptyCallback successCallback, final FailureCallback failureCallback) {
         final MessageProtos.FriendIgnoreRequest request = MessageProtos.FriendIgnoreRequest.newBuilder().setUid(userId).build();
         IMCore.getInstance().request("im.friend.ignore", request, new Response() {
             @Override
             public void successResponse(com.google.protobuf.Message message) {
                 if (successCallback != null) {
-                    successCallback.onSuccess(null);
+                    successCallback.onSuccess();
                 }
             }
 
@@ -486,13 +511,13 @@ public class IMClient {
         });
     }
 
-    public static void deleteFriend(String userId, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
+    public static void deleteFriend(String userId, final SuccessEmptyCallback successCallback, final FailureCallback failureCallback) {
         final MessageProtos.FriendDeleteRequest request = MessageProtos.FriendDeleteRequest.newBuilder().setUid(userId).build();
         IMCore.getInstance().request("im.friend.delete", request, new Response() {
             @Override
             public void successResponse(com.google.protobuf.Message message) {
                 if (successCallback != null) {
-                    successCallback.onSuccess(null);
+                    successCallback.onSuccess();
                 }
             }
 
@@ -505,13 +530,13 @@ public class IMClient {
         });
     }
 
-    public static void remarkFriend(String userId, String remark, final SuccessCallback<String> successCallback, final FailureCallback failureCallback) {
+    public static void remarkFriend(String userId, String remark, final SuccessEmptyCallback successCallback, final FailureCallback failureCallback) {
         final MessageProtos.FriendRemarkRequest request = MessageProtos.FriendRemarkRequest.newBuilder().setUid(userId).setRemark(remark).build();
         IMCore.getInstance().request("im.friend.remark", request, new Response() {
             @Override
             public void successResponse(com.google.protobuf.Message message) {
                 if (successCallback != null) {
-                    successCallback.onSuccess(null);
+                    successCallback.onSuccess();
                 }
             }
 
